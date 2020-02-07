@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 
-import Signature from 'components/Signature'
+import Signature from './components/Signature'
 
 ReactDOM.render(
-  <Signature />,
+  <Signature name="Tatsiana Krautsova"/>,
   document.getElementById('root') // eslint-disable-line no-undef
 )
 

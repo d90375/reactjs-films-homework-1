@@ -1,8 +1,9 @@
 import React from 'react';
 
-const Signature = () => {
-  return (<h1>Tanya</h1>);
-};
+import styles from './signature.scss';
 
+const Signature = (props) => {
+  return (<h1 className={styles.nnnn}>{ props.name }</h1>);
+};
 
 export default Signature;

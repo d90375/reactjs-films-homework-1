@@ -9,7 +9,7 @@ module.exports = {
     main: './src/index.js'
   },
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, '../../dist'),
     publicPath: '/',
     filename: '[name].js'
   },
@@ -28,7 +28,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.js$|jsx$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader'
@@ -48,14 +48,26 @@ module.exports = {
         use: [{loader: 'url-loader'}]
       },
       {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader']
+        test: /\.s[ac]ss$/i,
+        use: [
+          MiniCssExtractPlugin.loader, 
+          {
+            loader: 'css-loader',
+            options: { 
+            modules: true
+            },
+          },
+          'sass-loader'
+        ]
       },
     ]
   },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   plugins: [
     new HtmlWebPackPlugin({
-      template: './src/html/index.html',
+      template: './src/index.html',
       filename: './index.html'
     }),
     new MiniCssExtractPlugin({

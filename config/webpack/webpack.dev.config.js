@@ -7,7 +7,7 @@ module.exports = {
     main: ['webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000', './src/index.js']
   },
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, '../../dist'),
     publicPath: '/',
     filename: '[name].js'
   },
@@ -28,7 +28,7 @@ module.exports = {
         }
       },
       {
-        test: /\.js$/,
+        test: /\.js$|jsx$/,
         exclude: /node_modules/,
         loader: "babel-loader",
       },
@@ -41,8 +41,17 @@ module.exports = {
         ]
       },
       { 
-        test: /\.css$/,
-        use: [ 'style-loader', 'css-loader' ]
+        test: /\.s[ac]ss$/i,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: { 
+            modules: true
+            },
+          },
+          'sass-loader'
+        ]
       },
       {
        test: /\.(png|svg|jpg|gif)$/,
@@ -50,9 +59,12 @@ module.exports = {
       }
     ]
   },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   plugins: [
     new HtmlWebPackPlugin({
-      template: "./src/html/index.html",
+      template: "./src/index.html",
       filename: "./index.html",
       excludeChunks: [ 'server' ]
     }),
