@@ -1,4 +1,9 @@
 module.exports = {
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+},
   "plugins": [ "react" ],
   "extends": [
     "eslint:recommended",
@@ -6,4 +11,3 @@ module.exports = {
   ],
   "parser": "babel-eslint"
 };
-
