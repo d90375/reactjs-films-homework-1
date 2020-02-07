@@ -2,12 +2,19 @@ module.exports = {
   "env": {
     "browser": true,
     "node": true,
-    "es6": true
-},
+    "es6": true,
+    
+  },
   "plugins": [ "react" ],
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended"
-  ],
-  "parser": "babel-eslint"
+  "extends": "airbnb/hooks",
+  "parser": "babel-eslint",
+  "globals": {
+    "jest": "readonly",
+  },
+  "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module"
+  },
+  "rules": {
+  }
 };
