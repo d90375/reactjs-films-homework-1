@@ -1,6 +1,9 @@
 module.exports = {
+    rootDir: "../../src",
     clearMocks: true,
     collectCoverage: true,
+    collectCoverageFrom: ["**/*.{js,jsx}"],
+    coveragePathIgnorePatterns: ["index.js"],
     coverageDirectory: "../../coverage",
     coverageThreshold: {
         "./src/": {
@@ -10,9 +13,7 @@ module.exports = {
             statements: -10
         }
     },
-    rootDir: "../../src",
     moduleNameMapper: {
-        ".+\\.(css|scss)$": "identity-obj-proxy",
-        "\\.(gif|ttf|eot|svg)$": "./__mocks__/fileMock.js"
+        "\\.(css|scss)$": "identity-obj-proxy"
     }
 };

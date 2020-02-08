@@ -1,8 +1,10 @@
 import React from "react";
+import ShallowRenderer from "react-test-renderer/shallow";
 import Signature from "../../Signature";
-import renderer from "react-test-renderer";
 
-it("renders correctly", () => {
-  const tree = renderer.create(<Signature />).toJSON();
-  expect(tree).toMatchSnapshot();
+test("Signature renders correctly", () => {
+  const renderer = new ShallowRenderer();
+  renderer.render(<Signature />);
+  const result = renderer.getRenderOutput();
+  expect(result).toMatchSnapshot();
 });

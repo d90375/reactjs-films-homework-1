@@ -5,8 +5,8 @@ const nodeExternals = require("webpack-node-externals");
 module.exports = (env, argv) => {
     const SERVER_PATH =
         argv.mode === "production"
-            ? "./src/server/server-prod.js"
-            : "./src/server/server-dev.js";
+            ? "./server/server-prod.js"
+            : "./server/server-dev.js";
 
     return {
         entry: {
@@ -15,7 +15,7 @@ module.exports = (env, argv) => {
         output: {
             path: path.join(__dirname, "../../build"),
             publicPath: "/",
-            filename: "js/[name].[hash].js"
+            filename: "[name].js"
         },
         mode: argv.mode,
         target: "node",
