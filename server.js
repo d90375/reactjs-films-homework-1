@@ -15,24 +15,8 @@ if (process.env.NODE_ENV === 'development ') {
   );
 
   app.use(webpackHotMiddleware(compiler));
-
-  /* app.get('*', (req, res, next) => {
-        compiler.outputFileSystem.readFile(HTML_FILE, (err, result) => {
-          if (err) {
-            return next(err);
-          }
-          res.set('content-type', 'text/html');
-          res.send(result);
-          res.end();
-          return true;
-        });
-      }); */
 } else {
   app.use(express.static('build'));
-
-  /* app.get('*', (req, res) => {
-    res.sendFile(HTML_FILE);
-    }); */
 }
 
 const PORT = process.env.PORT || 3000;
