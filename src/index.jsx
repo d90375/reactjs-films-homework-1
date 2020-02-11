@@ -6,7 +6,7 @@ import './main.scss';
 import App from './components/App';
 
 ReactDOM.render(
-  <App name="Tatsiana Krautsova" />,
+  <App />,
   document.getElementById('root'),
 );
 
