@@ -1,10 +1,11 @@
 const path = require('path');
-const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const merge = require('webpack-merge');
+const common = require('./webpack.common.config.js');
 
-module.exports = {
+module.exports = merge(common, {
   entry: {
     main: './src/index.jsx',
   },
@@ -13,8 +14,6 @@ module.exports = {
     publicPath: '/',
     filename: 'js/[name].[hash].js',
   },
-  target: 'web',
-  devtool: '#source-map',
   optimization: {
     minimizer: [
       new UglifyJsPlugin({
@@ -27,13 +26,6 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: /\.js$|jsx$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        },
-      },
       {
         test: /\.html$/,
         use: [
@@ -80,17 +72,10 @@ module.exports = {
       },
     ],
   },
-  resolve: {
-    extensions: ['.js', '.jsx'],
-  },
   plugins: [
-    new HtmlWebPackPlugin({
-      template: './src/index.html',
-      filename: './index.html',
-    }),
     new MiniCssExtractPlugin({
       filename: './css/[name].[hash].css',
       chunkFilename: '[id].css',
     }),
   ],
-};
+});

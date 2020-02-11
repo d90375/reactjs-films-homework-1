@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 
 import './main.scss';
 
-import Signature from './components/Signature';
+import App from './components/App';
 
 ReactDOM.render(
-  <Signature name="Tatsiana Krautsova" />,
+  <App name="Tatsiana Krautsova" />,
   document.getElementById('root'),
 );
 
