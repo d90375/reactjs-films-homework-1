@@ -1,8 +1,8 @@
-import React from "react";
-import ShallowRenderer from "react-test-renderer/shallow";
-import Signature from "../../Signature";
+import React from 'react';
+import ShallowRenderer from 'react-test-renderer/shallow';
+import Signature from '..';
 
-test("Signature renders correctly", () => {
+test('Signature renders correctly', () => {
   const renderer = new ShallowRenderer();
   renderer.render(<Signature />);
   const result = renderer.getRenderOutput();
