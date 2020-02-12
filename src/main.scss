@@ -6,6 +6,12 @@
   }
 }
 
-@include font-face("Helvetica Neue", "HelveticaNeue", "normal");
-@include font-face("Helvetica Neue", "HelveticaNeue-Light", "lighter");
-@include font-face("Helvetica Neue", "HelveticaNeue-Bold", "bold");
+@include font-face("Helvetica Neue", "HelveticaNeue", normal);
+@include font-face("Helvetica Neue", "HelveticaNeue-Light", lighter);
+@include font-face("Helvetica Neue", "HelveticaNeue-Bold", bold);
+
+.app {
+    width: 100vw;
+    max-width: 2400px;
+    background-color: rgb(32, 32, 32);
+}

@@ -1,9 +1,13 @@
 import React from 'react';
-import Signature from './components/Signature';
+import Header from './components/Header';
+import MovieDetailsPage from './components/MovieDetailsPage';
+
+import styles from './main.scss';
 
 const App = () => (
-  <div>
-    <Signature name="Tatsiana Krautsova" />
+  <div className={styles.app}>
+    <Header />
+    <MovieDetailsPage />
   </div>
 );
 
