@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development node server.js",
-    "build": "npm run build:clear && webpack --mode production --config config/webpack/webpack.prod.config.js",
+    "build": "npm run build:clear && webpack --mode production",
     "build:clear": "rm -rf build",
-    "prod": "npm run build:clear && webpack --mode production --config config/webpack/webpack.prod.config.js && node server.js",
+    "prod": "npm run build:clear && webpack --mode production && node server.js",
     "lint": "eslint ./src/ && stylelint ./src/**/*.scss",
     "test": "jest --config ./config/jest/jest.config.js --coverage"
   },
