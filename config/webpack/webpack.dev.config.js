@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const merge = require('webpack-merge');
 const common = require('./webpack.common.config.js');
 
@@ -18,5 +19,6 @@ module.exports = merge(common, {
   mode: 'development',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new MiniCssExtractPlugin(),
   ],
 });
