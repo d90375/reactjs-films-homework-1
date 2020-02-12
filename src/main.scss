@@ -1,3 +1,11 @@
-html {
-  background-color: rgb(64, 224, 112);
+@mixin font-face($name, $file, $weight) {
+  @font-face {
+    font-family: "#{$name}";
+    src: url("assets/fonts/#{$file}.woff") format("woff");
+    font-weight: $weight;
+  }
 }
+
+@include font-face("Helvetica Neue", "HelveticaNeue", "normal");
+@include font-face("Helvetica Neue", "HelveticaNeue-Light", "lighter");
+@include font-face("Helvetica Neue", "HelveticaNeue-Bold", "bold");
