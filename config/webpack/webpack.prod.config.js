@@ -1,5 +1,5 @@
 const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const merge = require('webpack-merge');
@@ -27,15 +27,6 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.html$/,
-        use: [
-          {
-            loader: 'html-loader',
-            options: { minimize: true },
-          },
-        ],
-      },
-      {
         test: /\.(png|jpe?g|gif)$/i,
         use: [
           {
@@ -57,25 +48,27 @@ module.exports = merge(common, {
           },
         ],
       },
-      {
+      /* {
         test: /\.s[ac]ss$/i,
         use: [
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
-              modules: true,
+              modules: {
+                localIdentName: '[name]__[local]___[hash:base64:5]',
+              },
             },
           },
           'sass-loader',
         ],
-      },
+      }, */
     ],
   },
-  plugins: [
+  /* plugins: [
     new MiniCssExtractPlugin({
       filename: './css/[name].[hash].css',
       chunkFilename: '[id].css',
     }),
-  ],
+  ], */
 });

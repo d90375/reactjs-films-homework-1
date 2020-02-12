@@ -7,7 +7,7 @@ const config = require('./config/webpack/webpack.dev.config');
 const app = express();
 const compiler = webpack(config);
 
-if (process.env.NODE_ENV === 'development ') {
+if (process.env.NODE_ENV === 'development') {
   app.use(
     webpackDevMiddleware(compiler, {
       publicPath: config.output.publicPath,
