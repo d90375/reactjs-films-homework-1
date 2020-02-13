@@ -1,12 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import styles from './searchPanel.scss';
 
-const SearchPanel = () => {
-  return <form className={styles.search}> 
-    <input className={styles.search__input} type="search" />
-    <button className={styles.search__button}></button>
-  </form>
-};
+class SearchPanel extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { value: '' };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({ value: event.target.value });
+  }
+
+  render() {
+    const { value } = this.state;
+    return (
+      <form className={styles.search}>
+        <input className={styles.search__input} type="search" value={value} onChange={this.handleChange} />
+        <input type="submit" className={styles.search__submit} />
+      </form>
+    );
+  }
+}
 
 export default SearchPanel;
