@@ -1,17 +1,17 @@
 .movieDetailsPage {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    height: 45vw;
-    max-height: 1100px;
-    padding: 0 5%;
-    background-color: rgb(0, 0, 0);
-    background-image: url('assets/images/junglebook.png');
-    background-size: cover; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 45vw;
+  max-height: 1100px;
+  padding: 0 5% 50px 5%;
+  background-color: rgb(0, 0, 0);
+  background-image: url('assets/images/junglebook.png');
+  background-size: cover;
 }
 
 .info {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }

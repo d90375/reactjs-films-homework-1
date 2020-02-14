@@ -3,18 +3,27 @@ import PropTypes from 'prop-types';
 
 import styles from './movieDetailsInfo.scss';
 
-const MovieDetailsInfo = ({ title, genres, duration }) => (
-  <div className={styles.movieDetailsInfo}>
-    <h2 className={styles.title}>{ title }</h2>
-    <p className={styles.genres}>{ genres }</p>
-    <span className={styles.duration}>{ duration }</span>
-  </div>
-);
+const MovieDetailsInfo = ({ info }) => {
+  const { title, genres, duration } = info;
+
+  const genresList = genres.map((genre) => (
+    <li className={styles.genres__item} key={genre.toString()}>{genre}</li>));
+
+  return (
+    <div className={styles.movieDetailsInfo}>
+      <h2 className={styles.title}>{ title }</h2>
+      <ul className={styles.genres}>{genresList}</ul>
+      <span className={styles.duration}>{duration}</span>
+    </div>
+  );
+};
 
 MovieDetailsInfo.propTypes = {
-  title: PropTypes.string.isRequired,
-  genres: PropTypes.string.isRequired,
-  duration: PropTypes.string.isRequired,
+  info: PropTypes.shape({
+    title: PropTypes.string,
+    genres: PropTypes.array,
+    duration: PropTypes.string,
+  }).isRequired,
 };
 
 export default MovieDetailsInfo;

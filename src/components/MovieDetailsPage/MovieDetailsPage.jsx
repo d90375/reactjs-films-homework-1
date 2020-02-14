@@ -1,6 +1,8 @@
 import React from 'react';
 import MovieDetailsInfo from '../MovieDetailsInfo';
 import MovieDetailsDescription from '../MovieDetailsDescription';
+import MovieDetailsRating from '../MovieDetailsRating';
+import MovieDetailsButtons from '../MovieDetailsButtons';
 
 import styles from './movieDetailsPage.scss';
 
@@ -15,17 +17,19 @@ const data = {
 };
 
 const MovieDetailsPage = () => {
-  const {
-    title, duration, description, rating,
-  } = data;
-  const genres = data.genres.join(' ');
+  const { description, rating, ...info } = data;
 
   return (
     <section className={styles.movieDetailsPage}>
       <div className={styles.info}>
-        <MovieDetailsInfo title={title} genres={genres} duration={duration} />
+        <MovieDetailsInfo info={info} />
         <MovieDetailsDescription description={description} />
       </div>
+      <div className={styles.info}>
+        <MovieDetailsRating rating={rating} />
+        <MovieDetailsButtons />
+      </div>
+
     </section>
   );
 };
