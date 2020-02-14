@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Signature renders correctly 1`] = `
+<h1
+  className="signature"
+>
+  Hello,
+  Tatsiana Krautsova
+</h1>
+`;
