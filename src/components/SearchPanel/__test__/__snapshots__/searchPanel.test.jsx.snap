@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchPanel renders correctly 1`] = `
+<form
+  className="search"
+>
+  <input
+    className="search__input"
+    onChange={[Function]}
+    type="search"
+    value=""
+  />
+  <input
+    className="search__submit"
+    type="submit"
+  />
+</form>
+`;

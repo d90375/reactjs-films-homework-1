@@ -9,7 +9,7 @@
     "build:clear": "rm -rf build",
     "prod": "npm run build && node server.js",
     "lint": "eslint ./src/ && stylelint ./src/**/*.scss",
-    "test": "jest --config ./config/jest/jest.config.js --coverage"
+    "test": "jest --config ./config/jest/jest.config.js"
   },
   "husky": {},
   "repository": {
