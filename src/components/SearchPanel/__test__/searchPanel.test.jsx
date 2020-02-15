@@ -1,5 +1,9 @@
 import React from 'react';
 import ShallowRenderer from 'react-test-renderer/shallow';
+import { render, unmountComponentAtNode } from 'react-dom';
+import { act } from 'react-dom/test-utils';
+import { fireEvent } from '@testing-library/react';
+
 import SearchPanel from '../SearchPanel';
 
 test('SearchPanel renders correctly', () => {
@@ -9,18 +13,23 @@ test('SearchPanel renders correctly', () => {
   expect(result).toMatchSnapshot();
 });
 
+test('changes value of input', () => {
+  let container = null;
+  container = document.createElement('div');
+  document.body.appendChild(container);
 
-it('should call onChange', () => {
-  const renderer = new ShallowRenderer();
-  renderer.render(<SearchPanel />);
+  act(() => {
+    render(<SearchPanel />, container);
+  });
 
-  const event = {
-    preventDefault() {},
-    target: { value: 'hi' },
-  };
+  const input = document.querySelector('[type=search]');
+  expect(input.value).toBe('');
 
-  const onChange = jest.fn();
+  fireEvent.change(input, { target: { value: 'hi' } });
 
-  renderer.find('input[type=search]').simulate('change', event);
-  expect(onChange).toBeCalledWith('hi');
+  expect(input.value).toBe('hi');
+
+  unmountComponentAtNode(container);
+  container.remove();
+  container = null;
 });

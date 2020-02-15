@@ -18,7 +18,12 @@ class SearchPanel extends Component {
     const { value } = this.state;
     return (
       <form className={styles.search}>
-        <input className={styles.search__input} type="search" value={value} onChange={this.handleChange} />
+        <input
+          className={styles.search__input}
+          type="search"
+          value={value}
+          onChange={this.handleChange}
+        />
         <input type="submit" className={styles.search__submit} />
       </form>
     );
