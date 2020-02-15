@@ -1,8 +1,6 @@
 import React from 'react';
 import ShallowRenderer from 'react-test-renderer/shallow';
-import { render, unmountComponentAtNode } from 'react-dom';
-import { act } from 'react-dom/test-utils';
-import { fireEvent } from '@testing-library/react';
+import { create, act } from 'react-test-renderer';
 
 import SearchPanel from '../SearchPanel';
 
@@ -13,23 +11,20 @@ test('SearchPanel renders correctly', () => {
   expect(result).toMatchSnapshot();
 });
 
-test('changes value of input', () => {
-  let container = null;
-  container = document.createElement('div');
-  document.body.appendChild(container);
+test('onChange function change input value', () => {
+  const tree = create(
+    <SearchPanel />,
+  );
+
+  const input = tree.root.findByProps({ 'aria-label': 'search' });
+  expect(input.props.value).toBe('');
+
+  const e = { target: { value: 'hi' } };
+  const mockFunction = jest.fn(() => input.props.onChange(e));
 
   act(() => {
-    render(<SearchPanel />, container);
+    mockFunction();
   });
 
-  const input = document.querySelector('[type=search]');
-  expect(input.value).toBe('');
-
-  fireEvent.change(input, { target: { value: 'hi' } });
-
-  expect(input.value).toBe('hi');
-
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
+  expect(input.props.value).toBe('hi');
 });

@@ -20,6 +20,7 @@ class SearchPanel extends Component {
       <form className={styles.search}>
         <input
           className={styles.search__input}
+          aria-label="search"
           type="search"
           value={value}
           onChange={this.handleChange}

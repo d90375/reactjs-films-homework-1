@@ -5,6 +5,7 @@ exports[`SearchPanel renders correctly 1`] = `
   className="search"
 >
   <input
+    aria-label="search"
     className="search__input"
     onChange={[Function]}
     type="search"
