@@ -6,4 +6,9 @@
   text-align: justify;
   color: #fff;
   background-color: rgba(0, 0, 0, 0.6);
+
+  @media (max-width: 480px) {
+    width: 80vw;
+    font-size: 18px;
+  }
 }
