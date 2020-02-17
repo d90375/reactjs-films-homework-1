@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './title.scss';
+import styles from './Title.scss';
 
 const Title = () => <h1 className={styles.title}>films</h1>;
 

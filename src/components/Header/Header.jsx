@@ -2,7 +2,7 @@ import React from 'react';
 import Title from '../Title';
 import SearchPanel from '../SearchPanel';
 
-import styles from './header.scss';
+import styles from './Header.scss';
 
 const Header = () => (
   <header className={styles.header}>

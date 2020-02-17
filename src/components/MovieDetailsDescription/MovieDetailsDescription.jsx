@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './movieDetailsDescription.scss';
+import styles from './MovieDetailsDescription.scss';
 
 const MovieDetailsDescription = ({ description }) => (
   <p className={styles.movieDetailsDescription}>{ description }</p>

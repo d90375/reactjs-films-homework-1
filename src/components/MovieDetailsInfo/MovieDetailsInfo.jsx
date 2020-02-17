@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './movieDetailsInfo.scss';
+import styles from './MovieDetailsInfo.scss';
 
 const MovieDetailsInfo = ({ info }) => {
   const { title, genres, duration } = info;

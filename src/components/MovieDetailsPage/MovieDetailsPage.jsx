@@ -4,7 +4,7 @@ import MovieDetailsDescription from '../MovieDetailsDescription';
 import MovieDetailsRating from '../MovieDetailsRating';
 import MovieDetailsButtons from '../MovieDetailsButtons';
 
-import styles from './movieDetailsPage.scss';
+import styles from './MovieDetailsPage.scss';
 
 const data = {
   title: 'The Jungle Book',

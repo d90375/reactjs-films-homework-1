@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './movieDetailsRating.scss';
+import styles from './MovieDetailsRating.scss';
 
 const MovieDetailsRating = ({ rating }) => {
   let id = 0;
