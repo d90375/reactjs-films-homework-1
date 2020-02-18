@@ -3,12 +3,16 @@
 
   .title {
     margin: 0;
-    font-size: 45px;
-    line-height: 45px;
+    font-size: 30px;
+    line-height: 30px;
     font-family: "Helvetica Neue", Helvetica, sans-serif;
     font-weight: bold;
     text-transform: uppercase;
     color: #fff;
+
+    @media (max-width: 1024px) {
+      text-align: center;
+    }
 
     @media (max-width: 480px) {
       width: 96vw;
@@ -16,33 +20,40 @@
     }
   }
 
-  .genres {
-    display: inline-block;
-    padding: 0;
-    color: #fff;
-    font-size: 20px;
-    border-right: 1px solid #fff;
+  .about {
+    width: 100%;
+    text-align: center;
 
-    &__item {
+    .genres {
       display: inline-block;
-      padding-right: 20px;
-    }
-
-    @media (max-width: 480px) {
-      display: block;
-      font-size: 16px;
-      border: none;
-    }
-  }
-
-  .duration {
-    padding-left: 22px;
-    color: #fff;
-    font-size: 20px;
-
-    @media (max-width: 480px) {
-      font-size: 16px;
       padding: 0;
+      color: #fff;
+      font-size: 16px;
+      border-right: 1px solid #fff;
+
+      &__item {
+        display: inline-block;
+        padding-right: 16px;
+
+        @media (max-width: 480px) {
+          padding-right: 8px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        font-size: 14px;
+      }
+    }
+
+    .duration {
+      padding-left: 22px;
+      color: #fff;
+      font-size: 16px;
+
+      @media (max-width: 480px) {
+        font-size: 14px;
+        padding: 10px;
+      }
     }
   }
 }

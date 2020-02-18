@@ -12,8 +12,11 @@ const MovieDetailsInfo = ({ info }) => {
   return (
     <div className={styles.movieDetailsInfo}>
       <h2 className={styles.title}>{ title }</h2>
-      <ul className={styles.genres}>{genresList}</ul>
-      <span className={styles.duration}>{duration}</span>
+      <div className={styles.about}>
+        <ul className={styles.genres}>{genresList}</ul>
+        <span className={styles.duration}>{duration}</span>
+      </div>
+
     </div>
   );
 };
