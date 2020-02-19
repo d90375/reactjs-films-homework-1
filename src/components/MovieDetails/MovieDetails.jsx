@@ -1,6 +1,6 @@
 import React from 'react';
 import MovieDetailsInfo from '../MovieDetailsInfo';
-import MovieDetailsDescription from '../MovieDetailsDescription';
+import MovieDescription from '../MovieDescription';
 import MovieDetailsRating from '../MovieDetailsRating';
 import Button from '../Button';
 
@@ -23,10 +23,10 @@ const MovieDetailsPage = () => {
     <section className={styles.container}>
       <div className={styles.info}>
         <MovieDetailsInfo info={info} />
-        <MovieDetailsDescription description={description} />
+        <MovieDetailsRating rating={rating} />
       </div>
       <div className={styles.info}>
-        <MovieDetailsRating rating={rating} />
+        <MovieDescription description={description} />
         <div className={styles.buttonsContainer}>
           <Button purpose="watch">Watch Now</Button>
           <Button purpose="view">View Info</Button>
