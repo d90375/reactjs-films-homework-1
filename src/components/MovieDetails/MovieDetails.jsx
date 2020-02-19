@@ -4,7 +4,7 @@ import MovieDetailsDescription from '../MovieDetailsDescription';
 import MovieDetailsRating from '../MovieDetailsRating';
 import Button from '../Button';
 
-import styles from './MovieDetailsPage.scss';
+import styles from './MovieDetails.scss';
 
 const data = {
   title: 'The Jungle Book',
@@ -20,7 +20,7 @@ const MovieDetailsPage = () => {
   const { description, rating, ...info } = data;
 
   return (
-    <section className={styles.movieDetailsPage}>
+    <section className={styles.container}>
       <div className={styles.info}>
         <MovieDetailsInfo info={info} />
         <MovieDetailsDescription description={description} />
