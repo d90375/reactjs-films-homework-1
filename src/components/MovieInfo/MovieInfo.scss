@@ -9,15 +9,6 @@
     font-weight: bold;
     text-transform: uppercase;
     color: #fff;
-
-    @media (max-width: 1024px) {
-      text-align: center;
-    }
-
-    @media (max-width: 480px) {
-      width: 96vw;
-      font-size: 30px;
-    }
   }
 
   .about {
@@ -32,12 +23,13 @@
       border-right: 1px solid #fff;
 
       @media (max-width: 480px) {
+        padding-right: 10px;
         font-size: 14px;
       }
     }
 
     .duration {
-      padding-left: 22px;
+      padding-left: 20px;
       color: #fff;
       font-size: 16px;
 
