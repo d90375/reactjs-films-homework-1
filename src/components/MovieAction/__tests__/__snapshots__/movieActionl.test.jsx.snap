@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieAction renders correctly 1`] = `
+<div
+  className="container"
+>
+  <MovieDescription
+    descriptionClass="hide"
+  />
+  <div
+    className="buttonsContainer"
+  >
+    <Button
+      purpose="watch"
+    >
+      Watch Now
+    </Button>
+    <Button
+      aria-label="view"
+      clickHandler={[Function]}
+      purpose="view"
+    >
+      View Info
+    </Button>
+  </div>
+</div>
+`;

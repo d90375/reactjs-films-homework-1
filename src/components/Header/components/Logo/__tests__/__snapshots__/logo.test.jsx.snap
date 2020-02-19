@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Title renders correctly 1`] = `
+exports[`Logo renders correctly 1`] = `
 <h1
-  className="title"
+  className="logo"
 >
   films
 </h1>

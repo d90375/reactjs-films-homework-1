@@ -25,7 +25,7 @@ class MovieAction extends Component {
         <MovieDescription descriptionClass={descriptionClass} description={description} />
         <div className={styles.buttonsContainer}>
           <Button purpose="watch">Watch Now</Button>
-          <Button purpose="view" clickHandler={this.clickViewHandler}>{buttonValue}</Button>
+          <Button purpose="view" clickHandler={this.clickViewHandler} aria-label="view">{buttonValue}</Button>
         </div>
       </div>
     );

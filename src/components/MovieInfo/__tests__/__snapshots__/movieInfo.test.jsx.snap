@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieDetailsInfo renders correctly 1`] = `
+<div
+  className="container"
+>
+  <h2
+    className="title"
+  >
+    title
+  </h2>
+  <div
+    className="about"
+  >
+    <ul
+      className="genres"
+    >
+      1
+      2
+      3
+    </ul>
+    <span
+      className="duration"
+    >
+      1h
+    </span>
+  </div>
+</div>
+`;
