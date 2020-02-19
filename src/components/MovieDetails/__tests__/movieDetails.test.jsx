@@ -1,10 +1,10 @@
 import React from 'react';
 import ShallowRenderer from 'react-test-renderer/shallow';
-import MovieDetailsPage from '../MovieDetailsPage';
+import MovieDetails from '../MovieDetails';
 
-test('MovieDetailsPage renders correctly', () => {
+test('MovieDetails renders correctly', () => {
   const renderer = new ShallowRenderer();
-  renderer.render(<MovieDetailsPage />);
+  renderer.render(<MovieDetails />);
   const result = renderer.getRenderOutput();
   expect(result).toMatchSnapshot();
 });

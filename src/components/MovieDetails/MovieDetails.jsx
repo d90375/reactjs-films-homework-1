@@ -32,7 +32,6 @@ const MovieDetailsPage = () => {
           <Button purpose="view">View Info</Button>
         </div>
       </div>
-
     </section>
   );
 };
