@@ -12,9 +12,6 @@
     "test": "jest --config ./config/jest/jest.config.js"
   },
   "husky": {
-    "hooks": {
-      "pre-push": "npm run test && npm run lint"
-    }
   },
   "repository": {
     "type": "git",
