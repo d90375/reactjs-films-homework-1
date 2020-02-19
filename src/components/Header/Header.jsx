@@ -1,12 +1,12 @@
 import React from 'react';
-import Title from '../Title';
+import Logo from '../Logo';
 import SearchPanel from '../SearchPanel';
 
 import styles from './Header.scss';
 
 const Header = () => (
   <header className={styles.header}>
-    <Title />
+    <Logo />
     <SearchPanel />
   </header>
 );

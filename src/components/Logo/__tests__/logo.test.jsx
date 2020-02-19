@@ -1,10 +1,10 @@
 import React from 'react';
 import ShallowRenderer from 'react-test-renderer/shallow';
-import Title from '../Title';
+import Logo from '../Logo';
 
-test('Title renders correctly', () => {
+test('Logo renders correctly', () => {
   const renderer = new ShallowRenderer();
-  renderer.render(<Title />);
+  renderer.render(<Logo />);
   const result = renderer.getRenderOutput();
   expect(result).toMatchSnapshot();
 });
