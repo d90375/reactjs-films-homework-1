@@ -1,3 +1,1 @@
-import MovieAction from './MovieAction';
-
-export default MovieAction;
+export { default } from './MovieAction';
