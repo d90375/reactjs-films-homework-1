@@ -9,6 +9,10 @@
     font-weight: bold;
     text-transform: uppercase;
     color: #fff;
+
+    @media (max-width: 767px) {
+      text-align: center;
+    }
   }
 
   .about {
