@@ -17,5 +17,6 @@ module.exports = {
         sourceType: "module"
     },
     rules: {
+        "react/state-in-constructor": ["off"]
     }
 };
