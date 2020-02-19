@@ -2,7 +2,7 @@ import React from 'react';
 import MovieDetailsInfo from '../MovieDetailsInfo';
 import MovieDetailsDescription from '../MovieDetailsDescription';
 import MovieDetailsRating from '../MovieDetailsRating';
-import MovieDetailsButtons from '../MovieDetailsButtons';
+import Button from '../Button';
 
 import styles from './MovieDetailsPage.scss';
 
@@ -27,7 +27,10 @@ const MovieDetailsPage = () => {
       </div>
       <div className={styles.info}>
         <MovieDetailsRating rating={rating} />
-        <MovieDetailsButtons />
+        <div className={styles.buttonsContainer}>
+          <Button purpose="watch">Watch Now</Button>
+          <Button purpose="view">View Info</Button>
+        </div>
       </div>
 
     </section>
