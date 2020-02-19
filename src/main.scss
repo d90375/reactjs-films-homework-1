@@ -10,7 +10,8 @@
 @include font-face("Helvetica Neue", "HelveticaNeue-Light", lighter);
 @include font-face("Helvetica Neue", "HelveticaNeue-Bold", bold);
 
-html {
+body {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
   background-color: rgb(32, 32, 32);
 }
 
