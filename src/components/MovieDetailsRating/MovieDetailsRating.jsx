@@ -5,11 +5,11 @@ import styles from './MovieDetailsRating.scss';
 
 const MovieDetailsRating = ({ rating }) => {
   let id = 0;
-  let stars = new Array(5).fill('');
-  stars = stars.map((star, index) => {
+
+  const stars = Array.from(Array(5), (star, index) => {
     id += 1;
 
-    if (rating - (index + 1) >= -0.5) {
+    if (Math.round(rating - (index + 1)) >= 0) {
       return <span className={styles.star} key={id}>&#9733;</span>;
     }
 
