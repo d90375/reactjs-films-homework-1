@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from './components/Logo';
-import SearchPanel from '../SearchPanel';
+import SearchPanel from './components/SearchPanel';
 
 import styles from './Header.scss';
 
