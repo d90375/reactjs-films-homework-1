@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MovieDetailsInfo from '../MovieDetailsInfo';
-import MovieDetailsRating from '../MovieDetailsRating';
+import MovieDetailsInfo from '../MovieInfo';
+import MovieDetailsRating from '../MovieRating';
 import MovieAction from '../MovieAction';
 
 import styles from './MovieDetails.scss';

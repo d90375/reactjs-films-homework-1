@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './MovieDetailsRating.scss';
+import styles from './MovieRating.scss';
 
-const MovieDetailsRating = ({ rating }) => {
+const MovieRating = ({ rating }) => {
   let id = 0;
 
   const stars = Array.from(Array(5), (star, index) => {
@@ -24,8 +24,8 @@ const MovieDetailsRating = ({ rating }) => {
   );
 };
 
-MovieDetailsRating.propTypes = {
+MovieRating.propTypes = {
   rating: PropTypes.string.isRequired,
 };
 
-export default MovieDetailsRating;
+export default MovieRating;

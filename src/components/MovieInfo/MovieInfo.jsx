@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './MovieDetailsInfo.scss';
+import styles from './MovieInfo.scss';
 
-const MovieDetailsInfo = ({ info: { title, genres, duration } }) => (
+const MovieInfo = ({ info: { title, genres, duration } }) => (
   <div className={styles.container}>
     <h2 className={styles.title}>{ title }</h2>
     <div className={styles.about}>
@@ -13,7 +13,7 @@ const MovieDetailsInfo = ({ info: { title, genres, duration } }) => (
   </div>
 );
 
-MovieDetailsInfo.propTypes = {
+MovieInfo.propTypes = {
   info: PropTypes.shape({
     title: PropTypes.string,
     genres: PropTypes.string,
@@ -21,4 +21,4 @@ MovieDetailsInfo.propTypes = {
   }).isRequired,
 };
 
-export default MovieDetailsInfo;
+export default MovieInfo;
