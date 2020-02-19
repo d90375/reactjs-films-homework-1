@@ -1,0 +1,32 @@
+.button {
+  min-width: 100px;
+  padding: 0 10px;
+  line-height: 30px;
+  font-size: 16px;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}
+
+.watch {
+  background-color: #0aaee4;
+  border: none;
+
+  &:hover {
+    background-color: #0aade4be;
+  }
+}
+
+.view {
+  background-color: transparent;
+  border: 2px solid #fff;
+
+  &:hover {
+    background-color: #ffffff38;
+  }
+}

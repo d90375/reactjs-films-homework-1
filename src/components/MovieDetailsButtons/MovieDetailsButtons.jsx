@@ -1,13 +1,12 @@
 import React from 'react';
-import ButtonWatch from '../ButtonWatch';
-import ButtonView from '../ButtonView';
+import Button from '../Button';
 
 import styles from './MovieDetailsButtons.scss';
 
 const MovieDetailsButtons = () => (
   <div className={styles.movieDetailsButtons}>
-    <ButtonWatch />
-    <ButtonView />
+    <Button purpose="watch">Watch Now</Button>
+    <Button purpose="view">View Info</Button>
   </div>
 );
 
