@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 
 import styles from './MovieDescription.scss';
 
-const MovieDetailsDescription = ({ description }) => (
-  <p className={styles.movieDetailsDescription}>{ description }</p>
+const MovieDescription = ({ description }) => (
+  <p className={styles.movieDescription}>{ description }</p>
 );
 
-MovieDetailsDescription.propTypes = {
+MovieDescription.propTypes = {
   description: PropTypes.string.isRequired,
 };
 
-export default MovieDetailsDescription;
+export default MovieDescription;

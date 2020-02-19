@@ -1,0 +1,21 @@
+.movieAction {
+  background-color: red;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: space-around;
+  width: 250px;
+  padding-top: 20px;
+}

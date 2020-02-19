@@ -1,8 +1,7 @@
 import React from 'react';
 import MovieDetailsInfo from '../MovieDetailsInfo';
-import MovieDescription from '../MovieDescription';
 import MovieDetailsRating from '../MovieDetailsRating';
-import Button from '../Button';
+import MovieAction from '../MovieAction';
 
 import styles from './MovieDetails.scss';
 
@@ -25,13 +24,7 @@ const MovieDetailsPage = () => {
         <MovieDetailsInfo info={info} />
         <MovieDetailsRating rating={rating} />
       </div>
-      <div className={styles.info}>
-        <MovieDescription description={description} />
-        <div className={styles.buttonsContainer}>
-          <Button purpose="watch">Watch Now</Button>
-          <Button purpose="view">View Info</Button>
-        </div>
-      </div>
+      <MovieAction description={description} />
     </section>
   );
 };
