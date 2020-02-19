@@ -1,4 +1,4 @@
-.movieDetailsInfo {
+.container {
   font-family: "Helvetica Neue", Helvetica, sans-serif;
 
   .title {
@@ -26,19 +26,10 @@
 
     .genres {
       display: inline-block;
-      padding: 0;
+      padding: 0 20px 0 0;
       color: #fff;
       font-size: 16px;
       border-right: 1px solid #fff;
-
-      &__item {
-        display: inline-block;
-        padding-right: 16px;
-
-        @media (max-width: 480px) {
-          padding-right: 8px;
-        }
-      }
 
       @media (max-width: 480px) {
         font-size: 14px;

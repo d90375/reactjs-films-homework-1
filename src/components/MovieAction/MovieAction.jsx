@@ -21,7 +21,7 @@ class MovieAction extends Component {
     const { description } = this.props;
     const { descriptionClass, buttonValue } = this.state;
     return (
-      <div className={styles.info}>
+      <div className={styles.container}>
         <MovieDescription descriptionClass={descriptionClass} description={description} />
         <div className={styles.buttonsContainer}>
           <Button purpose="watch">Watch Now</Button>

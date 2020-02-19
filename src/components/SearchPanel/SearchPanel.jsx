@@ -19,13 +19,13 @@ class SearchPanel extends Component {
     return (
       <form className={styles.search}>
         <input
-          className={styles.search__input}
+          className={styles.input}
           aria-label="search"
           type="search"
           value={value}
           onChange={this.handleChange}
         />
-        <input type="submit" className={styles.search__submit} />
+        <input type="submit" className={styles.submit} />
       </form>
     );
   }

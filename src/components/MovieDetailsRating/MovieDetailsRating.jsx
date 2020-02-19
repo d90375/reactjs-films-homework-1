@@ -17,7 +17,7 @@ const MovieDetailsRating = ({ rating }) => {
   });
 
   return (
-    <div className={styles.movieDetailsRating}>
+    <div className={styles.container}>
       { stars }
       <span className={styles.rating}>{rating}</span>
     </div>
