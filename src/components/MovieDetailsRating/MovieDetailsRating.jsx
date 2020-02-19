@@ -10,10 +10,10 @@ const MovieDetailsRating = ({ rating }) => {
     id += 1;
 
     if (rating - (index + 1) >= -0.5) {
-      return <span className={styles.blueStar} key={id}>&#9733;</span>;
+      return <span className={styles.star} key={id}>&#9733;</span>;
     }
 
-    return <span className={styles.blueStar} key={id}>&#9734;</span>;
+    return <span className={styles.star} key={id}>&#9734;</span>;
   });
 
   return (
