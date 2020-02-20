@@ -15,9 +15,7 @@ exports[`MovieDetailsInfo renders correctly 1`] = `
     <ul
       className="genres"
     >
-      1
-      2
-      3
+      1, 2, 3
     </ul>
     <span
       className="duration"

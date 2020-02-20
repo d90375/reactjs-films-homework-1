@@ -4,7 +4,7 @@ import MovieDetailsInfo from '../MovieInfo';
 
 const info = {
   title: 'title',
-  genres: [1, 2, 3],
+  genres: '1, 2, 3',
   duration: '1h',
 };
 

@@ -2,8 +2,8 @@
 
 exports[`MovieDescription renders correctly 1`] = `
 <p
-  className="description undefined"
+  className="description descriptionClass"
 >
-  some description
+  description
 </p>
 `;

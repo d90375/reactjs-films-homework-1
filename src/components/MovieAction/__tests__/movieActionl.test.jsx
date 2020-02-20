@@ -6,14 +6,14 @@ import MovieAction from '../MovieAction';
 
 test('MovieAction renders correctly', () => {
   const renderer = new ShallowRenderer();
-  renderer.render(<MovieAction />);
+  renderer.render(<MovieAction description="description" />);
   const result = renderer.getRenderOutput();
   expect(result).toMatchSnapshot();
 });
 
 test('clickViewHandler function change state', () => {
   const tree = create(
-    <MovieAction />,
+    <MovieAction description="description" />,
   );
 
   const button = tree.root.findByProps({ 'aria-label': 'view' });

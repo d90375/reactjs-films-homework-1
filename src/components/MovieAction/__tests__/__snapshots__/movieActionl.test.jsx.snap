@@ -5,6 +5,7 @@ exports[`MovieAction renders correctly 1`] = `
   className="container"
 >
   <MovieDescription
+    description="description"
     descriptionClass="hide"
   />
   <div

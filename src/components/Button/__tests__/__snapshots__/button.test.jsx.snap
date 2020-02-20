@@ -2,7 +2,10 @@
 
 exports[`ButtonView renders correctly 1`] = `
 <button
-  className="button undefined"
+  className="button purpose"
+  onClick={[Function]}
   type="button"
-/>
+>
+  child
+</button>
 `;
