@@ -1,54 +1,24 @@
-@mixin outline-none {
-  &:focus,
-  &:active {
-    outline: none;
-  }
-}
+@import '../../../../mixins';
 
-.search {
-  display: flex;
-  align-items: flex-end;
+.input {
+  width: 285px;
+  height: 35px;
+  padding: 0 30px 0 20px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  line-height: 20px;
+  color: #fff;
+  background-color: transparent;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  background-image: url("../../../../assets/images/search-icon.png");
+  background-repeat: no-repeat;
+  background-position: 98% 50%;
+  background-size: 20px 20px;
 
-  .input {
-    width: 250px;
-    height: 35px;
-    padding: 0 20px;
-    font-size: 14px;
-    letter-spacing: 1px;
-    line-height: 20px;
-    font-family: "Helvetica Neue", Helvetica, sans-serif;
-    color: #fff;
-    background-color: transparent;
-    border: 2px solid #fff;
-    border-right: none;
-    border-radius: 10px 0 0 10px;
+  @include outline-none();
 
-    @include outline-none();
-
-    @media (max-width: 480px) {
-      width: 170px;
-    }
-  }
-
-  .submit {
-    display: inline-block;
-    width: 35px;
-    height: 35px;
-    color: transparent;
-    background-color: transparent;
-    background-image: url("../../../../assets/images/search-icon.png");
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: 20px 20px;
-    border: 2px solid #fff;
-    border-left: none;
-    border-radius: 0 10px 10px 0;
-    cursor: pointer;
-
-    @include outline-none();
-
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.1);
-    }
+  @media (max-width: 480px) {
+    width: 200px;
   }
 }

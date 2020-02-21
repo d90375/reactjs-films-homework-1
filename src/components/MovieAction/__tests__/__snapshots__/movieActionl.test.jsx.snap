@@ -4,22 +4,18 @@ exports[`MovieAction renders correctly 1`] = `
 <div
   className="container"
 >
-  <MovieDescription
-    description="description"
-    descriptionClass="hide"
-  />
   <div
     className="buttonsContainer"
   >
     <Button
-      purpose="watch"
+      color="primary"
     >
       Watch Now
     </Button>
     <Button
       aria-label="view"
-      clickHandler={[Function]}
-      purpose="view"
+      color="secondary"
+      onClick={[Function]}
     >
       View Info
     </Button>

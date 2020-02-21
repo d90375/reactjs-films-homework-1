@@ -2,7 +2,7 @@
 
 exports[`ButtonView renders correctly 1`] = `
 <button
-  className="button purpose"
+  className="button blue"
   onClick={[Function]}
   type="button"
 >

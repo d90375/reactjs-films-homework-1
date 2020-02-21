@@ -19,7 +19,7 @@ test('clickViewHandler function change state', () => {
   const button = tree.root.findByProps({ 'aria-label': 'view' });
   expect(button.props.children).toBe('View Info');
 
-  const mockFunction = jest.fn(() => button.props.clickHandler());
+  const mockFunction = jest.fn(() => button.props.onClick());
 
   act(() => {
     mockFunction();

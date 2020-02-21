@@ -1,19 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SearchPanel renders correctly 1`] = `
-<form
-  className="search"
->
-  <input
-    aria-label="search"
-    className="input"
-    onChange={[Function]}
-    type="search"
-    value=""
-  />
-  <input
-    className="submit"
-    type="submit"
-  />
-</form>
+<input
+  className="input"
+  onChange={[Function]}
+  type="search"
+  value=""
+/>
 `;

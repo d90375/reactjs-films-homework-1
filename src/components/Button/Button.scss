@@ -1,3 +1,5 @@
+@import '../../mixins.scss';
+
 .button {
   min-width: 100px;
   padding: 0 10px;
@@ -7,13 +9,10 @@
   border-radius: 5px;
   cursor: pointer;
 
-  &:active,
-  &:focus {
-    outline: none;
-  }
+  @include outline-none();
 }
 
-.watch {
+.primary {
   background-color: #0aaee4;
   border: none;
 
@@ -22,7 +21,7 @@
   }
 }
 
-.view {
+.secondary {
   background-color: transparent;
   border: 2px solid #fff;
 

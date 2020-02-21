@@ -1,10 +1,4 @@
-@mixin font-face($name, $file, $weight) {
-  @font-face {
-    font-family: "#{$name}";
-    src: url("assets/fonts/#{$file}.woff") format("woff");
-    font-weight: $weight;
-  }
-}
+@import 'mixins';
 
 @include font-face("Helvetica Neue", "HelveticaNeue", normal);
 @include font-face("Helvetica Neue", "HelveticaNeue-Light", lighter);

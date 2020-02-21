@@ -2,7 +2,7 @@
 
 exports[`MovieDescription renders correctly 1`] = `
 <p
-  className="description descriptionClass"
+  className="description"
 >
   description
 </p>

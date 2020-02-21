@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 
 import styles from './Button.scss';
 
-const Button = ({ children, purpose, clickHandler }) => (
+const Button = ({ children, color, onClick }) => (
   <button
-    className={`${styles.button} ${styles[purpose]}`}
+    className={`${styles.button} ${styles[color]}`}
     type="button"
-    onClick={clickHandler}
+    onClick={onClick}
   >
     {children}
   </button>
@@ -15,8 +15,8 @@ const Button = ({ children, purpose, clickHandler }) => (
 
 Button.propTypes = {
   children: PropTypes.string.isRequired,
-  purpose: PropTypes.string.isRequired,
-  clickHandler: PropTypes.func.isRequired,
+  color: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default Button;

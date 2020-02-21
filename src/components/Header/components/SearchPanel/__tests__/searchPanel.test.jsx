@@ -16,7 +16,7 @@ test('onChange function change input value', () => {
     <SearchPanel />,
   );
 
-  const input = tree.root.findByProps({ 'aria-label': 'search' });
+  const input = tree.root.findByProps({ type: 'search' });
   expect(input.props.value).toBe('');
 
   const e = { target: { value: 'hi' } };

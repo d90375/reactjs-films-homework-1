@@ -7,25 +7,26 @@ import styles from './MovieAction.scss';
 
 class MovieAction extends Component {
   state = {
-    descriptionClass: 'hide',
+    isDescriptionOpened: false,
     buttonValue: 'View Info',
   }
 
   clickViewHandler = () => {
-    this.setState(({ descriptionClass }) => (descriptionClass === 'show'
-      ? { descriptionClass: 'hide', buttonValue: 'View Info' }
-      : { descriptionClass: 'show', buttonValue: 'Hide Info' }));
-  }
+    this.setState(({ isDescriptionOpened, buttonValue }) => ({
+      isDescriptionOpened: !isDescriptionOpened,
+      buttonValue: buttonValue === 'View Info' ? 'Hide Info' : 'View Info',
+    }));
+  };
 
   render() {
     const { description } = this.props;
-    const { descriptionClass, buttonValue } = this.state;
+    const { isDescriptionOpened, buttonValue } = this.state;
     return (
       <div className={styles.container}>
-        <MovieDescription descriptionClass={descriptionClass} description={description} />
+        {isDescriptionOpened ? <MovieDescription description={description} /> : null}
         <div className={styles.buttonsContainer}>
-          <Button purpose="watch">Watch Now</Button>
-          <Button purpose="view" clickHandler={this.clickViewHandler} aria-label="view">{buttonValue}</Button>
+          <Button color="primary">Watch Now</Button>
+          <Button color="secondary" onClick={this.clickViewHandler} aria-label="view">{buttonValue}</Button>
         </div>
       </div>
     );
