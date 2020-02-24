@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieRating renders correctly 1`] = `
+<div
+  className="container"
+>
+  <span
+    className="star"
+  >
+    ★
+  </span>
+  <span
+    className="star"
+  >
+    ★
+  </span>
+  <span
+    className="star"
+  >
+    ★
+  </span>
+  <span
+    className="star"
+  >
+    ☆
+  </span>
+  <span
+    className="star"
+  >
+    ☆
+  </span>
+  <span
+    className="rating"
+  >
+    3
+  </span>
+</div>
+`;
