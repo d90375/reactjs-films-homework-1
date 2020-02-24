@@ -8,25 +8,25 @@ import styles from './MovieAction.scss';
 class MovieAction extends Component {
   state = {
     isDescriptionOpened: false,
-    buttonValue: 'View Info',
   }
 
   clickViewHandler = () => {
-    this.setState(({ isDescriptionOpened, buttonValue }) => ({
+    this.setState(({ isDescriptionOpened }) => ({
       isDescriptionOpened: !isDescriptionOpened,
-      buttonValue: buttonValue === 'View Info' ? 'Hide Info' : 'View Info',
     }));
   };
 
   render() {
     const { description } = this.props;
-    const { isDescriptionOpened, buttonValue } = this.state;
+    const { isDescriptionOpened } = this.state;
     return (
       <div className={styles.container}>
         {isDescriptionOpened ? <MovieDescription description={description} /> : null}
         <div className={styles.buttonsContainer}>
           <Button color="primary">Watch Now</Button>
-          <Button color="secondary" onClick={this.clickViewHandler} aria-label="view">{buttonValue}</Button>
+          <Button color="secondary" onClick={this.clickViewHandler} aria-label="view">
+            {isDescriptionOpened ? 'Hide Info' : 'View Info'}
+          </Button>
         </div>
       </div>
     );
