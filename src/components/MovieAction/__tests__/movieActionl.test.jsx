@@ -16,7 +16,7 @@ test('clickViewHandler function change state', () => {
     <MovieAction description="description" />,
   );
 
-  const button = tree.root.findByProps({ 'aria-label': 'view' });
+  const button = tree.root.findByProps({ color: 'secondary' });
   expect(button.props.children).toBe('View Info');
 
   const mockFunction = jest.fn(() => button.props.onClick());

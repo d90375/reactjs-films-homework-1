@@ -21,10 +21,10 @@ class MovieAction extends Component {
     const { isDescriptionOpened } = this.state;
     return (
       <div className={styles.container}>
-        {isDescriptionOpened ? <MovieDescription description={description} /> : null}
+        {isDescriptionOpened && <MovieDescription description={description} />}
         <div className={styles.buttonsContainer}>
           <Button color="primary">Watch Now</Button>
-          <Button color="secondary" onClick={this.clickViewHandler} aria-label="view">
+          <Button color="secondary" onClick={this.clickViewHandler}>
             {isDescriptionOpened ? 'Hide Info' : 'View Info'}
           </Button>
         </div>

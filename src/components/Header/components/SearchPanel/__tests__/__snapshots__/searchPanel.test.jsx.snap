@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SearchPanel renders correctly 1`] = `
+exports[`SearchPanel tests SearchPanel render SearchPanel renders correctly 1`] = `
 <input
   className="input"
   onChange={[Function]}

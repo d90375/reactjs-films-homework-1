@@ -13,7 +13,6 @@ exports[`MovieAction renders correctly 1`] = `
       Watch Now
     </Button>
     <Button
-      aria-label="view"
       color="secondary"
       onClick={[Function]}
     >

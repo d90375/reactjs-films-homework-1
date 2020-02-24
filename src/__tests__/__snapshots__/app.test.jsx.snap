@@ -13,7 +13,7 @@ exports[`App renders correctly 1`] = `
                 threatening to expose the wizarding",
         "duration": "1h 46m",
         "genres": "Adventure, Drama, Family, Fantasy",
-        "rating": "4.8",
+        "rating": 4.8,
         "title": "The Jungle Book",
       }
     }

@@ -4,7 +4,7 @@ import MovieDetails from '../MovieDetails';
 
 const data = {
   description: 'description',
-  rating: '5',
+  rating: 5,
 };
 
 test('MovieDetails renders correctly', () => {

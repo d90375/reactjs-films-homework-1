@@ -2,8 +2,8 @@
 
 exports[`ButtonView renders correctly 1`] = `
 <button
-  className="button blue"
-  onClick={[Function]}
+  className="button primary"
+  onClick={[MockFunction]}
   type="button"
 >
   child

@@ -19,7 +19,7 @@ const MovieDetails = ({ data: { description, rating, ...info } }) => (
 MovieDetails.propTypes = {
   data: PropTypes.shape({
     description: PropTypes.string,
-    rating: PropTypes.string,
+    rating: PropTypes.number,
   }).isRequired,
 };
 

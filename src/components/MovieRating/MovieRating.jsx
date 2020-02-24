@@ -4,16 +4,12 @@ import PropTypes from 'prop-types';
 import styles from './MovieRating.scss';
 
 const MovieRating = ({ rating }) => {
-  let id = 0;
-
   const stars = Array.from(Array(5), (star, index) => {
-    id += 1;
-
     if (Math.round(rating - (index + 1)) >= 0) {
-      return <span className={styles.star} key={id}>&#9733;</span>;
+      return <span className={styles.star} key={index}>&#9733;</span>;
     }
 
-    return <span className={styles.star} key={id}>&#9734;</span>;
+    return <span className={styles.star} key={index}>&#9734;</span>;
   });
 
   return (
@@ -25,7 +21,7 @@ const MovieRating = ({ rating }) => {
 };
 
 MovieRating.propTypes = {
-  rating: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
 };
 
 export default MovieRating;
