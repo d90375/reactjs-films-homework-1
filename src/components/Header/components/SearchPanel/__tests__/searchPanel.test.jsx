@@ -1,6 +1,6 @@
 import React from 'react';
 import ShallowRenderer from 'react-test-renderer/shallow';
-import { create, act } from 'react-test-renderer';
+import { create } from 'react-test-renderer';
 
 import SearchPanel from '../SearchPanel';
 
