@@ -1,6 +1,6 @@
 import React from 'react';
 import ShallowRenderer from 'react-test-renderer/shallow';
-import { create, act } from 'react-test-renderer';
+import { create } from 'react-test-renderer';
 
 import MovieAction from '../MovieAction';
 
@@ -19,17 +19,11 @@ test('clickViewHandler function change state', () => {
   const button = tree.root.findByProps({ color: 'secondary' });
   expect(button.props.children).toBe('View Info');
 
-  const mockFunction = jest.fn(() => button.props.onClick());
-
-  act(() => {
-    mockFunction();
-  });
+  button.props.onClick();
 
   expect(button.props.children).toBe('Hide Info');
 
-  act(() => {
-    mockFunction();
-  });
+  button.props.onClick();
 
   expect(button.props.children).toBe('View Info');
 });
