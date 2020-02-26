@@ -1,22 +1,23 @@
 import { connect } from 'react-redux';
-import { getTrendingPending, getTrendingError } from '../../modules/trending/trendingSelector';
+import { getMoviesPending, getMoviesError, getMoviesCondition } from '../../modules/movies/moviesSelector';
 import { getGenres } from '../../modules/genres/genresSelector';
 import { getMovie } from '../../modules/movie/movieSelector';
-import { fetchTrending } from '../../modules/trending/trendingAction';
+import { fetchMovies } from '../../modules/movies/moviesAction';
 import { fetchGenres } from '../../modules/genres/genresAction';
 import { removeMovieInfo } from '../../modules/movie/movieAction';
 import MoviesSection from './MoviesSection';
 
 const mapStateToProps = (state) => ({
-  error: getTrendingError(state),
-  pending: getTrendingPending(state),
+  error: getMoviesError(state),
+  pending: getMoviesPending(state),
+  condition: getMoviesCondition(state),
   genres: getGenres(state),
   movie: getMovie(state),
 });
 
 
 const mapDispatchToProps = {
-  fetchTrending,
+  fetchMovies,
   fetchGenres,
   removeMovieInfo,
 };

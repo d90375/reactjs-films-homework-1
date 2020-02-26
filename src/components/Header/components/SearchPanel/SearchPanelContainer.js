@@ -1,18 +1,17 @@
 import { connect } from 'react-redux';
-import { getSearchPending, getSearchError } from '../../../../modules/search/searchSelector';
+import { setMoviesCondition, fetchMovies } from '../../../../modules/movies/moviesAction';
+import { getMoviesCondition } from '../../../../modules/movies/moviesSelector';
 import { getGenres } from '../../../../modules/genres/genresSelector';
-import { fetchSearch, setSearchQuery } from '../../../../modules/search/searchAction';
 import SearchPanel from './SearchPanel';
 
 const mapStateToProps = (state) => ({
-  error: getSearchPending(state),
-  pending: getSearchError(state),
+  condition: getMoviesCondition(state),
   genres: getGenres(state),
 });
 
 const mapDispatchToProps = {
-  fetchSearch,
-  setSearchQuery,
+  setMoviesCondition,
+  fetchMovies,
 };
 
 export default connect(

@@ -36,7 +36,7 @@ export default class MovieDbApi {
       return results.map((movie) => this.transMovieData(movie, genres));
     }
 
-    getSearch = async (query, genres) => {
+    getSearch = async (genres, query) => {
       const res = await this.getResource(`search/movie?api_key=${this.apiKey}&${this.lang}&query=${query}&page=1&include_adult=false`);
       const { results } = res;
       const amount = 16;
@@ -61,5 +61,6 @@ export default class MovieDbApi {
       rating: movie.vote_average,
       overview: movie.overview,
       genres: movie.genre_ids.reduce((acc, id) => `${acc}${genres[id]}, `, '').slice(0, -2),
+      viewInfo: false,
     });
 }

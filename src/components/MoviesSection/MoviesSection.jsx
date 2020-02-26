@@ -8,10 +8,10 @@ import styles from './MoviesSection.scss';
 
 class MoviesSection extends Component {
   async componentDidMount() {
-    const { fetchGenres, fetchTrending } = this.props;
+    const { fetchGenres } = this.props;
     await fetchGenres();
-    const { genres } = this.props;
-    fetchTrending(genres);
+    const { condition, genres, fetchMovies } = this.props;
+    fetchMovies(condition, genres);
   }
 
   render() {
@@ -42,8 +42,10 @@ MoviesSection.propTypes = {
   error: PropTypes.oneOf([null, Object]).isRequired,
   pending: PropTypes.bool.isRequired,
   genres: PropTypes.string.isRequired,
+  condition: PropTypes.string.isRequired,
+  query: PropTypes.string.isRequired,
   fetchGenres: PropTypes.func.isRequired,
-  fetchTrending: PropTypes.func.isRequired,
+  fetchMovies: PropTypes.func.isRequired,
   removeMovieInfo: PropTypes.func.isRequired,
   movie: PropTypes.shape({
     key: PropTypes.oneOf([undefined, String]),

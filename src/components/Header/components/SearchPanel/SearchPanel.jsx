@@ -6,15 +6,20 @@ import styles from './SearchPanel.scss';
 class SearchPanel extends Component {
   state = { value: '' };
 
-  handleChange = (event) => {
+  handleChange = async (event) => {
     const query = event.target.value;
-    const { fetchSearch, genres, setSearchQuery } = this.props;
     this.setState({ value: query });
-    if (query !== '') {
-      fetchSearch(query, genres);
-    }
+    const { setMoviesCondition, fetchMovies, genres } = this.props;
 
-    setSearchQuery(query);
+    if (query !== '') {
+      await setMoviesCondition('search');
+      const { condition } = this.props;
+      fetchMovies(condition, genres, query);
+    } else {
+      await setMoviesCondition('tranding');
+      const { condition } = this.props;
+      fetchMovies(condition, genres);
+    }
   }
 
   render() {
@@ -31,9 +36,10 @@ class SearchPanel extends Component {
 }
 
 SearchPanel.propTypes = {
-  fetchSearch: PropTypes.func.isRequired,
-  setSearchQuery: PropTypes.func.isRequired,
+  setMoviesCondition: PropTypes.func.isRequired,
+  fetchMovies: PropTypes.func.isRequired,
   genres: PropTypes.string.isRequired,
+  condition: PropTypes.string.isRequired,
 };
 
 export default SearchPanel;

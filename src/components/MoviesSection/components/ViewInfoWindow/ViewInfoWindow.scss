@@ -5,11 +5,24 @@
   top: 0;
   width: 250px;
   height: 320px;
-  padding: 10px 20px;
+  margin: 0 10px;
   border-radius: 6px;
-  background-color: rgba($color: #000, $alpha: 0.7);
   box-sizing: border-box;
-  display: none;
+  display: block;
+  overflow: hidden;
+}
+
+.poster {
+  width: 250px;
+}
+
+.wrapper {
+  position: absolute;
+  top: 0;
+  height: 320px;
+  padding: 10px 20px;
+  background-color: rgba($color: #000, $alpha: 0.7);
+  border-radius: 6px;
 }
 
 .close {

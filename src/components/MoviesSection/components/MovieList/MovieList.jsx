@@ -1,23 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import MovieItem from '../MovieItem';
-import WatchNowWindow from '../WatchNowWindow';
-import ViewInfoWindow from '../ViewInfoWindow';
+// import WatchNowWindow from '../WatchNowWindow';
+// import ViewInfoWindow from '../ViewInfoWindow';
 
 import styles from './MovieList.scss';
 
-const MovieList = ({ tranding, search, searchQuery }) => {
-  const movieArr = searchQuery ? search : tranding;
-  const movieItems = movieArr.map((film, index) => {
-    const id = index;
-    return (
-      <div className={styles.movie}>
-        <MovieItem key={film.id} film={film} />
+const MovieList = ({ movies }) => {
+  const movieItems = movies.map((film) => (
+    <div key={film.id} className={styles.movie}>
+      <MovieItem film={film} />
+      {/* }
         <WatchNowWindow key={`watch${id}`} film={film} />
-        <ViewInfoWindow key={`view${id}`} film={film} />
-      </div>
-    );
-  });
+        { film.viewInfo ? <ViewInfoWindow key={`view${id}`} film={film} /> : null }
+    */}
+    </div>
+  ));
 
   return (
     <div className={styles.container}>
@@ -27,9 +25,7 @@ const MovieList = ({ tranding, search, searchQuery }) => {
 };
 
 MovieList.propTypes = {
-  tranding: PropTypes.arrayOf.isRequired,
-  search: PropTypes.arrayOf.isRequired,
-  searchQuery: PropTypes.string.isRequired,
+  movies: PropTypes.arrayOf.isRequired,
 };
 
 export default MovieList;

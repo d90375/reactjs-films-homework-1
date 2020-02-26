@@ -1,12 +1,9 @@
 import { connect } from 'react-redux';
-import { getTranding } from '../../../../modules/trending/trendingSelector';
+import { getMovies } from '../../../../modules/movies/moviesSelector';
 import MovieList from './MovieList';
-import { getSearch, getSearchQuery } from '../../../../modules/search/searchSelector';
 
 const mapStateToProps = (state) => ({
-  tranding: getTranding(state),
-  search: getSearch(state),
-  searchQuery: getSearchQuery(state),
+  movies: getMovies(state),
 });
 
 export default connect(
