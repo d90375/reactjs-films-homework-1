@@ -1,28 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './ModalWindow.scss';
 
-class ModalWindow extends Component {
-  handleClick = async () => {
-    const { removeMovieInfo } = this.props;
-    removeMovieInfo();
-  };
+const ModalWindow = ({ movieKey, removeMovieInfo }) => (
+  <div className={styles.container}>
+    <iframe
+      className={styles.iframe}
+      title="trailer"
+      src={`https://www.youtube.com/embed/${movieKey}`}
+      frameBorder="0"
+      allowFullScreen
+    />
+    <button className={styles.close} type="button" onClick={removeMovieInfo}>&#215;</button>
+  </div>
+);
 
-  render() {
-    const { key } = this.props;
-    return (
-      <div className={styles.container}>
-        <iframe
-          className={styles.iframe}
-          title="trailer"
-          src={`https://www.youtube.com/embed/${key}`}
-          frameBorder="0"
-          allowFullScreen
-        />
-        <button className={styles.close} type="button" onClick={this.handleClick}>&#215;</button>
-      </div>
-    );
-  }
-}
+ModalWindow.propTypes = {
+  movieKey: PropTypes.string.isRequired,
+  removeMovieInfo: PropTypes.func.isRequired,
+};
 
 export default ModalWindow;

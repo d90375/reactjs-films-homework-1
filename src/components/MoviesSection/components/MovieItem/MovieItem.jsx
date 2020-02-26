@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import styles from './MovieItem.scss';
 
 const MovieItem = ({
@@ -18,5 +18,14 @@ const MovieItem = ({
     </div>
   </div>
 );
+
+MovieItem.propTypes = {
+  film: PropTypes.shape({
+    poster: PropTypes.string,
+    title: PropTypes.string,
+    genres: PropTypes.string,
+    rating: PropTypes.number,
+  }).isRequired,
+};
 
 export default MovieItem;

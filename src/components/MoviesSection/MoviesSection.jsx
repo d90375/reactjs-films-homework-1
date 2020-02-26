@@ -15,8 +15,9 @@ class MoviesSection extends Component {
   }
 
   render() {
-    const { error, pending, movie: { key } } = this.props;
-    console.log(key);
+    const {
+      error, pending, movie: { key }, removeMovieInfo,
+    } = this.props;
 
     if (error) {
       return (
@@ -30,11 +31,23 @@ class MoviesSection extends Component {
 
     return (
       <section className={styles.container}>
-        {key ? <ModalWindow key={key} /> : null}
+        {key ? <ModalWindow movieKey={key} removeMovieInfo={removeMovieInfo} /> : null}
         <MovieList />
       </section>
     );
   }
 }
+
+MoviesSection.propTypes = {
+  error: PropTypes.oneOf([null, Object]).isRequired,
+  pending: PropTypes.bool.isRequired,
+  genres: PropTypes.string.isRequired,
+  fetchGenres: PropTypes.func.isRequired,
+  fetchTrending: PropTypes.func.isRequired,
+  removeMovieInfo: PropTypes.func.isRequired,
+  movie: PropTypes.shape({
+    key: PropTypes.oneOf([undefined, String]),
+  }).isRequired,
+};
 
 export default MoviesSection;

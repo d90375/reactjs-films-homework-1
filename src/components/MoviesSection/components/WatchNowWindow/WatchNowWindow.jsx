@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Button from '../../../Button';
 
 import styles from './WatchNowWindow.scss';
@@ -19,5 +20,12 @@ class WatchNowWindow extends Component {
     );
   }
 }
+
+WatchNowWindow.propTypes = {
+  film: PropTypes.shape({
+    id: PropTypes.number,
+  }).isRequired,
+  fetchMovie: PropTypes.func.isRequired,
+};
 
 export default WatchNowWindow;

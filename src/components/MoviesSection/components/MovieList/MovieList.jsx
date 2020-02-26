@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import MovieItem from '../MovieItem';
 import WatchNowWindow from '../WatchNowWindow';
 import ViewInfoWindow from '../ViewInfoWindow';
@@ -23,6 +24,12 @@ const MovieList = ({ tranding, search, searchQuery }) => {
       {movieItems}
     </div>
   );
+};
+
+MovieList.propTypes = {
+  tranding: PropTypes.arrayOf.isRequired,
+  search: PropTypes.arrayOf.isRequired,
+  searchQuery: PropTypes.string.isRequired,
 };
 
 export default MovieList;

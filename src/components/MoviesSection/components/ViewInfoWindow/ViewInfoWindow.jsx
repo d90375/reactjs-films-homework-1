@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from '../../../Button';
 
 import styles from './ViewInfoWindow.scss';
@@ -21,5 +22,14 @@ const ViewInfoWindow = ({
     <Button color="primary">Watch Now</Button>
   </div>
 );
+
+ViewInfoWindow.propTypes = {
+  film: PropTypes.shape({
+    title: PropTypes.string,
+    genres: PropTypes.string,
+    rating: PropTypes.number,
+    overview: PropTypes.string,
+  }).isRequired,
+};
 
 export default ViewInfoWindow;

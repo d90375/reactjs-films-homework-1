@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './SearchPanel.scss';
 
@@ -28,5 +29,11 @@ class SearchPanel extends Component {
     );
   }
 }
+
+SearchPanel.propTypes = {
+  fetchSearch: PropTypes.func.isRequired,
+  setSearchQuery: PropTypes.func.isRequired,
+  genres: PropTypes.string.isRequired,
+};
 
 export default SearchPanel;
