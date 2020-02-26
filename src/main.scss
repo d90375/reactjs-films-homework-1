@@ -1,3 +1,17 @@
-html {
-  background-color: rgb(64, 224, 112);
+@import 'mixins';
+
+@include font-face("Helvetica Neue", "HelveticaNeue", normal);
+@include font-face("Helvetica Neue", "HelveticaNeue-Light", lighter);
+@include font-face("Helvetica Neue", "HelveticaNeue-Bold", bold);
+
+body {
+  font-size: 16px;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  background-color: rgb(32, 32, 32);
+}
+
+.app {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
 }

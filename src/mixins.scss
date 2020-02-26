@@ -1,0 +1,14 @@
+@mixin font-face($name, $file, $weight) {
+  @font-face {
+    font-family: "#{$name}";
+    src: url("assets/fonts/#{$file}.woff") format("woff");
+    font-weight: $weight;
+  }
+}
+
+@mixin outline-none {
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}

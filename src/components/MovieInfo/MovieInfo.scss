@@ -1,0 +1,39 @@
+.container {
+  .title {
+    margin: 0;
+    font-size: 30px;
+    line-height: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+
+    @media (max-width: 767px) {
+      text-align: center;
+    }
+  }
+
+  .about {
+    width: 100%;
+    text-align: center;
+
+    .genres {
+      display: inline-block;
+      padding: 0 20px 0 0;
+      color: #fff;
+      border-right: 1px solid #fff;
+
+      @media (max-width: 480px) {
+        padding-right: 10px;
+      }
+    }
+
+    .duration {
+      padding-left: 20px;
+      color: #fff;
+
+      @media (max-width: 480px) {
+        padding: 10px;
+      }
+    }
+  }
+}

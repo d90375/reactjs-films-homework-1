@@ -1,0 +1,30 @@
+@import '../../mixins.scss';
+
+.button {
+  min-width: 100px;
+  padding: 0 10px;
+  line-height: 30px;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+
+  @include outline-none();
+}
+
+.primary {
+  background-color: #0aaee4;
+  border: none;
+
+  &:hover {
+    background-color: #0aade4be;
+  }
+}
+
+.secondary {
+  background-color: transparent;
+  border: 2px solid #fff;
+
+  &:hover {
+    background-color: #ffffff38;
+  }
+}
