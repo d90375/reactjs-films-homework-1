@@ -6,7 +6,14 @@ class SearchPanel extends Component {
   state = { value: '' };
 
   handleChange = (event) => {
-    this.setState({ value: event.target.value });
+    const query = event.target.value;
+    const { fetchSearch, genres, setSearchQuery } = this.props;
+    this.setState({ value: query });
+    if (query !== '') {
+      fetchSearch(query, genres);
+    }
+
+    setSearchQuery(query);
   }
 
   render() {
