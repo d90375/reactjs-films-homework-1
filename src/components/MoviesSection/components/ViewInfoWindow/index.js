@@ -1,1 +1,1 @@
-export { default } from './ViewInfoWindow';
+export { default } from './ViewInfoWindowContainer';

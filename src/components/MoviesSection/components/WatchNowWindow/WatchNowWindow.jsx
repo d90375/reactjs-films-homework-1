@@ -5,21 +5,18 @@ import Button from '../../../Button';
 import styles from './WatchNowWindow.scss';
 
 class WatchNowWindow extends Component {
-  handleClick = async () => {
+  handleClick = () => {
     const { film: { id }, fetchMovie } = this.props;
-    await fetchMovie(id);
+    fetchMovie(id);
   };
 
-  openViewInfo = async () => {
-
-  }
-
   render() {
+    const { switchViewInfo } = this.props;
     return (
       <div className={styles.container}>
         <button className={styles.watch} type="button" onClick={this.handleClick}>&#9658;</button>
         <p>Watch Now</p>
-        <Button onClick={this.openViewInfo} color="secondary">View Info</Button>
+        <Button onClick={switchViewInfo} color="secondary">View Info</Button>
       </div>
     );
   }
@@ -30,6 +27,7 @@ WatchNowWindow.propTypes = {
     id: PropTypes.number,
   }).isRequired,
   fetchMovie: PropTypes.func.isRequired,
+  switchViewInfo: PropTypes.func.isRequired,
 };
 
 export default WatchNowWindow;

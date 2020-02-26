@@ -1,3 +1,5 @@
+import imageNotFound from '../assets/images/not-found.png';
+
 export default class MovieDbApi {
     apiBase = 'https://api.themoviedb.org/3/';
 
@@ -55,8 +57,8 @@ export default class MovieDbApi {
 
     transMovieData = (movie, genres) => ({
       id: movie.id,
-      poster: `https://image.tmdb.org/t/p/w342${movie.poster_path}`,
-      background: `https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`,
+      poster: movie.poster_path ? `https://image.tmdb.org/t/p/w342${movie.poster_path}` : imageNotFound,
+      background: movie.backdrop_path ? `https://image.tmdb.org/t/p/w1280${movie.backdrop_path}` : imageNotFound,
       title: movie.title,
       rating: movie.vote_average,
       overview: movie.overview,

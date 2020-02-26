@@ -9,12 +9,15 @@
   align-items: center;
   width: 250px;
   height: 220px;
-  margin: 0 10px;
   font-size: 16px;
   color: white;
   border-radius: 6px 6px 0 0;
   background-color: rgba($color: #000, $alpha: 0.7);
   box-sizing: border-box;
+
+  &:hover {
+    display: flex;
+  }
 }
 
 .watch {

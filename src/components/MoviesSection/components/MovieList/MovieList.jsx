@@ -8,13 +8,13 @@ import styles from './MovieList.scss';
 
 const MovieList = ({ movies }) => {
   const movieItems = movies.map((film) => (
-    <div key={film.id} className={styles.movie}>
-      <MovieItem film={film} />
-      {/* }
-        <WatchNowWindow key={`watch${id}`} film={film} />
-        { film.viewInfo ? <ViewInfoWindow key={`view${id}`} film={film} /> : null }
-    */}
-    </div>
+    // <div key={film.id} className={styles.movie}>
+    <MovieItem film={film} />
+
+    //   <WatchNowWindow key={`watch${id}`} film={film} />
+    //   { film.viewInfo ? <ViewInfoWindow key={`view${id}`} film={film} /> : null }
+
+    // </div>
   ));
 
   return (
