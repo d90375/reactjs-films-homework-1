@@ -4,22 +4,33 @@ import PropTypes from 'prop-types';
 import styles from './SearchPanel.scss';
 
 class SearchPanel extends Component {
-  state = { value: '' };
+  state = {
+    value: '',
+    timer: null,
+  };
 
   handleChange = async (event) => {
+    let { timer } = this.state;
+
+    if (timer) {
+      clearInterval(timer);
+    }
+
     const query = event.target.value;
     this.setState({ value: query });
     const { setMoviesCondition, fetchMovies, genres } = this.props;
-
-    if (query !== '') {
-      await setMoviesCondition('search');
-      const { condition } = this.props;
-      fetchMovies(condition, genres, query);
-    } else {
-      await setMoviesCondition('tranding');
-      const { condition } = this.props;
-      fetchMovies(condition, genres);
-    }
+    timer = setTimeout(async () => {
+      if (query !== '') {
+        await setMoviesCondition('search');
+        const { condition } = this.props;
+        fetchMovies(condition, genres, query);
+      } else {
+        await setMoviesCondition('tranding');
+        const { condition } = this.props;
+        fetchMovies(condition, genres);
+      }
+    }, 400);
+    this.setState({ timer });
   }
 
   render() {
