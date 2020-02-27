@@ -17,7 +17,12 @@ const ModalWindow = ({
 
   if (movieError) {
     return (
-      <div className={styles.container}>{`Error! ${movieError.message}`}</div>
+      <div className={styles.container}>
+        <div className={styles.message}>
+          {`Error! ${movieError.message}`}
+        </div>
+        <button className={styles.close} type="button" onClick={removeMovieInfo}>&#215;</button>
+      </div>
     );
   }
 
@@ -38,7 +43,7 @@ const ModalWindow = ({
 
   return (
     <div className={styles.container}>
-      <div className={styles.notFound}>
+      <div className={styles.message}>
         Trailer not found
       </div>
       <button className={styles.close} type="button" onClick={removeMovieInfo}>&#215;</button>
