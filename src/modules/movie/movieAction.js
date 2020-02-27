@@ -26,6 +26,7 @@ export const removeMovieInfo = () => ({
   type: REMOVE_MOVIE_INFO,
 });
 
+
 export function fetchMovie(id) {
   return (dispatch) => {
     dispatch(fetchMoviePending());

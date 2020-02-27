@@ -1,24 +1,56 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Spinner from '../../../Spinner';
 
 import styles from './ModalWindow.scss';
 
-const ModalWindow = ({ movieKey, removeMovieInfo }) => (
-  <div className={styles.container}>
-    <iframe
-      className={styles.iframe}
-      title="trailer"
-      src={`https://www.youtube.com/embed/${movieKey}`}
-      frameBorder="0"
-      allowFullScreen
-    />
-    <button className={styles.close} type="button" onClick={removeMovieInfo}>&#215;</button>
-  </div>
-);
+const ModalWindow = ({
+  movie, removeMovieInfo, moviePending, movieError,
+}) => {
+  if (moviePending) {
+    return (
+      <div className={styles.container}>
+        <Spinner />
+      </div>
+    );
+  }
+
+  if (movieError) {
+    return (
+      <div className={styles.container}>{`Error! ${movieError.message}`}</div>
+    );
+  }
+
+  if (movie) {
+    return (
+      <div className={styles.container}>
+        <iframe
+          className={styles.iframe}
+          title="trailer"
+          src={`https://www.youtube.com/embed/${movie.key}`}
+          frameBorder="0"
+          allowFullScreen
+        />
+        <button className={styles.close} type="button" onClick={removeMovieInfo}>&#215;</button>
+      </div>
+    );
+  }
+
+  return (
+    <div className={styles.container}>
+      <div className={styles.notFound}>
+        Trailer not found
+      </div>
+      <button className={styles.close} type="button" onClick={removeMovieInfo}>&#215;</button>
+    </div>
+  );
+};
 
 ModalWindow.propTypes = {
-  movieKey: PropTypes.string.isRequired,
+  movie: PropTypes.oneOf([null, Object]).isRequired,
   removeMovieInfo: PropTypes.func.isRequired,
+  moviePending: PropTypes.bool.isRequired,
+  movieError: PropTypes.oneOf([null, Object]).isRequired,
 };
 
 export default ModalWindow;

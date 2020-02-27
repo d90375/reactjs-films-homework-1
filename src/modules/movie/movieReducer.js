@@ -3,7 +3,8 @@ import {
 } from './movieAction';
 
 const initialState = {
-  movie: [],
+  isModalWindow: false,
+  movie: null,
   moviePending: false,
   movieError: null,
 };
@@ -13,6 +14,7 @@ const movieReducer = (state = initialState, action) => {
     case FETCH_MOVIE_PENDING:
       return {
         ...state,
+        isModalWindow: true,
         moviePending: true,
       };
 

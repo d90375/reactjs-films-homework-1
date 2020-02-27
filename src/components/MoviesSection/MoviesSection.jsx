@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import MovieList from './components/MovieList';
 import ModalWindow from './components/ModalWindow/ModalWindow';
+import Spinner from '../Spinner';
 
 import styles from './MoviesSection.scss';
 
@@ -16,7 +17,7 @@ class MoviesSection extends Component {
 
   render() {
     const {
-      error, pending, movie: { key }, removeMovieInfo,
+      error, pending, isModalWindow, movie, removeMovieInfo, moviePending, movieError,
     } = this.props;
 
     if (error) {
@@ -26,12 +27,24 @@ class MoviesSection extends Component {
     }
 
     if (pending) {
-      return <div className={styles.container}>Loading...</div>;
+      return (
+        <div className={styles.container}>
+          <Spinner />
+        </div>
+      );
     }
 
     return (
       <section className={styles.container}>
-        {key ? <ModalWindow movieKey={key} removeMovieInfo={removeMovieInfo} /> : null}
+        {isModalWindow ? (
+          <ModalWindow
+            movie={movie}
+            removeMovieInfo={removeMovieInfo}
+            moviePending={moviePending}
+            movieError={movieError}
+          />
+        )
+          : null }
         <MovieList />
       </section>
     );
@@ -43,13 +56,13 @@ MoviesSection.propTypes = {
   pending: PropTypes.bool.isRequired,
   genres: PropTypes.string.isRequired,
   condition: PropTypes.string.isRequired,
-  query: PropTypes.string.isRequired,
   fetchGenres: PropTypes.func.isRequired,
   fetchMovies: PropTypes.func.isRequired,
   removeMovieInfo: PropTypes.func.isRequired,
-  movie: PropTypes.shape({
-    key: PropTypes.oneOf([undefined, String]),
-  }).isRequired,
+  movie: PropTypes.oneOf([null, Object]).isRequired,
+  movieError: PropTypes.oneOf([null, Object]).isRequired,
+  moviePending: PropTypes.bool.isRequired,
+  isModalWindow: PropTypes.bool.isRequired,
 };
 
 export default MoviesSection;
