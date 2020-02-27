@@ -1,11 +1,12 @@
 .footer {
-  padding: 10px 0;
+  height: 100px;
+  padding: 20px 0;
   background-color: white;
 
   .title {
     font-size: 25px;
     letter-spacing: 2px;
-    line-height: 32px;
+    line-height: 30px;
     font-weight: bold;
     text-align: center;
     text-transform: uppercase;
@@ -15,7 +16,6 @@
   .copyright {
     font-size: 14px;
     letter-spacing: 1px;
-    line-height: 22px;
     color: #525252;
     text-align: center;
   }
