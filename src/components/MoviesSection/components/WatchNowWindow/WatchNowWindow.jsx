@@ -6,8 +6,8 @@ import styles from './WatchNowWindow.scss';
 
 class WatchNowWindow extends Component {
   handleClick = () => {
-    const { film: { id }, fetchMovie } = this.props;
-    fetchMovie(id);
+    const { film: { id }, fetchTrailer } = this.props;
+    fetchTrailer(id);
   };
 
   render() {
@@ -26,7 +26,7 @@ WatchNowWindow.propTypes = {
   film: PropTypes.shape({
     id: PropTypes.number,
   }).isRequired,
-  fetchMovie: PropTypes.func.isRequired,
+  fetchTrailer: PropTypes.func.isRequired,
   switchViewInfo: PropTypes.func.isRequired,
 };
 

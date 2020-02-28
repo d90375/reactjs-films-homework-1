@@ -17,7 +17,7 @@ class MoviesSection extends Component {
 
   render() {
     const {
-      error, pending, isModalWindow, movie, removeMovieInfo, moviePending, movieError,
+      error, pending, isModalWindow, trailer, removeTrailerInfo, trailerPending, trailerError,
     } = this.props;
 
     if (error) {
@@ -38,10 +38,10 @@ class MoviesSection extends Component {
       <section className={styles.container}>
         {isModalWindow ? (
           <ModalWindow
-            movie={movie}
-            removeMovieInfo={removeMovieInfo}
-            moviePending={moviePending}
-            movieError={movieError}
+            trailer={trailer}
+            removeTrailerInfo={removeTrailerInfo}
+            trailerPending={trailerPending}
+            trailerError={trailerError}
           />
         )
           : null }
@@ -58,10 +58,10 @@ MoviesSection.propTypes = {
   condition: PropTypes.string.isRequired,
   fetchGenres: PropTypes.func.isRequired,
   fetchMovies: PropTypes.func.isRequired,
-  removeMovieInfo: PropTypes.func.isRequired,
-  movie: PropTypes.oneOf([null, Object]).isRequired,
-  movieError: PropTypes.oneOf([null, Object]).isRequired,
-  moviePending: PropTypes.bool.isRequired,
+  removeTrailerInfo: PropTypes.func.isRequired,
+  trailer: PropTypes.oneOf([null, Object]).isRequired,
+  trailerError: PropTypes.oneOf([null, Object]).isRequired,
+  trailerPending: PropTypes.bool.isRequired,
   isModalWindow: PropTypes.bool.isRequired,
 };
 

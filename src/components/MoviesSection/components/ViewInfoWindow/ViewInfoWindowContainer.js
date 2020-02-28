@@ -1,20 +1,12 @@
 import { connect } from 'react-redux';
-import { getMovie, getMoviePending, getMovieError } from '../../../../modules/movie/movieSelector';
-import { fetchMovie } from '../../../../modules/movie/movieAction';
+import { fetchTrailer } from '../../../../modules/trailer/trailerAction';
 import ViewInfoWindow from './ViewInfoWindow';
 
-const mapStateToProps = (state) => ({
-  error: getMovieError(state),
-  pending: getMoviePending(state),
-  movie: getMovie(state),
-});
-
-
 const mapDispatchToProps = {
-  fetchMovie,
+  fetchTrailer,
 };
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps,
 )(ViewInfoWindow);

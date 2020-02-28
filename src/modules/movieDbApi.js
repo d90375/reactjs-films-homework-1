@@ -49,7 +49,7 @@ export default class MovieDbApi {
       return results.map((movie) => this.transMovieData(movie, genres));
     }
 
-    getMovie = async (id) => {
+    getTrailer = async (id) => {
       const res = await this.getResource(`movie/${id}/videos?api_key=${this.apiKey}&${this.lang}`);
       const { results } = res;
       return results[0];

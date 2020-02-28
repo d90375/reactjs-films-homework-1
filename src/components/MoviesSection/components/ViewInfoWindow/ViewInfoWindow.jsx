@@ -6,8 +6,8 @@ import styles from './ViewInfoWindow.scss';
 
 class ViewInfoWindow extends Component {
   handleClick = () => {
-    const { film: { id }, fetchMovie } = this.props;
-    fetchMovie(id);
+    const { film: { id }, fetchTrailer } = this.props;
+    fetchTrailer(id);
   };
 
   render() {
@@ -47,7 +47,7 @@ ViewInfoWindow.propTypes = {
     poster: PropTypes.string,
   }).isRequired,
   switchViewInfo: PropTypes.func.isRequired,
-  fetchMovie: PropTypes.func.isRequired,
+  fetchTrailer: PropTypes.func.isRequired,
 };
 
 export default ViewInfoWindow;

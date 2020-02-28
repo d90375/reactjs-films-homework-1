@@ -5,9 +5,9 @@ import Spinner from '../../../Spinner';
 import styles from './ModalWindow.scss';
 
 const ModalWindow = ({
-  movie, removeMovieInfo, moviePending, movieError,
+  trailer, removeTrailerInfo, trailerPending, trailerError,
 }) => {
-  if (moviePending) {
+  if (trailerPending) {
     return (
       <div className={styles.container}>
         <Spinner />
@@ -15,28 +15,28 @@ const ModalWindow = ({
     );
   }
 
-  if (movieError) {
+  if (trailerError) {
     return (
       <div className={styles.container}>
         <div className={styles.message}>
-          {`Error! ${movieError.message}`}
+          {`Error! ${trailerError.message}`}
         </div>
-        <button className={styles.close} type="button" onClick={removeMovieInfo}>&#215;</button>
+        <button className={styles.close} type="button" onClick={removeTrailerInfo}>&#215;</button>
       </div>
     );
   }
 
-  if (movie) {
+  if (trailer) {
     return (
       <div className={styles.container}>
         <iframe
           className={styles.iframe}
           title="trailer"
-          src={`https://www.youtube.com/embed/${movie.key}`}
+          src={`https://www.youtube.com/embed/${trailer.key}`}
           frameBorder="0"
           allowFullScreen
         />
-        <button className={styles.close} type="button" onClick={removeMovieInfo}>&#215;</button>
+        <button className={styles.close} type="button" onClick={removeTrailerInfo}>&#215;</button>
       </div>
     );
   }
@@ -46,16 +46,16 @@ const ModalWindow = ({
       <div className={styles.message}>
         Trailer not found
       </div>
-      <button className={styles.close} type="button" onClick={removeMovieInfo}>&#215;</button>
+      <button className={styles.close} type="button" onClick={removeTrailerInfo}>&#215;</button>
     </div>
   );
 };
 
 ModalWindow.propTypes = {
-  movie: PropTypes.oneOf([null, Object]).isRequired,
-  removeMovieInfo: PropTypes.func.isRequired,
-  moviePending: PropTypes.bool.isRequired,
-  movieError: PropTypes.oneOf([null, Object]).isRequired,
+  trailer: PropTypes.oneOf([null, Object]).isRequired,
+  removeTrailerInfo: PropTypes.func.isRequired,
+  trailerPending: PropTypes.bool.isRequired,
+  trailerError: PropTypes.oneOf([null, Object]).isRequired,
 };
 
 export default ModalWindow;
