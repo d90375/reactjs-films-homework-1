@@ -31,7 +31,7 @@ class MovieItem extends Component {
           <img className={styles.poster} src={poster} alt="poster" />
           <div className={styles.info}>
             <h3 className={styles.title}>
-              {title.length < 18 ? title : `${title.substring(0, 15)}...`}
+              {title.length < 15 ? title : `${title.substring(0, 13)}...`}
             </h3>
             <p className={styles.rating}>{rating}</p>
             <p className={styles.genres}>{genres}</p>

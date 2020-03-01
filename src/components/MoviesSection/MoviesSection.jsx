@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import MovieList from './components/MovieList';
 import ModalWindow from './components/ModalWindow/ModalWindow';
 import Spinner from '../Spinner';
+import FilterTabs from './components/FilterTabs/FilterTabs';
 
 import styles from './MoviesSection.scss';
 
@@ -17,7 +18,8 @@ class MoviesSection extends Component {
 
   render() {
     const {
-      error, pending, isModalWindow, trailer, removeTrailerInfo, trailerPending, trailerError,
+      error, pending, isModalWindow, trailer, removeTrailerInfo,
+      trailerPending, trailerError, genres,
     } = this.props;
 
     if (error) {
@@ -45,6 +47,7 @@ class MoviesSection extends Component {
           />
         )
           : null }
+        <FilterTabs genres={genres} />
         <MovieList />
       </section>
     );
@@ -52,17 +55,25 @@ class MoviesSection extends Component {
 }
 
 MoviesSection.propTypes = {
-  error: PropTypes.oneOf([null, Object]).isRequired,
+  error: PropTypes.shape({
+    message: PropTypes.string.isRequired,
+  }),
   pending: PropTypes.bool.isRequired,
-  genres: PropTypes.string.isRequired,
+  genres: PropTypes.arrayOf(PropTypes.string).isRequired,
   condition: PropTypes.string.isRequired,
   fetchGenres: PropTypes.func.isRequired,
   fetchMovies: PropTypes.func.isRequired,
   removeTrailerInfo: PropTypes.func.isRequired,
-  trailer: PropTypes.oneOf([null, Object]).isRequired,
-  trailerError: PropTypes.oneOf([null, Object]).isRequired,
+  trailer: PropTypes.shape({}),
+  trailerError: PropTypes.shape({}),
   trailerPending: PropTypes.bool.isRequired,
   isModalWindow: PropTypes.bool.isRequired,
+};
+
+MoviesSection.defaultProps = {
+  error: null,
+  trailer: null,
+  trailerError: null,
 };
 
 export default MoviesSection;

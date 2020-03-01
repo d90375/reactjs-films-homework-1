@@ -1,4 +1,6 @@
-import { applyMiddleware, createStore, combineReducers } from 'redux';
+import {
+  applyMiddleware, createStore, combineReducers, compose,
+} from 'redux';
 import thunk from 'redux-thunk';
 import moviesReducer from './movies/moviesReducer';
 import genresReducer from './genres/genresReducer';
@@ -10,4 +12,5 @@ const rootReducer = combineReducers({
   trailer: trailerReducer,
 });
 
-export default createStore(rootReducer, applyMiddleware(thunk));
+export default createStore(rootReducer, compose(applyMiddleware(thunk),
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));

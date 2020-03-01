@@ -6,7 +6,7 @@ import styles from './MovieList.scss';
 
 const MovieList = ({ movies }) => {
   const movieItems = movies.map((film) => (
-    <MovieItem film={film} />
+    <MovieItem key={film.id} film={film} />
   ));
 
   return (
@@ -18,7 +18,7 @@ const MovieList = ({ movies }) => {
 };
 
 MovieList.propTypes = {
-  movies: PropTypes.arrayOf.isRequired,
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default MovieList;

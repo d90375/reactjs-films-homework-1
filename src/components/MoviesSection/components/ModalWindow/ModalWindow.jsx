@@ -52,10 +52,19 @@ const ModalWindow = ({
 };
 
 ModalWindow.propTypes = {
-  trailer: PropTypes.oneOf([null, Object]).isRequired,
+  trailer: PropTypes.shape({
+    key: PropTypes.string,
+  }),
   removeTrailerInfo: PropTypes.func.isRequired,
   trailerPending: PropTypes.bool.isRequired,
-  trailerError: PropTypes.oneOf([null, Object]).isRequired,
+  trailerError: PropTypes.shape({
+    message: PropTypes.string,
+  }),
+};
+
+ModalWindow.defaultProps = {
+  trailer: null,
+  trailerError: null,
 };
 
 export default ModalWindow;

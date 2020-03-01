@@ -49,7 +49,7 @@ class SearchPanel extends Component {
 SearchPanel.propTypes = {
   setMoviesCondition: PropTypes.func.isRequired,
   fetchMovies: PropTypes.func.isRequired,
-  genres: PropTypes.string.isRequired,
+  genres: PropTypes.arrayOf(PropTypes.string).isRequired,
   condition: PropTypes.string.isRequired,
 };
 
