@@ -4,7 +4,7 @@ import FilterTab from '../FilterTab';
 
 import styles from './FilterTabs.scss';
 
-const FilterTabs = ({ genres }) => {
+const FilterTabs = ({ genres, fetchByFilter }) => {
   let options;
 
   if (genres) {
@@ -13,10 +13,16 @@ const FilterTabs = ({ genres }) => {
 
   return (
     <div className={styles.container}>
-      <FilterTab className={styles.active}>Trending</FilterTab>
-      <FilterTab className={styles.active}>Top Rated</FilterTab>
-      <FilterTab className={styles.active}>Coming soon</FilterTab>
-      <select className={styles.select} defaultValue="Genre">
+      <FilterTab className={styles.active} fetchByFilter={fetchByFilter}>
+        Trending
+      </FilterTab>
+      <FilterTab className={styles.active} fetchByFilter={fetchByFilter}>
+        Top Rated
+      </FilterTab>
+      <FilterTab className={styles.active} fetchByFilter={fetchByFilter}>
+        Coming soon
+      </FilterTab>
+      <select className={styles.select} defaultValue="Genre" onChange={(e) => fetchByFilter(e.target.value)}>
         <option value="Genre" disabled hidden>Genre</option>
         {options}
       </select>
@@ -26,6 +32,7 @@ const FilterTabs = ({ genres }) => {
 
 FilterTabs.propTypes = {
   genres: PropTypes.arrayOf(PropTypes.string).isRequired,
+  fetchByFilter: PropTypes.func.isRequired,
 };
 
 export default FilterTabs;

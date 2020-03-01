@@ -1,1 +1,1 @@
-export { default } from './FilterTabs';
+export { default } from './FilterTabsContainer';

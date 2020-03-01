@@ -16,6 +16,11 @@ class MoviesSection extends Component {
     fetchMovies(condition, genres);
   }
 
+  fetchByFilter = async (filter) => {
+    const { setMoviesCondition } = this.props;
+    await setMoviesCondition(filter);
+  };
+
   render() {
     const {
       error, pending, isModalWindow, trailer, removeTrailerInfo,
@@ -47,7 +52,7 @@ class MoviesSection extends Component {
           />
         )
           : null }
-        <FilterTabs genres={genres} />
+        <FilterTabs genres={genres} fetchByFilter={this.fetchByFilter} />
         <MovieList />
       </section>
     );
@@ -68,6 +73,7 @@ MoviesSection.propTypes = {
   trailerError: PropTypes.shape({}),
   trailerPending: PropTypes.bool.isRequired,
   isModalWindow: PropTypes.bool.isRequired,
+  setMoviesCondition: PropTypes.func.isRequired,
 };
 
 MoviesSection.defaultProps = {

@@ -4,7 +4,7 @@ import { getGenres } from '../../modules/genres/genresSelector';
 import {
   getTrailer, getTrailerPending, getTrailerError, getModalWindow,
 } from '../../modules/trailer/trailerSelector';
-import { fetchMovies } from '../../modules/movies/moviesAction';
+import { fetchMovies, setMoviesCondition } from '../../modules/movies/moviesAction';
 import { fetchGenres } from '../../modules/genres/genresAction';
 import { removeTrailerInfo } from '../../modules/trailer/trailerAction';
 import MoviesSection from './MoviesSection';
@@ -25,6 +25,7 @@ const mapDispatchToProps = {
   fetchMovies,
   fetchGenres,
   removeTrailerInfo,
+  setMoviesCondition,
 };
 
 export default connect(
