@@ -25,7 +25,7 @@ class MoviesSection extends Component {
   render() {
     const {
       error, pending, isModalWindow, trailer, removeTrailerInfo,
-      trailerPending, trailerError, genres,
+      trailerPending, trailerError, genres, condition,
     } = this.props;
 
     if (error) {
@@ -53,7 +53,11 @@ class MoviesSection extends Component {
           />
         )
           : null }
-        <FilterTabs genres={genres} fetchByFilter={this.fetchByFilter} />
+        <FilterTabs
+          genres={genres}
+          fetchByFilter={this.fetchByFilter}
+          condition={condition}
+        />
         <MovieList />
       </section>
     );
