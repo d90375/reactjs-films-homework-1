@@ -11,8 +11,6 @@ const FilterTabs = (props) => {
 
   const clazz = Number(condition) ? `${styles.select} ${styles.active}` : styles.select;
 
-  console.log(clazz);
-
   let options;
 
   if (genres) {

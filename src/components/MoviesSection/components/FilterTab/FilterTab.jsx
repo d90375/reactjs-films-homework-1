@@ -6,9 +6,9 @@ import styles from './FilterTab.scss';
 const FilterTab = ({ children, fetchByFilter, condition }) => {
   const clazz = condition === children ? `${styles.tab} ${styles.active}` : styles.tab;
   return (
-    <p className={clazz} onClick={(e) => fetchByFilter(e.target.innerText)}>
+    <button type="button" className={clazz} onClick={(e) => fetchByFilter(e.target.innerText)}>
       {children}
-    </p>
+    </button>
   );
 };
 
