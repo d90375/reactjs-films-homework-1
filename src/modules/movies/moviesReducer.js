@@ -4,7 +4,7 @@ import {
 
 const initialState = {
   query: '',
-  condition: 'tranding',
+  condition: 'Tranding',
   movies: [],
   moviesPending: false,
   moviesError: null,

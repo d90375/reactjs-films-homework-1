@@ -7,7 +7,6 @@ import FilterTabs from './components/FilterTabs/FilterTabs';
 
 import styles from './MoviesSection.scss';
 
-
 class MoviesSection extends Component {
   async componentDidMount() {
     const { fetchGenres } = this.props;
@@ -19,6 +18,8 @@ class MoviesSection extends Component {
   fetchByFilter = async (filter) => {
     const { setMoviesCondition } = this.props;
     await setMoviesCondition(filter);
+    const { condition, genres, fetchMovies } = this.props;
+    fetchMovies(condition, genres);
   };
 
   render() {

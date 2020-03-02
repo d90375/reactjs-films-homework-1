@@ -38,6 +38,30 @@ export default class MovieDbApi {
       return results.map((movie) => this.transMovieData(movie, genres));
     }
 
+    getComingSoon = async (genres) => {
+      const res = await this.getResource(`movie/upcoming?api_key=${this.apiKey}&${this.lang}&page=1`);
+      const { results } = res;
+      const amount = 16;
+      results.length = amount;
+      return results.map((movie) => this.transMovieData(movie, genres));
+    }
+
+    getTopRated = async (genres) => {
+      const res = await this.getResource(`movie/top_rated?api_key=${this.apiKey}&${this.lang}&page=1`);
+      const { results } = res;
+      const amount = 16;
+      results.length = amount;
+      return results.map((movie) => this.transMovieData(movie, genres));
+    }
+
+    getByGenre = async (genre, genres) => {
+      const res = await this.getResource(`discover/movie?api_key=${this.apiKey}&${this.lang}&sort_by=vote_count.desc&include_adult=false&include_video=false&page=1&with_genres=${genre}`);
+      const { results } = res;
+      const amount = 16;
+      results.length = amount;
+      return results.map((movie) => this.transMovieData(movie, genres));
+    }
+
     getSearch = async (genres, query) => {
       const res = await this.getResource(`search/movie?api_key=${this.apiKey}&${this.lang}&query=${query}&page=1&include_adult=false`);
       const { results } = res;

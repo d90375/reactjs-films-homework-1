@@ -35,12 +35,25 @@ export function fetchMovies(condition, genres, query) {
     let fetchQuery;
 
     switch (condition) {
-      case 'search':
+      case 'Search':
         fetchQuery = movieDbApi.getSearch;
         break;
 
-      default:
+      case 'Coming soon':
+        fetchQuery = movieDbApi.getComingSoon;
+        break;
+
+      case 'Top Rated':
+        fetchQuery = movieDbApi.getTopRated;
+        break;
+
+      case 'Trending': {
         fetchQuery = movieDbApi.getTrending;
+        break;
+      }
+
+      default:
+        fetchQuery = movieDbApi.getByGenre.bind(null, condition);
         break;
     }
 

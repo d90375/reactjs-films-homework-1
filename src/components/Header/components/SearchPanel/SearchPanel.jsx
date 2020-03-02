@@ -21,11 +21,11 @@ class SearchPanel extends Component {
     const { setMoviesCondition, fetchMovies, genres } = this.props;
     timer = setTimeout(async () => {
       if (query !== '') {
-        await setMoviesCondition('search');
+        await setMoviesCondition('Search');
         const { condition } = this.props;
         fetchMovies(condition, genres, query);
       } else {
-        await setMoviesCondition('tranding');
+        await setMoviesCondition('Tranding');
         const { condition } = this.props;
         fetchMovies(condition, genres);
       }

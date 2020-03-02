@@ -8,7 +8,7 @@ const FilterTabs = ({ genres, fetchByFilter }) => {
   let options;
 
   if (genres) {
-    options = genres.map((genre) => <option key={genre}>{genre}</option>);
+    options = genres.map((genre, index) => <option key={genre} value={index}>{genre}</option>);
   }
 
   return (
