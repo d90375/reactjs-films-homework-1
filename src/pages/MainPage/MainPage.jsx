@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from '../../components/Header';
-import MoviesSection from '../../components/MoviesSection';
+import Header from '../../containers/Header';
+import MoviesSection from '../../containers/MoviesSection';
 import Footer from '../../components/Footer';
 
 const MainPage = () => (

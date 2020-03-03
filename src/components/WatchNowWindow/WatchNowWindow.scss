@@ -1,0 +1,38 @@
+@import '../../mixins.scss';
+
+.container {
+  position: absolute;
+  top: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 220px;
+  font-size: 16px;
+  color: white;
+  border-radius: 6px 6px 0 0;
+  background-color: rgba($color: #000, $alpha: 0.7);
+  box-sizing: border-box;
+
+  &:hover {
+    display: flex;
+  }
+}
+
+.watch {
+  padding: 0 14px 0 18px;
+  font-size: 26px;
+  line-height: 60px;
+  background-color: #3bb4e0;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+
+  @include outline-none;
+
+  &:hover {
+    background-color: #3bb4e0cb;
+  }
+}
