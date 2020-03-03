@@ -3,12 +3,12 @@ import MovieDbApi from '../movieDbApi';
 
 const movieDbApi = new MovieDbApi();
 
-export const FETCH_GENRES_PENDING = 'FETCH_GENRES_PENDING';
+export const FETCH_GENRES_IS_LOADING = 'FETCH_GENRES_IS_LOADING';
 export const FETCH_GENRES_SUCCESS = 'FETCH_GENRES_SUCCESS';
 export const FETCH_GENRES_ERROR = 'FETCH_GENRES_ERROR';
 
-export const fetchGenresPending = () => ({
-  type: FETCH_GENRES_PENDING,
+export const fetchGenresIsLoading = () => ({
+  type: FETCH_GENRES_IS_LOADING,
 });
 
 export const fetchGenresSuccess = (content) => ({
@@ -23,7 +23,7 @@ export const fetchGenresError = (error) => ({
 
 export function fetchGenres() {
   return (dispatch) => {
-    dispatch(fetchGenresPending());
+    dispatch(fetchGenresIsLoading());
     return movieDbApi.getGenres()
       .then((res) => {
         dispatch(fetchGenresSuccess(res));

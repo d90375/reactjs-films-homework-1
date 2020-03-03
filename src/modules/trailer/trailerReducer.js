@@ -1,34 +1,34 @@
 import {
-  FETCH_TRAILER_PENDING, FETCH_TRAILER_SUCCESS, FETCH_TRAILER_ERROR, REMOVE_TRAILER_INFO,
+  FETCH_TRAILER_IS_LOADING, FETCH_TRAILER_SUCCESS, FETCH_TRAILER_ERROR, REMOVE_TRAILER_INFO,
 } from './trailerAction';
 
 const initialState = {
-  isModalWindow: false,
+  isModalOpened: false,
   trailer: null,
-  trailerPending: false,
+  trailerIsLoading: false,
   trailerError: null,
 };
 
 const trailerReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_TRAILER_PENDING:
+    case FETCH_TRAILER_IS_LOADING:
       return {
         ...state,
-        isModalWindow: true,
-        trailerPending: true,
+        isModalOpened: true,
+        trailerIsLoading: true,
       };
 
     case FETCH_TRAILER_SUCCESS:
       return {
         ...state,
-        trailerPending: false,
+        trailerIsLoading: false,
         trailer: action.payload,
       };
 
     case FETCH_TRAILER_ERROR:
       return {
         ...state,
-        trailerPending: false,
+        trailerIsLoading: false,
         trailerError: action.error,
       };
 

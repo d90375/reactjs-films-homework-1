@@ -30,47 +30,38 @@ export default class MovieDbApi {
       }, []);
     }
 
-    getTrending = async (genres) => {
-      const res = await this.getResource(`movie/popular?api_key=${this.apiKey}&${this.lang}&page=1`);
-      const { results } = res;
-      const amount = 16;
-      results.length = amount;
-      return results.map((movie) => this.transMovieData(movie, genres));
-    }
-
-    getComingSoon = async (genres) => {
-      const res = await this.getResource(`movie/upcoming?api_key=${this.apiKey}&${this.lang}&page=1`);
-      const { results } = res;
-      const amount = 16;
-      results.length = amount;
-      return results.map((movie) => this.transMovieData(movie, genres));
-    }
-
-    getTopRated = async (genres) => {
-      const res = await this.getResource(`movie/top_rated?api_key=${this.apiKey}&${this.lang}&page=1`);
-      const { results } = res;
-      const amount = 16;
-      results.length = amount;
-      return results.map((movie) => this.transMovieData(movie, genres));
-    }
-
-    getByGenre = async (genre, genres) => {
-      const res = await this.getResource(`discover/movie?api_key=${this.apiKey}&${this.lang}&sort_by=vote_count.desc&include_adult=false&include_video=false&page=1&with_genres=${genre}`);
-      const { results } = res;
-      const amount = 16;
-      results.length = amount;
-      return results.map((movie) => this.transMovieData(movie, genres));
-    }
-
-    getSearch = async (genres, query) => {
-      const res = await this.getResource(`search/movie?api_key=${this.apiKey}&${this.lang}&query=${query}&page=1&include_adult=false`);
+    handleResult = (res, genres) => {
       const { results } = res;
       const amount = 16;
       if (results.length > amount) {
         results.length = amount;
       }
+      return results.map((movie) => this.transformMovieData(movie, genres));
+    }
 
-      return results.map((movie) => this.transMovieData(movie, genres));
+    getTrending = async (genres) => {
+      const res = await this.getResource(`movie/popular?api_key=${this.apiKey}&${this.lang}&page=1`);
+      return this.handleResult(res, genres);
+    }
+
+    getComingSoon = async (genres) => {
+      const res = await this.getResource(`movie/upcoming?api_key=${this.apiKey}&${this.lang}&page=1`);
+      return this.handleResult(res, genres);
+    }
+
+    getTopRated = async (genres) => {
+      const res = await this.getResource(`movie/top_rated?api_key=${this.apiKey}&${this.lang}&page=1`);
+      return this.handleResult(res, genres);
+    }
+
+    getByGenre = async (genre, genres) => {
+      const res = await this.getResource(`discover/movie?api_key=${this.apiKey}&${this.lang}&sort_by=vote_count.desc&include_adult=false&include_video=false&page=1&with_genres=${genre}`);
+      return this.handleResult(res, genres);
+    }
+
+    getSearch = async (genres, query) => {
+      const res = await this.getResource(`search/movie?api_key=${this.apiKey}&${this.lang}&query=${query}&page=1&include_adult=false`);
+      return this.handleResult(res, genres);
     }
 
     getTrailer = async (id) => {
@@ -79,7 +70,7 @@ export default class MovieDbApi {
       return results[0];
     }
 
-    transMovieData = (movie, genres) => ({
+    transformMovieData = (movie, genres) => ({
       id: movie.id,
       poster: movie.poster_path ? `https://image.tmdb.org/t/p/w342${movie.poster_path}` : imageNotFound,
       background: movie.backdrop_path ? `https://image.tmdb.org/t/p/w1280${movie.backdrop_path}` : imageNotFound,

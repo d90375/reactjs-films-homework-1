@@ -1,30 +1,30 @@
-import { FETCH_GENRES_PENDING, FETCH_GENRES_SUCCESS, FETCH_GENRES_ERROR } from './genresAction';
+import { FETCH_GENRES_IS_LOADING, FETCH_GENRES_SUCCESS, FETCH_GENRES_ERROR } from './genresAction';
 
 const initialState = {
   genres: [],
-  genresPending: false,
+  genresIsLoading: false,
   genresError: null,
 };
 
 const genresReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_GENRES_PENDING:
+    case FETCH_GENRES_IS_LOADING:
       return {
         ...state,
-        genresPending: true,
+        genresIsLoading: true,
       };
 
     case FETCH_GENRES_SUCCESS:
       return {
         ...state,
-        genresPending: false,
+        genresIsLoading: false,
         genres: action.payload,
       };
 
     case FETCH_GENRES_ERROR:
       return {
         ...state,
-        genresPending: false,
+        genresIsLoading: false,
         genresError: action.error,
       };
 

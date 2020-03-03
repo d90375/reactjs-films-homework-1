@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import {
-  getMoviesPending, getMoviesError, getMoviesCondition, getMovies,
+  getMoviesIsLoading, getMoviesError, getMoviesCondition, getMovies,
 } from '../../modules/movies/moviesSelector';
 import { getGenres } from '../../modules/genres/genresSelector';
 import {
-  getTrailer, getTrailerPending, getTrailerError, getModalWindow,
+  getTrailer, getTrailerIsLoading, getTrailerError, getModalOpened,
 } from '../../modules/trailer/trailerSelector';
 import { fetchTrailer, removeTrailerInfo } from '../../modules/trailer/trailerAction';
 import { fetchMovies, setMoviesCondition } from '../../modules/movies/moviesAction';
@@ -14,13 +14,13 @@ import MoviesSection from './MoviesSection';
 
 const mapStateToProps = (state) => ({
   error: getMoviesError(state),
-  pending: getMoviesPending(state),
+  isLoading: getMoviesIsLoading(state),
   movies: getMovies(state),
   condition: getMoviesCondition(state),
   genres: getGenres(state),
-  isModalWindow: getModalWindow(state),
+  isModalOpened: getModalOpened(state),
   trailer: getTrailer(state),
-  trailerPending: getTrailerPending(state),
+  trailerIsLoading: getTrailerIsLoading(state),
   trailerError: getTrailerError(state),
 });
 

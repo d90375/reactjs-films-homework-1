@@ -9,7 +9,7 @@ const FilterTabs = (props) => {
 
   const defaultValue = Number(condition) ? condition : 'Genre';
 
-  const clazz = Number(condition) ? `${styles.select} ${styles.active}` : styles.select;
+  const className = Number(condition) ? `${styles.select} ${styles.active}` : styles.select;
 
   let options;
 
@@ -29,7 +29,7 @@ const FilterTabs = (props) => {
         Coming soon
       </FilterTab>
       <select
-        className={clazz}
+        className={className}
         defaultValue={defaultValue}
         onChange={(e) => fetchByFilter(e.target.value)}
       >

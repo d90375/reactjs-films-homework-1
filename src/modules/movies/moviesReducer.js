@@ -1,34 +1,34 @@
 import {
-  FETCH_MOVIES_PENDING, FETCH_MOVIES_SUCCESS, FETCH_MOVIES_ERROR, SET_MOVIES_CONDITION,
+  FETCH_MOVIES_IS_LOADING, FETCH_MOVIES_SUCCESS, FETCH_MOVIES_ERROR, SET_MOVIES_CONDITION,
 } from './moviesAction';
 
 const initialState = {
   query: '',
   condition: 'Trending',
   movies: [],
-  moviesPending: false,
+  moviesIsLoading: false,
   moviesError: null,
 };
 
 const moviesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_MOVIES_PENDING:
+    case FETCH_MOVIES_IS_LOADING:
       return {
         ...state,
-        moviesPending: true,
+        moviesIsLoading: true,
       };
 
     case FETCH_MOVIES_SUCCESS:
       return {
         ...state,
-        moviesPending: false,
+        moviesIsLoading: false,
         movies: action.payload,
       };
 
     case FETCH_MOVIES_ERROR:
       return {
         ...state,
-        moviesPending: false,
+        moviesIsLoading: false,
         moviesError: action.error,
       };
 

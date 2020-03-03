@@ -3,14 +3,14 @@ import MovieDbApi from '../movieDbApi';
 
 const movieDbApi = new MovieDbApi();
 
-export const FETCH_MOVIES_PENDING = 'FETCH_MOVIES_PENDING';
+export const FETCH_MOVIES_IS_LOADING = 'FETCH_MOVIES_IS_LOADING';
 export const FETCH_MOVIES_SUCCESS = 'FETCH_MOVIES_SUCCESS';
 export const FETCH_MOVIES_ERROR = 'FETCH_MOVIES_ERROR';
 export const SET_MOVIES_CONDITION = 'SET_MOVIES_CONDITION';
 export const SET_SEARCH_QUERY = 'SET_SEARCH_QUERY';
 
-export const fetchMoviesPending = () => ({
-  type: FETCH_MOVIES_PENDING,
+export const fetchMoviesIsLoading = () => ({
+  type: FETCH_MOVIES_IS_LOADING,
 });
 
 export const fetchMoviesSuccess = (content) => ({
@@ -30,7 +30,7 @@ export const setMoviesCondition = (condition) => ({
 
 export function fetchMovies(condition, genres, query) {
   return (dispatch) => {
-    dispatch(fetchMoviesPending());
+    dispatch(fetchMoviesIsLoading());
 
     let fetchQuery;
 

@@ -3,13 +3,13 @@ import MovieDbApi from '../movieDbApi';
 
 const movieDbApi = new MovieDbApi();
 
-export const FETCH_TRAILER_PENDING = 'FETCH_TRAILER_PENDING';
+export const FETCH_TRAILER_IS_LOADING = 'FETCH_TRAILER_IS_LOADING';
 export const FETCH_TRAILER_SUCCESS = 'FETCH_TRAILER_SUCCESS';
 export const FETCH_TRAILER_ERROR = 'FETCH_TRAILER_ERROR';
 export const REMOVE_TRAILER_INFO = 'REMOVE_TRAILER_INFO';
 
-export const fetchTrailerPending = () => ({
-  type: FETCH_TRAILER_PENDING,
+export const fetchTrailerIsLoading = () => ({
+  type: FETCH_TRAILER_IS_LOADING,
 });
 
 export const fetchTrailerSuccess = (content) => ({
@@ -29,7 +29,7 @@ export const removeTrailerInfo = () => ({
 
 export function fetchTrailer(id) {
   return (dispatch) => {
-    dispatch(fetchTrailerPending());
+    dispatch(fetchTrailerIsLoading());
     return movieDbApi.getTrailer(id)
       .then((res) => {
         dispatch(fetchTrailerSuccess(res));

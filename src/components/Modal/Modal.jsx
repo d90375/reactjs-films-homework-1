@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Spinner from '../Spinner';
 
-import styles from './ModalWindow.scss';
+import styles from './Modal.scss';
 
-const ModalWindow = ({
-  trailer, removeTrailerInfo, trailerPending, trailerError,
+const Modal = ({
+  trailer, removeTrailerInfo, trailerIsLoading, trailerError,
 }) => {
-  if (trailerPending) {
+  if (trailerIsLoading) {
     return (
       <div className={styles.container}>
         <Spinner />
@@ -51,20 +51,20 @@ const ModalWindow = ({
   );
 };
 
-ModalWindow.propTypes = {
+Modal.propTypes = {
   trailer: PropTypes.shape({
     key: PropTypes.string,
   }),
   removeTrailerInfo: PropTypes.func.isRequired,
-  trailerPending: PropTypes.bool.isRequired,
+  trailerIsLoading: PropTypes.bool.isRequired,
   trailerError: PropTypes.shape({
     message: PropTypes.string,
   }),
 };
 
-ModalWindow.defaultProps = {
+Modal.defaultProps = {
   trailer: null,
   trailerError: null,
 };
 
-export default ModalWindow;
+export default Modal;

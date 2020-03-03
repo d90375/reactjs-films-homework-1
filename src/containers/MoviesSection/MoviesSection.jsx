@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import MovieList from '../../components/MovieList';
-import ModalWindow from '../../components/ModalWindow';
+import Modal from '../../components/Modal';
 import Spinner from '../../components/Spinner';
 import FilterTabs from '../../components/FilterTabs';
 
 import styles from './MoviesSection.scss';
 
 class MoviesSection extends Component {
-  async componentDidMount() {
+  componentDidMount() {
     const { fetchGenres } = this.props;
-    await fetchGenres();
+    fetchGenres();
     const { condition, genres, fetchMovies } = this.props;
     fetchMovies(condition, genres);
   }
@@ -24,8 +24,8 @@ class MoviesSection extends Component {
 
   render() {
     const {
-      error, pending, isModalWindow, trailer, removeTrailerInfo,
-      trailerPending, trailerError, genres, condition, movies, fetchTrailer,
+      error, isLoading, isModalOpened, trailer, removeTrailerInfo,
+      trailerIsLoading, trailerError, genres, condition, movies, fetchTrailer,
     } = this.props;
 
     if (error) {
@@ -34,7 +34,7 @@ class MoviesSection extends Component {
       );
     }
 
-    if (pending) {
+    if (isLoading) {
       return (
         <div className={styles.container}>
           <Spinner />
@@ -44,11 +44,11 @@ class MoviesSection extends Component {
 
     return (
       <section className={styles.container}>
-        {isModalWindow ? (
-          <ModalWindow
+        {isModalOpened ? (
+          <Modal
             trailer={trailer}
             removeTrailerInfo={removeTrailerInfo}
-            trailerPending={trailerPending}
+            trailerIsLoading={trailerIsLoading}
             trailerError={trailerError}
           />
         )
@@ -68,7 +68,7 @@ MoviesSection.propTypes = {
   error: PropTypes.shape({
     message: PropTypes.string.isRequired,
   }),
-  pending: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool.isRequired,
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
   genres: PropTypes.arrayOf(PropTypes.string).isRequired,
   condition: PropTypes.string.isRequired,
@@ -77,9 +77,9 @@ MoviesSection.propTypes = {
   removeTrailerInfo: PropTypes.func.isRequired,
   trailer: PropTypes.shape({}),
   trailerError: PropTypes.shape({}),
-  trailerPending: PropTypes.bool.isRequired,
+  trailerIsLoading: PropTypes.bool.isRequired,
   fetchTrailer: PropTypes.func.isRequired,
-  isModalWindow: PropTypes.bool.isRequired,
+  isModalOpened: PropTypes.bool.isRequired,
   setMoviesCondition: PropTypes.func.isRequired,
 };
 
