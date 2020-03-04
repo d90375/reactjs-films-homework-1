@@ -6,8 +6,8 @@ const initialState = {
   query: '',
   condition: 'Trending',
   movies: [],
-  moviesIsLoading: false,
-  moviesError: null,
+  isLoading: false,
+  error: null,
 };
 
 const moviesReducer = (state = initialState, action) => {
@@ -15,21 +15,21 @@ const moviesReducer = (state = initialState, action) => {
     case FETCH_MOVIES_IS_LOADING:
       return {
         ...state,
-        moviesIsLoading: true,
+        isLoading: true,
       };
 
     case FETCH_MOVIES_SUCCESS:
       return {
         ...state,
-        moviesIsLoading: false,
+        isLoading: false,
         movies: action.payload,
       };
 
     case FETCH_MOVIES_ERROR:
       return {
         ...state,
-        moviesIsLoading: false,
-        moviesError: action.error,
+        isLoading: false,
+        error: action.error,
       };
 
     case SET_MOVIES_CONDITION:

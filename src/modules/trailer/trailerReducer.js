@@ -5,8 +5,8 @@ import {
 const initialState = {
   isModalOpened: false,
   trailer: null,
-  trailerIsLoading: false,
-  trailerError: null,
+  isLoading: false,
+  error: null,
 };
 
 const trailerReducer = (state = initialState, action) => {
@@ -15,21 +15,21 @@ const trailerReducer = (state = initialState, action) => {
       return {
         ...state,
         isModalOpened: true,
-        trailerIsLoading: true,
+        isLoading: true,
       };
 
     case FETCH_TRAILER_SUCCESS:
       return {
         ...state,
-        trailerIsLoading: false,
+        isLoading: false,
         trailer: action.payload,
       };
 
     case FETCH_TRAILER_ERROR:
       return {
         ...state,
-        trailerIsLoading: false,
-        trailerError: action.error,
+        isLoading: false,
+        error: action.error,
       };
 
     case REMOVE_TRAILER_INFO:

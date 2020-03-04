@@ -1,3 +1,3 @@
 export const getGenres = (state) => state.genres.genres;
-export const getGenresIsLoading = (state) => state.genres.genresIsLoading;
-export const getGenresError = (state) => state.genres.genresError;
+export const getGenresIsLoading = (state) => state.genres.isLoading;
+export const getGenresError = (state) => state.genres.error;

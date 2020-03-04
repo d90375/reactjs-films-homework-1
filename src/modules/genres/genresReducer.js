@@ -2,8 +2,8 @@ import { FETCH_GENRES_IS_LOADING, FETCH_GENRES_SUCCESS, FETCH_GENRES_ERROR } fro
 
 const initialState = {
   genres: [],
-  genresIsLoading: false,
-  genresError: null,
+  isLoading: false,
+  error: null,
 };
 
 const genresReducer = (state = initialState, action) => {
@@ -11,21 +11,21 @@ const genresReducer = (state = initialState, action) => {
     case FETCH_GENRES_IS_LOADING:
       return {
         ...state,
-        genresIsLoading: true,
+        isLoading: true,
       };
 
     case FETCH_GENRES_SUCCESS:
       return {
         ...state,
-        genresIsLoading: false,
+        isLoading: false,
         genres: action.payload,
       };
 
     case FETCH_GENRES_ERROR:
       return {
         ...state,
-        genresIsLoading: false,
-        genresError: action.error,
+        isLoading: false,
+        error: action.error,
       };
 
     default:
