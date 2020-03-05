@@ -1,4 +1,3 @@
-import 'regenerator-runtime/runtime';
 import MovieDbApi from '../movieDbApi';
 
 const movieDbApi = new MovieDbApi();
