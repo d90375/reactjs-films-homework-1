@@ -14,18 +14,25 @@ const FilterTabs = (props) => {
   let options;
 
   if (genres) {
-    options = genres.map((genre, index) => <option key={genre} value={index}>{genre}</option>);
+    options = genres.map((genre, index) => (
+      <option
+        key={genre}
+        value={index}
+      >
+        {genre}
+      </option>
+    ));
   }
 
   return (
     <div className={styles.container}>
-      <FilterTab fetchByFilter={fetchByFilter} condition={condition}>
+      <FilterTab fetchByFilter={fetchByFilter} condition={condition} filter="Trending">
         Trending
       </FilterTab>
-      <FilterTab fetchByFilter={fetchByFilter} condition={condition}>
+      <FilterTab fetchByFilter={fetchByFilter} condition={condition} filter="Top Rated">
         Top Rated
       </FilterTab>
-      <FilterTab fetchByFilter={fetchByFilter} condition={condition}>
+      <FilterTab fetchByFilter={fetchByFilter} condition={condition} filter="Coming soon">
         Coming soon
       </FilterTab>
       <select
