@@ -1,4 +1,4 @@
-@import '../../../../mixins';
+@import '../../mixins';
 
 .input {
   width: 285px;
@@ -11,7 +11,7 @@
   background-color: transparent;
   border: 2px solid #fff;
   border-radius: 10px;
-  background-image: url("../../../../assets/images/search-icon.png");
+  background-image: url("../../assets/images/search-icon.png");
   background-repeat: no-repeat;
   background-position: 98% 50%;
   background-size: 20px 20px;
