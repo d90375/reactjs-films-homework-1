@@ -18,16 +18,16 @@ class Header extends Component {
     }
 
     const query = event.target.value;
-    const { setMoviesCondition, fetchMovies, genres } = this.props;
+    const { setMoviesCondition, fetchMovies } = this.props;
     timer = setTimeout(async () => {
       if (query !== '') {
         await setMoviesCondition('Search');
         const { condition } = this.props;
-        fetchMovies(condition, genres, query);
+        fetchMovies(condition, query);
       } else {
         await setMoviesCondition('Trending');
         const { condition } = this.props;
-        fetchMovies(condition, genres);
+        fetchMovies(condition);
       }
     }, 400);
     this.setState({ timer });
@@ -47,7 +47,6 @@ class Header extends Component {
 Header.propTypes = {
   setMoviesCondition: PropTypes.func.isRequired,
   fetchMovies: PropTypes.func.isRequired,
-  genres: PropTypes.arrayOf(PropTypes.string).isRequired,
   condition: PropTypes.string.isRequired,
 };
 

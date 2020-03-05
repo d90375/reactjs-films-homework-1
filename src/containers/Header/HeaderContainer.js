@@ -1,12 +1,10 @@
 import { connect } from 'react-redux';
 import { setMoviesCondition, fetchMovies } from '../../modules/movies/moviesAction';
 import { getMoviesCondition } from '../../modules/movies/moviesSelector';
-import { getGenres } from '../../modules/genres/genresSelector';
 import Header from './Header';
 
 const mapStateToProps = (state) => ({
   condition: getMoviesCondition(state),
-  genres: getGenres(state),
 });
 
 const mapDispatchToProps = {

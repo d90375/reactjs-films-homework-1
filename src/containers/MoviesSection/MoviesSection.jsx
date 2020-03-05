@@ -9,10 +9,8 @@ import styles from './MoviesSection.scss';
 
 class MoviesSection extends Component {
   componentDidMount() {
-    const { fetchGenres } = this.props;
-    fetchGenres();
-    const { condition, genres, fetchMovies } = this.props;
-    fetchMovies(condition, genres);
+    const { condition, fetchMovies } = this.props;
+    fetchMovies(condition);
   }
 
   fetchByFilter = async (filter) => {
@@ -72,7 +70,6 @@ MoviesSection.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
   genres: PropTypes.arrayOf(PropTypes.string).isRequired,
   condition: PropTypes.string.isRequired,
-  fetchGenres: PropTypes.func.isRequired,
   fetchMovies: PropTypes.func.isRequired,
   removeTrailerInfo: PropTypes.func.isRequired,
   trailer: PropTypes.shape({}),

@@ -1,5 +1,9 @@
 import {
-  FETCH_MOVIES_IS_LOADING, FETCH_MOVIES_SUCCESS, FETCH_MOVIES_ERROR, SET_MOVIES_CONDITION,
+  FETCH_MOVIES_IS_LOADING,
+  FETCH_MOVIES_SUCCESS,
+  FETCH_MOVIES_ERROR,
+  SET_MOVIES_CONDITION,
+  FETCH_GENRES_SUCCESS,
 } from './moviesAction';
 
 const initialState = {
@@ -8,6 +12,7 @@ const initialState = {
   movies: [],
   isLoading: false,
   error: null,
+  genres: [],
 };
 
 const moviesReducer = (state = initialState, action) => {
@@ -36,6 +41,12 @@ const moviesReducer = (state = initialState, action) => {
       return {
         ...state,
         condition: action.payload,
+      };
+
+    case FETCH_GENRES_SUCCESS:
+      return {
+        ...state,
+        genres: action.payload,
       };
 
     default:

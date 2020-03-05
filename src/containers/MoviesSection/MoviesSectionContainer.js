@@ -1,14 +1,12 @@
 import { connect } from 'react-redux';
 import {
-  getMoviesIsLoading, getMoviesError, getMoviesCondition, getMovies,
+  getMoviesIsLoading, getMoviesError, getMoviesCondition, getMovies, getGenres,
 } from '../../modules/movies/moviesSelector';
-import { getGenres } from '../../modules/genres/genresSelector';
 import {
   getTrailer, getTrailerIsLoading, getTrailerError, getModalOpened,
 } from '../../modules/trailer/trailerSelector';
 import { fetchTrailer, removeTrailerInfo } from '../../modules/trailer/trailerAction';
 import { fetchMovies, setMoviesCondition } from '../../modules/movies/moviesAction';
-import { fetchGenres } from '../../modules/genres/genresAction';
 
 import MoviesSection from './MoviesSection';
 
@@ -27,7 +25,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   fetchMovies,
-  fetchGenres,
   fetchTrailer,
   removeTrailerInfo,
   setMoviesCondition,
