@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilterTabs tests FilterTabs render FilterTabs renders correctly 1`] = `
+<div
+  className="container"
+>
+  <FilterTab
+    condition="123"
+    fetchByFilter={[MockFunction]}
+    filter="Trending"
+  >
+    Trending
+  </FilterTab>
+  <FilterTab
+    condition="123"
+    fetchByFilter={[MockFunction]}
+    filter="Top Rated"
+  >
+    Top Rated
+  </FilterTab>
+  <FilterTab
+    condition="123"
+    fetchByFilter={[MockFunction]}
+    filter="Coming soon"
+  >
+    Coming soon
+  </FilterTab>
+  <select
+    className="select active"
+    defaultValue="123"
+    name="Genre"
+    onChange={[Function]}
+  >
+    <option
+      disabled={true}
+      hidden={true}
+      value="Genre"
+    >
+      Genre
+    </option>
+    <option
+      value={0}
+    >
+      drama
+    </option>
+    <option
+      value={1}
+    >
+      crime
+    </option>
+    <option
+      value={2}
+    >
+      detective
+    </option>
+  </select>
+</div>
+`;
+
+exports[`FilterTabs tests FilterTabs render FilterTabs renders correctly 2`] = `
+<div
+  className="container"
+>
+  <FilterTab
+    condition="Trending"
+    fetchByFilter={[MockFunction]}
+    filter="Trending"
+  >
+    Trending
+  </FilterTab>
+  <FilterTab
+    condition="Trending"
+    fetchByFilter={[MockFunction]}
+    filter="Top Rated"
+  >
+    Top Rated
+  </FilterTab>
+  <FilterTab
+    condition="Trending"
+    fetchByFilter={[MockFunction]}
+    filter="Coming soon"
+  >
+    Coming soon
+  </FilterTab>
+  <select
+    className="select"
+    defaultValue="Genre"
+    name="Genre"
+    onChange={[Function]}
+  >
+    <option
+      disabled={true}
+      hidden={true}
+      value="Genre"
+    >
+      Genre
+    </option>
+    <option
+      value={0}
+    >
+      drama
+    </option>
+    <option
+      value={1}
+    >
+      crime
+    </option>
+    <option
+      value={2}
+    >
+      detective
+    </option>
+  </select>
+</div>
+`;

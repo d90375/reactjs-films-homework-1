@@ -38,6 +38,7 @@ class MovieItem extends Component {
           </div>
         </div>
         <WatchNowWindow
+          name="watch"
           film={film}
           switchViewInfo={this.switchViewInfo}
           fetchTrailer={fetchTrailer}

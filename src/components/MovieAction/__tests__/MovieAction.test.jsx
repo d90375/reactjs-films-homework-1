@@ -11,19 +11,32 @@ test('MovieAction renders correctly', () => {
   expect(result).toMatchSnapshot();
 });
 
-test('clickViewHandler function change state', () => {
-  const tree = create(
-    <MovieAction description="description" />,
-  );
+describe('MovieAction tests', () => {
+  describe('MovieAction render', () => {
+    it('MovieAction renders correctly', () => {
+      const renderer = new ShallowRenderer();
+      renderer.render(<MovieAction description="description" />);
+      const result = renderer.getRenderOutput();
+      expect(result).toMatchSnapshot();
+    });
+  });
 
-  const button = tree.root.findByProps({ color: 'secondary' });
-  expect(button.props.children).toBe('View Info');
+  describe('clickViewHandler function', () => {
+    it('clickViewHandler function change state', () => {
+      const tree = create(
+        <MovieAction description="description" />,
+      );
 
-  button.props.onClick();
+      const button = tree.root.findByProps({ color: 'secondary' });
+      expect(button.props.children).toBe('View Info');
 
-  expect(button.props.children).toBe('Hide Info');
+      button.props.onClick();
 
-  button.props.onClick();
+      expect(button.props.children).toBe('Hide Info');
 
-  expect(button.props.children).toBe('View Info');
+      button.props.onClick();
+
+      expect(button.props.children).toBe('View Info');
+    });
+  });
 });

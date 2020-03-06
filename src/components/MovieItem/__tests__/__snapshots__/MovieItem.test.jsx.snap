@@ -1,0 +1,154 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieItem tests MovieItem render MovieItem renders correctly 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="preview"
+  >
+    <img
+      alt="poster"
+      className="poster"
+      src="url"
+    />
+    <div
+      className="info"
+    >
+      <h3
+        className="title"
+      >
+        title
+      </h3>
+      <p
+        className="rating"
+      >
+        8
+      </p>
+      <p
+        className="genres"
+      >
+        action, crime
+      </p>
+    </div>
+  </div>
+  <WatchNowWindow
+    fetchTrailer={[MockFunction]}
+    film={
+      Object {
+        "genres": "action, crime",
+        "poster": "url",
+        "rating": "8",
+        "title": "title",
+      }
+    }
+    name="watch"
+    switchViewInfo={[Function]}
+  />
+</div>
+`;
+
+exports[`MovieItem tests MovieItem render MovieItem renders correctly 2`] = `
+<div
+  className="container"
+>
+  <div
+    className="preview"
+  >
+    <img
+      alt="poster"
+      className="poster"
+      src="url"
+    />
+    <div
+      className="info"
+    >
+      <h3
+        className="title"
+      >
+        title!!!!!!!!...
+      </h3>
+      <p
+        className="rating"
+      >
+        8
+      </p>
+      <p
+        className="genres"
+      >
+        action, crime
+      </p>
+    </div>
+  </div>
+  <div
+    className="container"
+  >
+    <button
+      className="watch"
+      onClick={[Function]}
+      type="button"
+    >
+      ►
+    </button>
+    <p>
+      Watch Now
+    </p>
+    <button
+      className="button secondary"
+      onClick={[Function]}
+      type="button"
+    >
+      View Info
+    </button>
+  </div>
+  <div
+    className="container"
+  >
+    <img
+      alt="poster"
+      className="poster"
+      src="url"
+    />
+    <div
+      className="wrapper"
+    >
+      <button
+        className="close"
+        onClick={[Function]}
+        type="button"
+      >
+        ×
+      </button>
+      <div
+        className="info"
+      >
+        <h3
+          className="title"
+        >
+          title!!!!!!!!!!...
+        </h3>
+        <p
+          className="rating"
+        >
+          8
+        </p>
+        <p
+          className="genres"
+        >
+          action, crime
+        </p>
+      </div>
+      <p
+        className="overview"
+      />
+      <button
+        className="button primary"
+        onClick={[Function]}
+        type="button"
+      >
+        Watch Now
+      </button>
+    </div>
+  </div>
+</div>
+`;

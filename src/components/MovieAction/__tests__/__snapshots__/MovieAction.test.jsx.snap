@@ -21,3 +21,25 @@ exports[`MovieAction renders correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`MovieAction tests MovieAction render MovieAction renders correctly 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="buttonsContainer"
+  >
+    <Button
+      color="primary"
+    >
+      Watch Now
+    </Button>
+    <Button
+      color="secondary"
+      onClick={[Function]}
+    >
+      View Info
+    </Button>
+  </div>
+</div>
+`;

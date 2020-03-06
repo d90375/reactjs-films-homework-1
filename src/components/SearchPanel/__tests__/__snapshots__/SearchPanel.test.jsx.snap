@@ -5,6 +5,5 @@ exports[`SearchPanel tests SearchPanel render SearchPanel renders correctly 1`] 
   className="input"
   onChange={[Function]}
   type="search"
-  value=""
 />
 `;

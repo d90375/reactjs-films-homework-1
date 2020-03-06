@@ -37,6 +37,7 @@ const FilterTabs = (props) => {
       </FilterTab>
       <select
         className={className}
+        name="Genre"
         defaultValue={defaultValue}
         onChange={(e) => fetchByFilter(e.target.value)}
       >

@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal render Modal renders correctly 1`] = `
+<div
+  className="container"
+>
+  <Spinner />
+</div>
+`;
+
+exports[`Modal render Modal renders correctly 2`] = `
+<div
+  className="container"
+>
+  <div
+    className="message"
+  >
+    Error! error
+  </div>
+  <button
+    className="close"
+    onClick={[MockFunction]}
+    type="button"
+  >
+    ×
+  </button>
+</div>
+`;
+
+exports[`Modal render Modal renders correctly 3`] = `
+<div
+  className="container"
+>
+  <iframe
+    allowFullScreen={true}
+    className="iframe"
+    frameBorder="0"
+    src="https://www.youtube.com/embed/as123"
+    title="trailer"
+  />
+  <button
+    className="close"
+    onClick={[MockFunction]}
+    type="button"
+  >
+    ×
+  </button>
+</div>
+`;
+
+exports[`Modal render Modal renders correctly 4`] = `
+<div
+  className="container"
+>
+  <div
+    className="message"
+  >
+    Trailer not found
+  </div>
+  <button
+    className="close"
+    onClick={[MockFunction]}
+    type="button"
+  >
+    ×
+  </button>
+</div>
+`;

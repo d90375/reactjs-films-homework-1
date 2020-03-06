@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ViewInfoWindow tests ViewInfoWindow render ViewInfoWindow renders correctly 1`] = `
+<div
+  className="container"
+>
+  <img
+    alt="poster"
+    className="poster"
+    src="url"
+  />
+  <div
+    className="wrapper"
+  >
+    <button
+      className="close"
+      onClick={[MockFunction]}
+      type="button"
+    >
+      ×
+    </button>
+    <div
+      className="info"
+    >
+      <h3
+        className="title"
+      >
+        title
+      </h3>
+      <p
+        className="rating"
+      >
+        8
+      </p>
+      <p
+        className="genres"
+      >
+        action, crime
+      </p>
+    </div>
+    <p
+      className="overview"
+    >
+      overview
+    </p>
+    <Button
+      color="primary"
+      onClick={[Function]}
+    >
+      Watch Now
+    </Button>
+  </div>
+</div>
+`;
+
+exports[`ViewInfoWindow tests ViewInfoWindow render ViewInfoWindow renders correctly 2`] = `
+<div
+  className="container"
+>
+  <img
+    alt="poster"
+    className="poster"
+    src="url"
+  />
+  <div
+    className="wrapper"
+  >
+    <button
+      className="close"
+      onClick={[MockFunction]}
+      type="button"
+    >
+      ×
+    </button>
+    <div
+      className="info"
+    >
+      <h3
+        className="title"
+      >
+        title!!!!!!!!!!...
+      </h3>
+      <p
+        className="rating"
+      >
+        8
+      </p>
+      <p
+        className="genres"
+      >
+        action, crime
+      </p>
+    </div>
+    <p
+      className="overview"
+    >
+      overview
+    </p>
+    <Button
+      color="primary"
+      onClick={[Function]}
+    >
+      Watch Now
+    </Button>
+  </div>
+</div>
+`;
