@@ -12,7 +12,9 @@ module.exports = {
         test: "readonly",
         expect: "readonly",
         describe: "readonly",
-        it: "readonly"
+        it: "readonly",
+        afterEach: "readonly",
+
     },
     parserOptions: {
         ecmaVersion: 2018,

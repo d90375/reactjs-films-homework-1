@@ -1,4 +1,4 @@
-import imageNotFound from '../assets/images/not-found.png';
+import imageNotFound from '../assets/images/notFound.png';
 
 export default class MovieDbApi {
     apiBase = 'https://api.themoviedb.org/3/';

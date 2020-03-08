@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainPage renders correctly 1`] = `
+<div>
+  <Memo(Connect(Header)) />
+  <Memo(Connect(MoviesSection)) />
+  <Footer />
+</div>
+`;

@@ -14,6 +14,7 @@ module.exports = {
     },
   },
   moduleNameMapper: {
+    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)$': '<rootDir>/../config/jest/__mocks__/fileMock.js',
     '\\.(css|scss)$': 'identity-obj-proxy',
   },
 };
