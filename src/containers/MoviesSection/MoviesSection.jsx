@@ -52,6 +52,7 @@ class MoviesSection extends Component {
         )
           : null }
         <FilterTabs
+          name="Tabs"
           genres={genres}
           fetchByFilter={this.fetchByFilter}
           condition={condition}

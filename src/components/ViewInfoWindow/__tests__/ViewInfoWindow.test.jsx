@@ -8,7 +8,7 @@ describe('ViewInfoWindow tests', () => {
     id: 123,
     title: 'title',
     genres: 'action, crime',
-    rating: '8',
+    rating: 8,
     overview: 'overview',
     poster: 'url',
   };

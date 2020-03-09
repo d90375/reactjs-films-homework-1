@@ -38,7 +38,7 @@ exports[`MovieItem tests MovieItem render MovieItem renders correctly 1`] = `
       Object {
         "genres": "action, crime",
         "poster": "url",
-        "rating": "8",
+        "rating": 8,
         "title": "title",
       }
     }

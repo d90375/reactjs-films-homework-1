@@ -16,8 +16,10 @@ describe('SearchPanel tests', () => {
 
   describe('onChange function', () => {
     it('onChange callback function called', () => {
+      const mockCallBack = jest.fn();
+
       const tree = create(
-        <SearchPanel />,
+        <SearchPanel getSearch={mockCallBack} />,
       );
 
       const input = tree.root.findByProps({ type: 'search' });
@@ -25,7 +27,7 @@ describe('SearchPanel tests', () => {
       const e = { target: { value: 'hi' } };
       input.props.onChange(e);
 
-      expect(input.props.value).toBe('hi');
+      expect(mockCallBack.mock.calls.length).toEqual(1);
     });
   });
 });

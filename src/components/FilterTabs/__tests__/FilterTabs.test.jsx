@@ -22,6 +22,15 @@ describe('FilterTabs tests', () => {
       const result = renderer.getRenderOutput();
       expect(result).toMatchSnapshot();
     });
+
+    it('FilterTabs renders correctly', () => {
+      const mockCallBack = jest.fn();
+      const genres = null;
+      const renderer = new ShallowRenderer();
+      renderer.render(<FilterTabs genres={genres} fetchByFilter={mockCallBack} condition="Trending" />);
+      const result = renderer.getRenderOutput();
+      expect(result).toMatchSnapshot();
+    });
   });
 
   describe('onChange function', () => {

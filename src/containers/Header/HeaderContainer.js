@@ -3,7 +3,7 @@ import { setMoviesCondition, fetchMovies } from '../../modules/movies/moviesActi
 import { getMoviesCondition } from '../../modules/movies/moviesSelector';
 import Header from './Header';
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   condition: getMoviesCondition(state),
 });
 

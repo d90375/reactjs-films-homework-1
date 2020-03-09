@@ -10,37 +10,14 @@ import {
   FETCH_GENRES_SUCCESS,
   fetchMovies,
   setMoviesCondition,
-
 } from '../moviesAction';
+import {
+  responseBody, actionPayload, responseBodyOneMovie, actionPayloadOneMovie,
+} from './testMoviesArrays';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
-const responseBody = {
-  results: [
-    {
-      id: 475303,
-      genre_ids: [0, 1, 2],
-      poster_path: 'ab123',
-      backdrop_path: 'ab123',
-      title: 'Film',
-      vote_average: 5,
-      overview: 'film overview',
-      viewInfo: false,
-    },
-  ],
-};
-const actionPayload = [
-  {
-    id: 475303,
-    poster: 'https://image.tmdb.org/t/p/w342ab123',
-    background: 'https://image.tmdb.org/t/p/w1280ab123',
-    title: 'Film',
-    rating: 5,
-    overview: 'film overview',
-    genres: 'Action, Adventure, Animation',
-    viewInfo: false,
-  },
-];
+
 const genres = [
   { id: 0, name: 'Action' },
   { id: 1, name: 'Adventure' },
@@ -88,7 +65,7 @@ describe('async actions', () => {
 
   it('creates FETCH_MOVIES_SUCCESS when fetching coming soon movies has been done', () => {
     fetchMock.getOnce('https://api.themoviedb.org/3/movie/upcoming?api_key=a6a65694a66cff82788a6d4a1c9caa1e&language=en-US&page=1', {
-      body: responseBody,
+      body: responseBodyOneMovie,
       status: 200,
       headers: { 'content-type': 'application/json' },
     });
@@ -109,7 +86,7 @@ describe('async actions', () => {
       },
       {
         type: FETCH_MOVIES_SUCCESS,
-        payload: actionPayload,
+        payload: actionPayloadOneMovie,
       },
     ];
     const store = mockStore({ movies: [] });

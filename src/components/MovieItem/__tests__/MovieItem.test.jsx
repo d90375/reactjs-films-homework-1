@@ -7,7 +7,7 @@ describe('MovieItem tests', () => {
   const film = {
     title: 'title',
     genres: 'action, crime',
-    rating: '8',
+    rating: 8,
     poster: 'url',
   };
 
