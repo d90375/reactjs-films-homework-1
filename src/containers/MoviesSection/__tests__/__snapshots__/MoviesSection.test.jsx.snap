@@ -41,6 +41,12 @@ exports[`MoviesSection tests MoviesSection render MoviesSection renders correctl
 <div
   className="container"
 >
+  <FilterTabs
+    condition="Tranding"
+    fetchByFilter={[Function]}
+    genres={Array []}
+    name="Tabs"
+  />
   <Spinner />
 </div>
 `;
