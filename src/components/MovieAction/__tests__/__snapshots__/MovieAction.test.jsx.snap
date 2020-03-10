@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MovieAction renders correctly 1`] = `
+exports[`MovieAction tests MovieAction render MovieAction renders correctly 1`] = `
 <div
   className="container"
 >

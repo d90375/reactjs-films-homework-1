@@ -10,7 +10,7 @@ import { fetchMovies, setMoviesCondition } from '../../modules/movies/moviesActi
 
 import MoviesSection from './MoviesSection';
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   error: getMoviesError(state),
   isLoading: getMoviesIsLoading(state),
   movies: getMovies(state),

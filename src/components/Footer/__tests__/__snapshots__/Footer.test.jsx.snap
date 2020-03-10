@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonView renders correctly 1`] = `
+<footer
+  className="footer"
+>
+  <p
+    className="title"
+  >
+    films
+  </p>
+  <p
+    className="copyright"
+  >
+    Copyright © 2020 FILMS. Tatsiana Krautsova
+  </p>
+</footer>
+`;

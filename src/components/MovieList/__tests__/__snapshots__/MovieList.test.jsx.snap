@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieList tests MovieList render MovieList renders correctly with "no result" message 1`] = `
+<div
+  className="container"
+>
+  <p
+    className="noResults"
+  >
+    No results
+  </p>
+</div>
+`;
+
+exports[`MovieList tests MovieList render MovieList renders correctly with movies 1`] = `
+<div
+  className="container"
+>
+  <MovieItem
+    fetchTrailer={[MockFunction]}
+    film={
+      Object {
+        "id": 1,
+      }
+    }
+  />
+  <MovieItem
+    fetchTrailer={[MockFunction]}
+    film={
+      Object {
+        "id": 2,
+      }
+    }
+  />
+</div>
+`;

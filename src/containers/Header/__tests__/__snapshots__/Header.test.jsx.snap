@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header tests Header render Header renders correctly 1`] = `
+<header
+  className="header"
+>
+  <Logo />
+  <SearchPanel
+    getSearch={[Function]}
+    name="Search"
+  />
+</header>
+`;

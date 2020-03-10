@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WatchNowWindow tests WatchNowWindow render WatchNowWindow renders correctly 1`] = `
+<div
+  className="container"
+>
+  <button
+    className="watch"
+    onClick={[Function]}
+    type="button"
+  >
+    ►
+  </button>
+  <p>
+    Watch Now
+  </p>
+  <Button
+    color="secondary"
+    onClick={[MockFunction]}
+  >
+    View Info
+  </Button>
+</div>
+`;

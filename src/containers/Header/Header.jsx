@@ -38,7 +38,7 @@ class Header extends Component {
     return (
       <header className={styles.header}>
         <Logo />
-        <SearchPanel getSearch={this.getSearch} />
+        <SearchPanel name="Search" getSearch={this.getSearch} />
       </header>
     );
   }

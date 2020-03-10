@@ -35,6 +35,12 @@ class MoviesSection extends Component {
     if (isLoading) {
       return (
         <div className={styles.container}>
+          <FilterTabs
+            name="Tabs"
+            genres={genres}
+            fetchByFilter={this.fetchByFilter}
+            condition={condition}
+          />
           <Spinner />
         </div>
       );
@@ -52,6 +58,7 @@ class MoviesSection extends Component {
         )
           : null }
         <FilterTabs
+          name="Tabs"
           genres={genres}
           fetchByFilter={this.fetchByFilter}
           condition={condition}
