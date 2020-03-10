@@ -4,13 +4,6 @@ import { create } from 'react-test-renderer';
 
 import MovieAction from '../MovieAction';
 
-test('MovieAction renders correctly', () => {
-  const renderer = new ShallowRenderer();
-  renderer.render(<MovieAction description="description" />);
-  const result = renderer.getRenderOutput();
-  expect(result).toMatchSnapshot();
-});
-
 describe('MovieAction tests', () => {
   describe('MovieAction render', () => {
     it('MovieAction renders correctly', () => {

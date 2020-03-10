@@ -5,7 +5,7 @@ import MoviesSection from '../MoviesSection';
 
 describe('MoviesSection tests', () => {
   describe('MoviesSection render', () => {
-    it('MoviesSection renders correctly', () => {
+    it('MoviesSection renders correctly with closed modal window', () => {
       const mockCallBack = jest.fn();
       const genres = ['crime', 'actions'];
       const movies = [{ id: 123 }, { id: 110 }];
@@ -29,7 +29,7 @@ describe('MoviesSection tests', () => {
       expect(result).toMatchSnapshot();
     });
 
-    it('MoviesSection renders correctly', () => {
+    it('MoviesSection renders correctly when modal window open', () => {
       const mockCallBack = jest.fn();
       const genres = ['crime', 'actions'];
       const movies = [{ id: 123 }, { id: 110 }];
@@ -53,7 +53,7 @@ describe('MoviesSection tests', () => {
       expect(result).toMatchSnapshot();
     });
 
-    it('MoviesSection renders correctly', () => {
+    it('MoviesSection renders correctly when movies is loading', () => {
       const mockCallBack = jest.fn();
       const genres = [];
       const movies = [];
@@ -77,7 +77,7 @@ describe('MoviesSection tests', () => {
       expect(result).toMatchSnapshot();
     });
 
-    it('MoviesSection renders correctly', () => {
+    it('MoviesSection renders correctly with error message', () => {
       const mockCallBack = jest.fn();
       const genres = [];
       const movies = [];

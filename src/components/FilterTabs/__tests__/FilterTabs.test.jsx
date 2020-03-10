@@ -5,7 +5,7 @@ import FilterTabs from '../FilterTabs';
 
 describe('FilterTabs tests', () => {
   describe('FilterTabs render', () => {
-    it('FilterTabs renders correctly', () => {
+    it('FilterTabs renders correctly when genres tab active', () => {
       const mockCallBack = jest.fn();
       const genres = ['drama', 'crime', 'detective'];
       const renderer = new ShallowRenderer();
@@ -14,7 +14,7 @@ describe('FilterTabs tests', () => {
       expect(result).toMatchSnapshot();
     });
 
-    it('FilterTabs renders correctly', () => {
+    it('FilterTabs renders correctly when trending tab active', () => {
       const mockCallBack = jest.fn();
       const genres = ['drama', 'crime', 'detective'];
       const renderer = new ShallowRenderer();
@@ -23,7 +23,7 @@ describe('FilterTabs tests', () => {
       expect(result).toMatchSnapshot();
     });
 
-    it('FilterTabs renders correctly', () => {
+    it('FilterTabs renders correctly when genres are null', () => {
       const mockCallBack = jest.fn();
       const genres = null;
       const renderer = new ShallowRenderer();

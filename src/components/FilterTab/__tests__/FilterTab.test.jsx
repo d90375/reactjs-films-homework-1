@@ -13,7 +13,7 @@ describe('FilterTab tests', () => {
       expect(result).toMatchSnapshot();
     });
 
-    it('FilterTab renders correctly', () => {
+    it('FilterTab renders correctly when genres tab active', () => {
       const mockCallBack = jest.fn();
       const renderer = new ShallowRenderer();
       renderer.render(<FilterTab fetchByFilter={mockCallBack} filter="Trending" condition="123">Trending</FilterTab>);

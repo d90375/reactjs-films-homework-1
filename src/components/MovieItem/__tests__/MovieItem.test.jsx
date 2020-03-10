@@ -12,7 +12,7 @@ describe('MovieItem tests', () => {
   };
 
   describe('MovieItem render', () => {
-    it('MovieItem renders correctly', () => {
+    it('MovieItem renders correctly with movie title length less then 15 characters', () => {
       const mockCallBack = jest.fn();
       const renderer = new ShallowRenderer();
       renderer.render(<MovieItem film={film} fetchTrailer={mockCallBack} />);
@@ -20,7 +20,7 @@ describe('MovieItem tests', () => {
       expect(result).toMatchSnapshot();
     });
 
-    it('MovieItem renders correctly', () => {
+    it('MovieItem renders correctly with movie title length more then 15 characters', () => {
       const mockCallBack = jest.fn();
       film.title = 'title!!!!!!!!!!!!!!!!!!!!!!!!!!!!!';
       const tree = create(

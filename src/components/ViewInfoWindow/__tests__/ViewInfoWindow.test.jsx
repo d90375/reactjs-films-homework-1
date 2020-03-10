@@ -14,7 +14,7 @@ describe('ViewInfoWindow tests', () => {
   };
 
   describe('ViewInfoWindow render', () => {
-    it('ViewInfoWindow renders correctly', () => {
+    it('ViewInfoWindow renders correctly with movie title length less then 18 characters', () => {
       const mockCallBack = jest.fn();
       const renderer = new ShallowRenderer();
       renderer.render(<ViewInfoWindow
@@ -26,7 +26,7 @@ describe('ViewInfoWindow tests', () => {
       expect(result).toMatchSnapshot();
     });
 
-    it('ViewInfoWindow renders correctly', () => {
+    it('ViewInfoWindow renders correctly with movie title length more then 18 characters', () => {
       const mockCallBack = jest.fn();
       film.title = 'title!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!';
       const renderer = new ShallowRenderer();
