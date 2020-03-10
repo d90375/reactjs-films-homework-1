@@ -1,37 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MoviesSection tests MoviesSection render MoviesSection renders correctly 1`] = `
-<section
-  className="container"
->
-  <FilterTabs
-    condition="Tranding"
-    fetchByFilter={[Function]}
-    genres={
-      Array [
-        "crime",
-        "actions",
-      ]
-    }
-    name="Tabs"
-  />
-  <MovieList
-    fetchTrailer={[MockFunction]}
-    movies={
-      Array [
-        Object {
-          "id": 123,
-        },
-        Object {
-          "id": 110,
-        },
-      ]
-    }
-  />
-</section>
-`;
-
-exports[`MoviesSection tests MoviesSection render MoviesSection renders correctly 2`] = `
+exports[`MoviesSection tests MoviesSection render MoviesSection renders correctly when modal window open 1`] = `
 <section
   className="container"
 >
@@ -68,7 +37,7 @@ exports[`MoviesSection tests MoviesSection render MoviesSection renders correctl
 </section>
 `;
 
-exports[`MoviesSection tests MoviesSection render MoviesSection renders correctly 3`] = `
+exports[`MoviesSection tests MoviesSection render MoviesSection renders correctly when movies is loading 1`] = `
 <div
   className="container"
 >
@@ -76,7 +45,38 @@ exports[`MoviesSection tests MoviesSection render MoviesSection renders correctl
 </div>
 `;
 
-exports[`MoviesSection tests MoviesSection render MoviesSection renders correctly 4`] = `
+exports[`MoviesSection tests MoviesSection render MoviesSection renders correctly with closed modal window 1`] = `
+<section
+  className="container"
+>
+  <FilterTabs
+    condition="Tranding"
+    fetchByFilter={[Function]}
+    genres={
+      Array [
+        "crime",
+        "actions",
+      ]
+    }
+    name="Tabs"
+  />
+  <MovieList
+    fetchTrailer={[MockFunction]}
+    movies={
+      Array [
+        Object {
+          "id": 123,
+        },
+        Object {
+          "id": 110,
+        },
+      ]
+    }
+  />
+</section>
+`;
+
+exports[`MoviesSection tests MoviesSection render MoviesSection renders correctly with error message 1`] = `
 <div
   className="container"
 >

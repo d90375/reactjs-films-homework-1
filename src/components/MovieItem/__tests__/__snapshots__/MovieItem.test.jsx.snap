@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MovieItem tests MovieItem render MovieItem renders correctly 1`] = `
+exports[`MovieItem tests MovieItem render MovieItem renders correctly with movie title length less then 15 characters 1`] = `
 <div
   className="container"
 >
@@ -48,7 +48,7 @@ exports[`MovieItem tests MovieItem render MovieItem renders correctly 1`] = `
 </div>
 `;
 
-exports[`MovieItem tests MovieItem render MovieItem renders correctly 2`] = `
+exports[`MovieItem tests MovieItem render MovieItem renders correctly with movie title length more then 15 characters 1`] = `
 <div
   className="container"
 >

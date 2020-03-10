@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ViewInfoWindow tests ViewInfoWindow render ViewInfoWindow renders correctly 1`] = `
+exports[`ViewInfoWindow tests ViewInfoWindow render ViewInfoWindow renders correctly with movie title length less then 18 characters 1`] = `
 <div
   className="container"
 >
@@ -53,7 +53,7 @@ exports[`ViewInfoWindow tests ViewInfoWindow render ViewInfoWindow renders corre
 </div>
 `;
 
-exports[`ViewInfoWindow tests ViewInfoWindow render ViewInfoWindow renders correctly 2`] = `
+exports[`ViewInfoWindow tests ViewInfoWindow render ViewInfoWindow renders correctly with movie title length more then 18 characters 1`] = `
 <div
   className="container"
 >

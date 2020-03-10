@@ -1,6 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FilterTabs tests FilterTabs render FilterTabs renders correctly 1`] = `
+exports[`FilterTabs tests FilterTabs render FilterTabs renders correctly when genres are null 1`] = `
+<div
+  className="container"
+>
+  <FilterTab
+    condition="Trending"
+    fetchByFilter={[MockFunction]}
+    filter="Trending"
+  >
+    Trending
+  </FilterTab>
+  <FilterTab
+    condition="Trending"
+    fetchByFilter={[MockFunction]}
+    filter="Top Rated"
+  >
+    Top Rated
+  </FilterTab>
+  <FilterTab
+    condition="Trending"
+    fetchByFilter={[MockFunction]}
+    filter="Coming soon"
+  >
+    Coming soon
+  </FilterTab>
+  <select
+    className="select"
+    defaultValue="Genre"
+    name="Genre"
+    onChange={[Function]}
+  >
+    <option
+      disabled={true}
+      hidden={true}
+      value="Genre"
+    >
+      Genre
+    </option>
+  </select>
+</div>
+`;
+
+exports[`FilterTabs tests FilterTabs render FilterTabs renders correctly when genres tab active 1`] = `
 <div
   className="container"
 >
@@ -57,7 +99,7 @@ exports[`FilterTabs tests FilterTabs render FilterTabs renders correctly 1`] = `
 </div>
 `;
 
-exports[`FilterTabs tests FilterTabs render FilterTabs renders correctly 2`] = `
+exports[`FilterTabs tests FilterTabs render FilterTabs renders correctly when trending tab active 1`] = `
 <div
   className="container"
 >
@@ -109,48 +151,6 @@ exports[`FilterTabs tests FilterTabs render FilterTabs renders correctly 2`] = `
       value={2}
     >
       detective
-    </option>
-  </select>
-</div>
-`;
-
-exports[`FilterTabs tests FilterTabs render FilterTabs renders correctly 3`] = `
-<div
-  className="container"
->
-  <FilterTab
-    condition="Trending"
-    fetchByFilter={[MockFunction]}
-    filter="Trending"
-  >
-    Trending
-  </FilterTab>
-  <FilterTab
-    condition="Trending"
-    fetchByFilter={[MockFunction]}
-    filter="Top Rated"
-  >
-    Top Rated
-  </FilterTab>
-  <FilterTab
-    condition="Trending"
-    fetchByFilter={[MockFunction]}
-    filter="Coming soon"
-  >
-    Coming soon
-  </FilterTab>
-  <select
-    className="select"
-    defaultValue="Genre"
-    name="Genre"
-    onChange={[Function]}
-  >
-    <option
-      disabled={true}
-      hidden={true}
-      value="Genre"
-    >
-      Genre
     </option>
   </select>
 </div>

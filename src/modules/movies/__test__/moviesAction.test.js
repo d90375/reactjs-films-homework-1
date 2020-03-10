@@ -13,7 +13,7 @@ import {
 } from '../moviesAction';
 import {
   responseBody, actionPayload, responseBodyOneMovie, actionPayloadOneMovie,
-} from './testMoviesArrays';
+} from './mocks/mockMoviesArrays';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);

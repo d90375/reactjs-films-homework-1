@@ -11,7 +11,7 @@ exports[`FilterTab tests FilterTab render FilterTab renders correctly 1`] = `
 </button>
 `;
 
-exports[`FilterTab tests FilterTab render FilterTab renders correctly 2`] = `
+exports[`FilterTab tests FilterTab render FilterTab renders correctly when genres tab active 1`] = `
 <button
   className="tab"
   data-filter="Trending"
