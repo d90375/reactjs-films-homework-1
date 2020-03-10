@@ -1,7 +1,6 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import fetchMock from 'fetch-mock';
-import expect from 'expect';
 import {
   FETCH_MOVIES_IS_LOADING,
   FETCH_MOVIES_SUCCESS,

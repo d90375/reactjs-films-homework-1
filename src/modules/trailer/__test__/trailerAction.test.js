@@ -1,7 +1,6 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import fetchMock from 'fetch-mock';
-import expect from 'expect';
 import {
   FETCH_TRAILER_IS_LOADING,
   FETCH_TRAILER_SUCCESS,
