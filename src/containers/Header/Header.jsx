@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import Logo from '../../components/Logo';
 import SearchPanel from '../../components/SearchPanel';
 
@@ -18,21 +19,22 @@ class Header extends Component {
     }
 
     const query = event.target.value;
-    const { setMoviesCondition, fetchMovies } = this.props;
+    const { setMoviesCondition, fetchMovies, history } = this.props;
     timer = setTimeout(async () => {
       if (query !== '') {
         await setMoviesCondition('Search');
         const { condition } = this.props;
         fetchMovies(condition, query);
+        history.push(`/search/${query}`);
       } else {
         await setMoviesCondition('Trending');
         const { condition } = this.props;
         fetchMovies(condition);
+        history.push(`/${condition}`);
       }
     }, 400);
     this.setState({ timer });
   }
-
 
   render() {
     return (
@@ -48,6 +50,9 @@ Header.propTypes = {
   setMoviesCondition: PropTypes.func.isRequired,
   fetchMovies: PropTypes.func.isRequired,
   condition: PropTypes.string.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
 };
 
-export default Header;
+export default withRouter(Header);

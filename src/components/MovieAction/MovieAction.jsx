@@ -17,13 +17,13 @@ class MovieAction extends Component {
   };
 
   render() {
-    const { description } = this.props;
+    const { description, fetchTrailer, id } = this.props;
     const { isDescriptionOpened } = this.state;
     return (
       <div className={styles.container}>
         {isDescriptionOpened && <MovieDescription description={description} />}
         <div className={styles.buttonsContainer}>
-          <Button color="primary">Watch Now</Button>
+          <Button color="primary" onClick={() => fetchTrailer(id)}>Watch Now</Button>
           <Button color="secondary" onClick={this.clickViewHandler}>
             {isDescriptionOpened ? 'Hide Info' : 'View Info'}
           </Button>
@@ -35,6 +35,8 @@ class MovieAction extends Component {
 
 MovieAction.propTypes = {
   description: PropTypes.string.isRequired,
+  fetchTrailer: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default MovieAction;

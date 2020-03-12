@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import MovieList from '../../components/MovieList';
 import Modal from '../../components/Modal';
 import Spinner from '../../components/Spinner';
@@ -8,9 +9,20 @@ import FilterTabs from '../../components/FilterTabs';
 import styles from './MoviesSection.scss';
 
 class MoviesSection extends Component {
-  componentDidMount() {
-    const { condition, fetchMovies } = this.props;
-    fetchMovies(condition);
+  async componentDidMount() {
+    const { fetchMovies, setMoviesCondition } = this.props;
+    const { match: { params: { filter, genreId, query } } } = this.props;
+
+    if (filter || genreId) {
+      await setMoviesCondition(filter || genreId);
+    }
+
+    if (query) {
+      await setMoviesCondition('Search');
+    }
+
+    const { condition } = this.props;
+    fetchMovies(condition, query);
   }
 
   fetchByFilter = async (filter) => {
@@ -24,7 +36,7 @@ class MoviesSection extends Component {
     const {
       error, isLoading, isModalOpened, trailer, removeTrailerInfo,
       trailerIsLoading, trailerError, genres, condition, movies,
-      fetchTrailer, removeDetailsInfo,
+      fetchTrailer, removeDetailsInfo, setMoviesCondition,
     } = this.props;
 
     if (error) {
@@ -68,6 +80,7 @@ class MoviesSection extends Component {
           movies={movies}
           fetchTrailer={fetchTrailer}
           removeDetailsInfo={removeDetailsInfo}
+          setMoviesCondition={setMoviesCondition}
         />
       </section>
     );
@@ -91,12 +104,27 @@ MoviesSection.propTypes = {
   isModalOpened: PropTypes.bool.isRequired,
   setMoviesCondition: PropTypes.func.isRequired,
   removeDetailsInfo: PropTypes.func.isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      filter: PropTypes.string,
+      genreId: PropTypes.string,
+      query: PropTypes.string,
+    }),
+  }),
+
 };
 
 MoviesSection.defaultProps = {
   error: null,
   trailer: null,
   trailerError: null,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      filter: undefined,
+      genreId: undefined,
+      query: undefined,
+    }),
+  }),
 };
 
-export default MoviesSection;
+export default withRouter(MoviesSection);

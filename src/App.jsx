@@ -16,9 +16,19 @@ const App = () => (
         <Route path="/details/:id">
           <MovieDetailsPage />
         </Route>
+        <Route path="/search/:query">
+          <MainPage />
+        </Route>
+        <Route path="/genre/:genreId">
+          <MainPage />
+        </Route>
+        <Route path="/:filter">
+          <MainPage />
+        </Route>
         <Route path="/">
           <MainPage />
         </Route>
+
       </Switch>
     </div>
   </Router>

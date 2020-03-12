@@ -19,7 +19,9 @@ class MovieItem extends Component {
 
 
   render() {
-    const { film, fetchTrailer, removeDetailsInfo } = this.props;
+    const {
+      film, fetchTrailer, removeDetailsInfo, setMoviesCondition,
+    } = this.props;
     const { isInfoOpen } = this.state;
 
     const {
@@ -30,7 +32,13 @@ class MovieItem extends Component {
       <div className={styles.container}>
         <div className={styles.preview}>
           <img className={styles.poster} src={poster} alt="poster" />
-          <Link to={`/details/${id}`} onClick={removeDetailsInfo}>
+          <Link
+            to={`/details/${id}`}
+            onClick={() => {
+              removeDetailsInfo();
+              setMoviesCondition('Trending');
+            }}
+          >
             <div className={styles.info}>
               <h3 className={styles.title}>
                 {title.length < 15 ? title : `${title.substring(0, 13)}...`}
@@ -70,6 +78,7 @@ MovieItem.propTypes = {
   }).isRequired,
   fetchTrailer: PropTypes.func.isRequired,
   removeDetailsInfo: PropTypes.func.isRequired,
+  setMoviesCondition: PropTypes.func.isRequired,
 };
 
 export default MovieItem;

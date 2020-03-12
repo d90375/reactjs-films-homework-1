@@ -10,7 +10,7 @@ import Spinner from '../../components/Spinner';
 import styles from './MovieDetails.scss';
 
 const MovieDetails = ({
-  details, error, isLoading, fetchDetails,
+  details, error, isLoading, fetchDetails, fetchTrailer,
 }) => {
   const { id } = useParams();
 
@@ -36,7 +36,7 @@ const MovieDetails = ({
           <MovieInfo info={info} />
           <MovieRating rating={rating} />
         </div>
-        <MovieAction description={overview} />
+        <MovieAction description={overview} id={id} fetchTrailer={fetchTrailer} />
       </section>
     );
   }
@@ -50,6 +50,7 @@ const MovieDetails = ({
 
 MovieDetails.propTypes = {
   fetchDetails: PropTypes.func.isRequired,
+  fetchTrailer: PropTypes.func.isRequired,
   error: PropTypes.shape({
     message: PropTypes.string.isRequired,
   }),

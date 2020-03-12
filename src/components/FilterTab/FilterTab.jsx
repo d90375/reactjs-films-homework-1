@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import styles from './FilterTab.scss';
 
@@ -8,14 +9,16 @@ const FilterTab = ({
 }) => {
   const className = condition === children ? `${styles.tab} ${styles.active}` : styles.tab;
   return (
-    <button
-      type="button"
-      className={className}
-      data-filter={filter}
-      onClick={(e) => fetchByFilter(e.target.dataset.filter)}
-    >
-      {children}
-    </button>
+    <Link to={`/${filter}`}>
+      <button
+        type="button"
+        className={className}
+        data-filter={filter}
+        onClick={(e) => fetchByFilter(e.target.dataset.filter)}
+      >
+        {children}
+      </button>
+    </Link>
   );
 };
 

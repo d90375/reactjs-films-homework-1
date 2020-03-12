@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import FilterTab from '../FilterTab';
 
 import styles from './FilterTabs.scss';
 
 const FilterTabs = (props) => {
-  const { genres, fetchByFilter, condition } = props;
-
-  const defaultValue = Number(condition) ? condition : 'Genre';
-
+  const {
+    genres, fetchByFilter, condition, history,
+  } = props;
+  const genreId = Number(condition) ? condition : 'Genre';
   const className = Number(condition) ? `${styles.select} ${styles.active}` : styles.select;
 
   let options;
@@ -38,8 +39,11 @@ const FilterTabs = (props) => {
       <select
         className={className}
         name="Genre"
-        defaultValue={defaultValue}
-        onChange={(e) => fetchByFilter(e.target.value)}
+        defaultValue={genreId}
+        onChange={(e) => {
+          fetchByFilter(e.target.value);
+          history.push(`/genre/${e.target.value}`);
+        }}
       >
         <option value="Genre" disabled hidden>Genre</option>
         {options}
@@ -52,6 +56,9 @@ FilterTabs.propTypes = {
   genres: PropTypes.arrayOf(PropTypes.string).isRequired,
   fetchByFilter: PropTypes.func.isRequired,
   condition: PropTypes.string.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
 };
 
-export default FilterTabs;
+export default withRouter(FilterTabs);
