@@ -23,7 +23,8 @@ class MoviesSection extends Component {
   render() {
     const {
       error, isLoading, isModalOpened, trailer, removeTrailerInfo,
-      trailerIsLoading, trailerError, genres, condition, movies, fetchTrailer,
+      trailerIsLoading, trailerError, genres, condition, movies,
+      fetchTrailer, removeDetailsInfo,
     } = this.props;
 
     if (error) {
@@ -63,7 +64,11 @@ class MoviesSection extends Component {
           fetchByFilter={this.fetchByFilter}
           condition={condition}
         />
-        <MovieList movies={movies} fetchTrailer={fetchTrailer} />
+        <MovieList
+          movies={movies}
+          fetchTrailer={fetchTrailer}
+          removeDetailsInfo={removeDetailsInfo}
+        />
       </section>
     );
   }
@@ -85,6 +90,7 @@ MoviesSection.propTypes = {
   fetchTrailer: PropTypes.func.isRequired,
   isModalOpened: PropTypes.bool.isRequired,
   setMoviesCondition: PropTypes.func.isRequired,
+  removeDetailsInfo: PropTypes.func.isRequired,
 };
 
 MoviesSection.defaultProps = {

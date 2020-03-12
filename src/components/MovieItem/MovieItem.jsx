@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import WatchNowWindow from '../WatchNowWindow';
 import ViewInfoWindow from '../ViewInfoWindow';
 
@@ -18,24 +19,26 @@ class MovieItem extends Component {
 
 
   render() {
-    const { film, fetchTrailer } = this.props;
+    const { film, fetchTrailer, removeDetailsInfo } = this.props;
     const { isInfoOpen } = this.state;
 
     const {
-      poster, title, genres, rating,
+      id, poster, title, genres, rating,
     } = film;
 
     return (
       <div className={styles.container}>
         <div className={styles.preview}>
           <img className={styles.poster} src={poster} alt="poster" />
-          <div className={styles.info}>
-            <h3 className={styles.title}>
-              {title.length < 15 ? title : `${title.substring(0, 13)}...`}
-            </h3>
-            <p className={styles.rating}>{rating}</p>
-            <p className={styles.genres}>{genres}</p>
-          </div>
+          <Link to={`/details/${id}`} onClick={removeDetailsInfo}>
+            <div className={styles.info}>
+              <h3 className={styles.title}>
+                {title.length < 15 ? title : `${title.substring(0, 13)}...`}
+              </h3>
+              <p className={styles.rating}>{rating}</p>
+              <p className={styles.genres}>{genres}</p>
+            </div>
+          </Link>
         </div>
         <WatchNowWindow
           name="watch"
@@ -59,12 +62,14 @@ class MovieItem extends Component {
 
 MovieItem.propTypes = {
   film: PropTypes.shape({
+    id: PropTypes.number,
     poster: PropTypes.string,
     title: PropTypes.string,
     genres: PropTypes.string,
     rating: PropTypes.number,
   }).isRequired,
   fetchTrailer: PropTypes.func.isRequired,
+  removeDetailsInfo: PropTypes.func.isRequired,
 };
 
 export default MovieItem;

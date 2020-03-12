@@ -7,6 +7,7 @@ import {
 } from '../../modules/trailer/trailerSelector';
 import { fetchTrailer, removeTrailerInfo } from '../../modules/trailer/trailerAction';
 import { fetchMovies, setMoviesCondition } from '../../modules/movies/moviesAction';
+import { removeDetailsInfo } from '../../modules/details/detailsAction';
 
 import MoviesSection from './MoviesSection';
 
@@ -28,6 +29,7 @@ const mapDispatchToProps = {
   fetchTrailer,
   removeTrailerInfo,
   setMoviesCondition,
+  removeDetailsInfo,
 };
 
 export default connect(

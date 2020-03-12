@@ -14,7 +14,11 @@
 
   .about {
     width: 100%;
-    text-align: center;
+    text-align: left;
+
+    @media (max-width: 480px) {
+      text-align: center;
+    }
 
     .genres {
       display: inline-block;
