@@ -4,36 +4,162 @@ exports[`MoviesSection tests MoviesSection render MoviesSection renders correctl
 <section
   className="container"
 >
-  <Modal
-    removeTrailerInfo={[MockFunction]}
-    trailer={null}
-    trailerError={null}
-    trailerIsLoading={false}
-  />
-  <FilterTabs
-    condition="Tranding"
-    fetchByFilter={[Function]}
-    genres={
-      Array [
-        "crime",
-        "actions",
-      ]
-    }
-    name="Tabs"
-  />
-  <MovieList
-    fetchTrailer={[MockFunction]}
-    movies={
-      Array [
-        Object {
-          "id": 123,
-        },
-        Object {
-          "id": 110,
-        },
-      ]
-    }
-  />
+  <div
+    className="container"
+  >
+    <div
+      className="message"
+    >
+      Trailer not found
+    </div>
+    <button
+      className="close"
+      onClick={
+        [MockFunction] {
+          "calls": Array [
+            Array [
+              "Trending",
+              undefined,
+            ],
+          ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        }
+      }
+      type="button"
+    >
+      ×
+    </button>
+  </div>
+  <div
+    className="container"
+  >
+    <a
+      href="/Trending"
+      onClick={[Function]}
+    >
+      <button
+        className="tab active"
+        data-filter="Trending"
+        onClick={[Function]}
+        type="button"
+      >
+        Trending
+      </button>
+    </a>
+    <a
+      href="/Top Rated"
+      onClick={[Function]}
+    >
+      <button
+        className="tab"
+        data-filter="Top Rated"
+        onClick={[Function]}
+        type="button"
+      >
+        Top Rated
+      </button>
+    </a>
+    <a
+      href="/Coming soon"
+      onClick={[Function]}
+    >
+      <button
+        className="tab"
+        data-filter="Coming soon"
+        onClick={[Function]}
+        type="button"
+      >
+        Coming soon
+      </button>
+    </a>
+    <select
+      className="select"
+      defaultValue="Genre"
+      name="Genre"
+      onChange={[Function]}
+    >
+      <option
+        disabled={true}
+        hidden={true}
+        value="Genre"
+      >
+        Genre
+      </option>
+      <option
+        value={0}
+      >
+        crime
+      </option>
+      <option
+        value={1}
+      >
+        actions
+      </option>
+    </select>
+  </div>
+  <div
+    className="container"
+  >
+    <div
+      className="container"
+    >
+      <div
+        className="preview"
+      >
+        <img
+          alt="poster"
+          className="poster"
+        />
+        <a
+          href="/details/123"
+          name="link"
+          onClick={[Function]}
+        >
+          <div
+            className="info"
+          >
+            <h3
+              className="title"
+            >
+              title
+            </h3>
+            <p
+              className="rating"
+            />
+            <p
+              className="genres"
+            />
+          </div>
+        </a>
+      </div>
+      <div
+        className="container"
+      >
+        <button
+          className="watch"
+          onClick={[Function]}
+          type="button"
+        >
+          ►
+        </button>
+        <p>
+          Watch Now
+        </p>
+        <button
+          className="button secondary"
+          onClick={[Function]}
+          type="button"
+        >
+          View Info
+        </button>
+      </div>
+    </div>
+  </div>
 </section>
 `;
 
@@ -41,13 +167,83 @@ exports[`MoviesSection tests MoviesSection render MoviesSection renders correctl
 <div
   className="container"
 >
-  <FilterTabs
-    condition="Tranding"
-    fetchByFilter={[Function]}
-    genres={Array []}
-    name="Tabs"
-  />
-  <Spinner />
+  <div
+    className="container"
+  >
+    <a
+      href="/Trending"
+      onClick={[Function]}
+    >
+      <button
+        className="tab active"
+        data-filter="Trending"
+        onClick={[Function]}
+        type="button"
+      >
+        Trending
+      </button>
+    </a>
+    <a
+      href="/Top Rated"
+      onClick={[Function]}
+    >
+      <button
+        className="tab"
+        data-filter="Top Rated"
+        onClick={[Function]}
+        type="button"
+      >
+        Top Rated
+      </button>
+    </a>
+    <a
+      href="/Coming soon"
+      onClick={[Function]}
+    >
+      <button
+        className="tab"
+        data-filter="Coming soon"
+        onClick={[Function]}
+        type="button"
+      >
+        Coming soon
+      </button>
+    </a>
+    <select
+      className="select"
+      defaultValue="Genre"
+      name="Genre"
+      onChange={[Function]}
+    >
+      <option
+        disabled={true}
+        hidden={true}
+        value="Genre"
+      >
+        Genre
+      </option>
+    </select>
+  </div>
+  <div
+    className="container"
+  >
+    <div
+      className="ldsSpinner"
+    >
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+    </div>
+  </div>
 </div>
 `;
 
@@ -55,30 +251,131 @@ exports[`MoviesSection tests MoviesSection render MoviesSection renders correctl
 <section
   className="container"
 >
-  <FilterTabs
-    condition="Tranding"
-    fetchByFilter={[Function]}
-    genres={
-      Array [
-        "crime",
-        "actions",
-      ]
-    }
-    name="Tabs"
-  />
-  <MovieList
-    fetchTrailer={[MockFunction]}
-    movies={
-      Array [
-        Object {
-          "id": 123,
-        },
-        Object {
-          "id": 110,
-        },
-      ]
-    }
-  />
+  <div
+    className="container"
+  >
+    <a
+      href="/Trending"
+      onClick={[Function]}
+    >
+      <button
+        className="tab active"
+        data-filter="Trending"
+        onClick={[Function]}
+        type="button"
+      >
+        Trending
+      </button>
+    </a>
+    <a
+      href="/Top Rated"
+      onClick={[Function]}
+    >
+      <button
+        className="tab"
+        data-filter="Top Rated"
+        onClick={[Function]}
+        type="button"
+      >
+        Top Rated
+      </button>
+    </a>
+    <a
+      href="/Coming soon"
+      onClick={[Function]}
+    >
+      <button
+        className="tab"
+        data-filter="Coming soon"
+        onClick={[Function]}
+        type="button"
+      >
+        Coming soon
+      </button>
+    </a>
+    <select
+      className="select"
+      defaultValue="Genre"
+      name="Genre"
+      onChange={[Function]}
+    >
+      <option
+        disabled={true}
+        hidden={true}
+        value="Genre"
+      >
+        Genre
+      </option>
+      <option
+        value={0}
+      >
+        crime
+      </option>
+      <option
+        value={1}
+      >
+        actions
+      </option>
+    </select>
+  </div>
+  <div
+    className="container"
+  >
+    <div
+      className="container"
+    >
+      <div
+        className="preview"
+      >
+        <img
+          alt="poster"
+          className="poster"
+        />
+        <a
+          href="/details/123"
+          name="link"
+          onClick={[Function]}
+        >
+          <div
+            className="info"
+          >
+            <h3
+              className="title"
+            >
+              title
+            </h3>
+            <p
+              className="rating"
+            />
+            <p
+              className="genres"
+            />
+          </div>
+        </a>
+      </div>
+      <div
+        className="container"
+      >
+        <button
+          className="watch"
+          onClick={[Function]}
+          type="button"
+        >
+          ►
+        </button>
+        <p>
+          Watch Now
+        </p>
+        <button
+          className="button secondary"
+          onClick={[Function]}
+          type="button"
+        >
+          View Info
+        </button>
+      </div>
+    </div>
+  </div>
 </section>
 `;
 

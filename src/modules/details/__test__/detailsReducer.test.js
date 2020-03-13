@@ -1,51 +1,49 @@
-import reducer from '../trailerReducer';
+import reducer from '../detailsReducer';
 import {
-  FETCH_TRAILER_IS_LOADING, FETCH_TRAILER_SUCCESS, FETCH_TRAILER_ERROR, REMOVE_TRAILER_INFO,
-} from '../trailerAction';
+  FETCH_DETAILS_IS_LOADING, FETCH_DETAILS_SUCCESS, FETCH_DETAILS_ERROR, REMOVE_DETAILS_INFO,
+} from '../detailsAction';
 
 describe('trailer reducer', () => {
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual(
       {
-        isModalOpened: false,
-        trailer: null,
+        details: null,
         isLoading: false,
         error: null,
       },
     );
   });
 
-  it('should handle FETCH_TRAILER_IS_LOADING', () => {
+  it('should handle FETCH_DETAILS_IS_LOADING', () => {
     expect(
       reducer([], {
-        type: FETCH_TRAILER_IS_LOADING,
+        type: FETCH_DETAILS_IS_LOADING,
       }),
     ).toEqual(
       {
-        isModalOpened: true,
         isLoading: true,
       },
     );
   });
 
-  it('should handle FETCH_TRAILER_SUCCESS', () => {
+  it('should handle FETCH_DETAILS_SUCCESS', () => {
     expect(
       reducer([], {
-        type: FETCH_TRAILER_SUCCESS,
+        type: FETCH_DETAILS_SUCCESS,
         payload: { id: 123 },
       }),
     ).toEqual(
       {
         isLoading: false,
-        trailer: { id: 123 },
+        details: { id: 123 },
       },
     );
   });
 
-  it('should handle FETCH_TRAILER_ERROR', () => {
+  it('should handle FETCH_DETAILS_ERROR', () => {
     expect(
       reducer([], {
-        type: FETCH_TRAILER_ERROR,
+        type: FETCH_DETAILS_ERROR,
         error: { message: 'error' },
       }),
     ).toEqual(
@@ -56,15 +54,14 @@ describe('trailer reducer', () => {
     );
   });
 
-  it('should handle REMOVE_TRAILER_INFO', () => {
+  it('should handle REMOVE_DETAILS_INFO', () => {
     expect(
       reducer([], {
-        type: REMOVE_TRAILER_INFO,
+        type: REMOVE_DETAILS_INFO,
       }),
     ).toEqual(
       {
-        isModalOpened: false,
-        trailer: null,
+        details: null,
         isLoading: false,
         error: null,
       },

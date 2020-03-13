@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import ShallowRenderer from 'react-test-renderer/shallow';
 import { create } from 'react-test-renderer';
 import MovieItem from '../MovieItem';
@@ -15,7 +16,12 @@ describe('MovieItem tests', () => {
     it('MovieItem renders correctly with movie title length less then 15 characters', () => {
       const mockCallBack = jest.fn();
       const renderer = new ShallowRenderer();
-      renderer.render(<MovieItem film={film} fetchTrailer={mockCallBack} />);
+      renderer.render(<MovieItem
+        film={film}
+        fetchTrailer={mockCallBack}
+        removeDetailsInfo={mockCallBack}
+        setMoviesCondition={mockCallBack}
+      />);
       const result = renderer.getRenderOutput();
       expect(result).toMatchSnapshot();
     });
@@ -24,12 +30,43 @@ describe('MovieItem tests', () => {
       const mockCallBack = jest.fn();
       film.title = 'title!!!!!!!!!!!!!!!!!!!!!!!!!!!!!';
       const tree = create(
-        <MovieItem film={film} fetchTrailer={mockCallBack} />,
+        <Router>
+          <MovieItem
+            film={film}
+            fetchTrailer={mockCallBack}
+            removeDetailsInfo={mockCallBack}
+            setMoviesCondition={mockCallBack}
+          />
+        </Router>,
       );
 
       const watchNowWindow = tree.root.findByProps({ name: 'watch' });
       watchNowWindow.props.switchViewInfo();
       expect(tree).toMatchSnapshot();
+    });
+  });
+
+  describe('onClick function', () => {
+    it('onClick callback function called', () => {
+      const mockCallBack = jest.fn();
+
+      const tree = create(
+        <Router>
+          <MovieItem
+            film={film}
+            fetchTrailer={mockCallBack}
+            removeDetailsInfo={mockCallBack}
+            setMoviesCondition={mockCallBack}
+            onClick={mockCallBack}
+          />
+        </Router>,
+      );
+
+      const link = tree.root.findByProps({ name: 'link' });
+      link.props.onClick();
+
+      expect(mockCallBack.mock.calls.length).toEqual(2);
+      expect(mockCallBack).toHaveBeenCalledWith('Trending');
     });
   });
 });

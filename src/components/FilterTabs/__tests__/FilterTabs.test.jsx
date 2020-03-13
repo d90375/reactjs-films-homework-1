@@ -1,5 +1,5 @@
 import React from 'react';
-import ShallowRenderer from 'react-test-renderer/shallow';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { create } from 'react-test-renderer';
 import FilterTabs from '../FilterTabs';
 
@@ -8,28 +8,34 @@ describe('FilterTabs tests', () => {
     it('FilterTabs renders correctly when genres tab active', () => {
       const mockCallBack = jest.fn();
       const genres = ['drama', 'crime', 'detective'];
-      const renderer = new ShallowRenderer();
-      renderer.render(<FilterTabs genres={genres} fetchByFilter={mockCallBack} condition="123" />);
-      const result = renderer.getRenderOutput();
-      expect(result).toMatchSnapshot();
+      const tree = create(
+        <Router>
+          <FilterTabs genres={genres} fetchByFilter={mockCallBack} condition="123" />
+        </Router>,
+      );
+      expect(tree).toMatchSnapshot();
     });
 
     it('FilterTabs renders correctly when trending tab active', () => {
       const mockCallBack = jest.fn();
       const genres = ['drama', 'crime', 'detective'];
-      const renderer = new ShallowRenderer();
-      renderer.render(<FilterTabs genres={genres} fetchByFilter={mockCallBack} condition="Trending" />);
-      const result = renderer.getRenderOutput();
-      expect(result).toMatchSnapshot();
+      const tree = create(
+        <Router>
+          <FilterTabs genres={genres} fetchByFilter={mockCallBack} condition="Trending" />
+        </Router>,
+      );
+      expect(tree).toMatchSnapshot();
     });
 
     it('FilterTabs renders correctly when genres are null', () => {
       const mockCallBack = jest.fn();
       const genres = null;
-      const renderer = new ShallowRenderer();
-      renderer.render(<FilterTabs genres={genres} fetchByFilter={mockCallBack} condition="Trending" />);
-      const result = renderer.getRenderOutput();
-      expect(result).toMatchSnapshot();
+      const tree = create(
+        <Router>
+          <FilterTabs genres={genres} fetchByFilter={mockCallBack} condition="Trending" />
+        </Router>,
+      );
+      expect(tree).toMatchSnapshot();
     });
   });
 
@@ -39,7 +45,13 @@ describe('FilterTabs tests', () => {
       const genres = ['drama', 'crime', 'detective'];
 
       const tree = create(
-        <FilterTabs genres={genres} fetchByFilter={mockCallBack} condition="123" />,
+        <Router>
+          <FilterTabs
+            genres={genres}
+            fetchByFilter={mockCallBack}
+            condition="123"
+          />
+        </Router>,
       );
 
       const select = tree.root.findByProps({ name: 'Genre' });

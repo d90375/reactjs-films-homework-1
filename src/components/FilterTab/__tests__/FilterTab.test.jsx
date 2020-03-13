@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import ShallowRenderer from 'react-test-renderer/shallow';
 import { create } from 'react-test-renderer';
 import FilterTab from '../FilterTab';
@@ -27,7 +28,17 @@ describe('FilterTab tests', () => {
       const mockCallBack = jest.fn();
 
       const tree = create(
-        <FilterTab fetchByFilter={mockCallBack} filter="Trending" condition="Trending" onClick={mockCallBack}>Trending</FilterTab>,
+        <Router>
+          <FilterTab
+            fetchByFilter={mockCallBack}
+            filter="Trending"
+            condition="Trending"
+            onClick={mockCallBack}
+          >
+            Trending
+          </FilterTab>
+        </Router>
+        ,
       );
 
       const button = tree.root.findByProps({ type: 'button' });

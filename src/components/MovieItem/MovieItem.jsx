@@ -33,6 +33,7 @@ class MovieItem extends Component {
         <div className={styles.preview}>
           <img className={styles.poster} src={poster} alt="poster" />
           <Link
+            name="link"
             to={`/details/${id}`}
             onClick={() => {
               removeDetailsInfo();

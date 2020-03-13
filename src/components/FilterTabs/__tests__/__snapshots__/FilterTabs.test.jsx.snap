@@ -4,27 +4,45 @@ exports[`FilterTabs tests FilterTabs render FilterTabs renders correctly when ge
 <div
   className="container"
 >
-  <FilterTab
-    condition="Trending"
-    fetchByFilter={[MockFunction]}
-    filter="Trending"
+  <a
+    href="/Trending"
+    onClick={[Function]}
   >
-    Trending
-  </FilterTab>
-  <FilterTab
-    condition="Trending"
-    fetchByFilter={[MockFunction]}
-    filter="Top Rated"
+    <button
+      className="tab active"
+      data-filter="Trending"
+      onClick={[Function]}
+      type="button"
+    >
+      Trending
+    </button>
+  </a>
+  <a
+    href="/Top Rated"
+    onClick={[Function]}
   >
-    Top Rated
-  </FilterTab>
-  <FilterTab
-    condition="Trending"
-    fetchByFilter={[MockFunction]}
-    filter="Coming soon"
+    <button
+      className="tab"
+      data-filter="Top Rated"
+      onClick={[Function]}
+      type="button"
+    >
+      Top Rated
+    </button>
+  </a>
+  <a
+    href="/Coming soon"
+    onClick={[Function]}
   >
-    Coming soon
-  </FilterTab>
+    <button
+      className="tab"
+      data-filter="Coming soon"
+      onClick={[Function]}
+      type="button"
+    >
+      Coming soon
+    </button>
+  </a>
   <select
     className="select"
     defaultValue="Genre"
@@ -46,27 +64,45 @@ exports[`FilterTabs tests FilterTabs render FilterTabs renders correctly when ge
 <div
   className="container"
 >
-  <FilterTab
-    condition="123"
-    fetchByFilter={[MockFunction]}
-    filter="Trending"
+  <a
+    href="/Trending"
+    onClick={[Function]}
   >
-    Trending
-  </FilterTab>
-  <FilterTab
-    condition="123"
-    fetchByFilter={[MockFunction]}
-    filter="Top Rated"
+    <button
+      className="tab"
+      data-filter="Trending"
+      onClick={[Function]}
+      type="button"
+    >
+      Trending
+    </button>
+  </a>
+  <a
+    href="/Top Rated"
+    onClick={[Function]}
   >
-    Top Rated
-  </FilterTab>
-  <FilterTab
-    condition="123"
-    fetchByFilter={[MockFunction]}
-    filter="Coming soon"
+    <button
+      className="tab"
+      data-filter="Top Rated"
+      onClick={[Function]}
+      type="button"
+    >
+      Top Rated
+    </button>
+  </a>
+  <a
+    href="/Coming soon"
+    onClick={[Function]}
   >
-    Coming soon
-  </FilterTab>
+    <button
+      className="tab"
+      data-filter="Coming soon"
+      onClick={[Function]}
+      type="button"
+    >
+      Coming soon
+    </button>
+  </a>
   <select
     className="select active"
     defaultValue="123"
@@ -103,27 +139,45 @@ exports[`FilterTabs tests FilterTabs render FilterTabs renders correctly when tr
 <div
   className="container"
 >
-  <FilterTab
-    condition="Trending"
-    fetchByFilter={[MockFunction]}
-    filter="Trending"
+  <a
+    href="/Trending"
+    onClick={[Function]}
   >
-    Trending
-  </FilterTab>
-  <FilterTab
-    condition="Trending"
-    fetchByFilter={[MockFunction]}
-    filter="Top Rated"
+    <button
+      className="tab active"
+      data-filter="Trending"
+      onClick={[Function]}
+      type="button"
+    >
+      Trending
+    </button>
+  </a>
+  <a
+    href="/Top Rated"
+    onClick={[Function]}
   >
-    Top Rated
-  </FilterTab>
-  <FilterTab
-    condition="Trending"
-    fetchByFilter={[MockFunction]}
-    filter="Coming soon"
+    <button
+      className="tab"
+      data-filter="Top Rated"
+      onClick={[Function]}
+      type="button"
+    >
+      Top Rated
+    </button>
+  </a>
+  <a
+    href="/Coming soon"
+    onClick={[Function]}
   >
-    Coming soon
-  </FilterTab>
+    <button
+      className="tab"
+      data-filter="Coming soon"
+      onClick={[Function]}
+      type="button"
+    >
+      Coming soon
+    </button>
+  </a>
   <select
     className="select"
     defaultValue="Genre"

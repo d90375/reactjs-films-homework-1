@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import ShallowRenderer from 'react-test-renderer/shallow';
 import { create } from 'react-test-renderer';
 import Header from '../Header';
@@ -26,11 +27,13 @@ describe('Header tests', () => {
       const mockFetchMovies = jest.fn();
 
       const tree = create(
-        <Header
-          setMoviesCondition={mockSetMoviesCondition}
-          fetchMovies={mockFetchMovies}
-          condition="Trending"
-        />,
+        <Router>
+          <Header
+            setMoviesCondition={mockSetMoviesCondition}
+            fetchMovies={mockFetchMovies}
+            condition="Trending"
+          />
+        </Router>,
       );
 
       const searchPanel = tree.root.findByProps({ name: 'Search' });
@@ -57,11 +60,13 @@ describe('Header tests', () => {
       const mockFetchMovies = jest.fn();
 
       const tree = create(
-        <Header
-          setMoviesCondition={mockSetMoviesCondition}
-          fetchMovies={mockFetchMovies}
-          condition="Trending"
-        />,
+        <Router>
+          <Header
+            setMoviesCondition={mockSetMoviesCondition}
+            fetchMovies={mockFetchMovies}
+            condition="Trending"
+          />
+        </Router>,
       );
 
       const searchPanel = tree.root.findByProps({ name: 'Search' });

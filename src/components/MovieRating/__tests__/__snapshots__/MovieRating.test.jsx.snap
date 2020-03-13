@@ -17,7 +17,7 @@ exports[`MovieRating renders correctly 1`] = `
   <span
     className="star"
   >
-    ★
+    ☆
   </span>
   <span
     className="star"

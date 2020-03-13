@@ -1,15 +1,65 @@
 import React from 'react';
-import ShallowRenderer from 'react-test-renderer/shallow';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { create } from 'react-test-renderer';
 import MovieDetails from '../MovieDetails';
 
-const data = {
-  description: 'description',
-  rating: 5,
-};
+describe('MovieDetails tests', () => {
+  describe('MovieDetails render', () => {
+    it('MovieDetails renders correctly', () => {
+      const mockCallBack = jest.fn();
+      const details = { id: 123 };
 
-test('MovieDetails renders correctly', () => {
-  const renderer = new ShallowRenderer();
-  renderer.render(<MovieDetails data={data} />);
-  const result = renderer.getRenderOutput();
-  expect(result).toMatchSnapshot();
+      const tree = create(
+        <Router>
+          <MovieDetails
+            error={null}
+            isLoading={false}
+            details={details}
+            fetchTrailer={mockCallBack}
+            fetchDetails={mockCallBack}
+          />
+        </Router>,
+      );
+
+      expect(tree).toMatchSnapshot();
+    });
+
+    it('MovieDetails renders correctly when details is loading', () => {
+      const mockCallBack = jest.fn();
+
+      const tree = create(
+        <Router>
+          <MovieDetails
+            error={null}
+            isLoading
+            details={null}
+            fetchTrailer={mockCallBack}
+            fetchDetails={mockCallBack}
+          />
+        </Router>,
+      );
+
+      expect(tree).toMatchSnapshot();
+    });
+
+    it('MovieDetails renders correctly with error message', () => {
+      const mockCallBack = jest.fn();
+      const error = { message: 'error' };
+
+      const tree = create(
+        <Router>
+          <MovieDetails
+            error={error}
+            isLoading={false}
+            isModalOpened={false}
+            details={null}
+            fetchTrailer={mockCallBack}
+            fetchDetails={mockCallBack}
+          />
+        </Router>,
+      );
+
+      expect(tree).toMatchSnapshot();
+    });
+  });
 });
