@@ -26,6 +26,11 @@
       color: #fff;
       border-right: 1px solid #fff;
 
+      @media (max-width: 1023px) {
+        display: block;
+        border: none;
+      }
+
       @media (max-width: 480px) {
         padding-right: 10px;
       }
@@ -34,6 +39,10 @@
     .duration {
       padding-left: 20px;
       color: #fff;
+
+      @media (max-width: 1023px) {
+        padding-left: 0;
+      }
 
       @media (max-width: 480px) {
         padding: 10px;
