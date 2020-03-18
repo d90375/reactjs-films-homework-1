@@ -37,6 +37,8 @@ const MovieDetails = ({
           <MovieRating rating={rating} />
         </div>
         <MovieAction description={overview} id={id} fetchTrailer={fetchTrailer} />
+
+
       </section>
     );
   }
