@@ -37,7 +37,7 @@ if (process.env.NODE_ENV === 'development') {
   });
 }
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 3000;
 
 app.listen(3000, () => {
   console.log(`App listening to ${PORT}....`);
