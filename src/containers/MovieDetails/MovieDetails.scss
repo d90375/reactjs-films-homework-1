@@ -3,7 +3,7 @@
   justify-content: space-between;
   height: 65vh;
   max-height: 1100px;
-  padding: 70px 5% 50px 5%;
+  padding: 70px 5% 0 5%;
   background-size: cover;
 
   @media (max-width: 767px) {
@@ -25,7 +25,7 @@
   flex-direction: column;
   justify-content: flex-end;
   flex-grow: 1;
-  padding: 15px;
+  padding: 15px 15px 50px 15px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.1) 60%, rgba(0, 0, 0, 0.7) 100%);
 
   @media (max-width: 767px) {
