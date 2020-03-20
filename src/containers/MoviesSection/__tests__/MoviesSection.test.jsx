@@ -133,7 +133,7 @@ describe('MoviesSection tests', () => {
             trailerIsLoading={false}
             trailerError={null}
             genres={genres}
-            condition="Tranding"
+            condition="Trending"
             movies={movies}
             fetchTrailer={mockCallBack}
             fetchMovies={mockFetchMovies}
@@ -143,7 +143,7 @@ describe('MoviesSection tests', () => {
       );
 
       const filterTabs = tree.root.findByProps({ name: 'Tabs' });
-      filterTabs.props.fetchByFilter('Tranding');
+      filterTabs.props.fetchByFilter('Trending');
 
       expect(mockSetMoviesCondition.mock.calls.length).toEqual(1);
       expect(mockFetchMovies.mock.calls.length).toEqual(1);
@@ -156,8 +156,8 @@ describe('MoviesSection tests', () => {
       const genres = ['crime', 'actions'];
       const movies = [{ id: 123, title: 'title' }, { id: 110, title: 'title' }];
       create(
-        <MemoryRouter initialEntries={['/Trending']}>
-          <Route path="/:filter">
+        <MemoryRouter initialEntries={['/?filter=Trending']}>
+          <Route path="/">
             <MoviesSection
               error={null}
               isLoading={false}
@@ -167,7 +167,7 @@ describe('MoviesSection tests', () => {
               trailerIsLoading={false}
               trailerError={null}
               genres={genres}
-              condition="Tranding"
+              condition="Trending"
               movies={movies}
               fetchTrailer={mockCallBack}
               fetchMovies={mockFetchMovies}
@@ -188,8 +188,8 @@ describe('MoviesSection tests', () => {
       const genres = ['crime', 'actions'];
       const movies = [{ id: 123, title: 'title' }, { id: 110, title: 'title' }];
       create(
-        <MemoryRouter initialEntries={['/genre/123']}>
-          <Route path="/genre/:genreId">
+        <MemoryRouter initialEntries={['/?genreId=16']}>
+          <Route path="/">
             <MoviesSection
               error={null}
               isLoading={false}
@@ -199,7 +199,7 @@ describe('MoviesSection tests', () => {
               trailerIsLoading={false}
               trailerError={null}
               genres={genres}
-              condition="Tranding"
+              condition="Trending"
               movies={movies}
               fetchTrailer={mockCallBack}
               fetchMovies={mockFetchMovies}
@@ -210,7 +210,7 @@ describe('MoviesSection tests', () => {
       );
 
       expect(mockSetMoviesCondition.mock.calls.length).toEqual(1);
-      expect(mockSetMoviesCondition).toHaveBeenCalledWith('123');
+      expect(mockSetMoviesCondition).toHaveBeenCalledWith('16');
     });
 
     it('setMoviesCondition functions called with "Search"', () => {
@@ -220,8 +220,8 @@ describe('MoviesSection tests', () => {
       const genres = ['crime', 'actions'];
       const movies = [{ id: 123, title: 'title' }, { id: 110, title: 'title' }];
       create(
-        <MemoryRouter initialEntries={['/search/sonic']}>
-          <Route path="/search/:query">
+        <MemoryRouter initialEntries={['/?search=sonic']}>
+          <Route path="/">
             <MoviesSection
               error={null}
               isLoading={false}
@@ -231,7 +231,7 @@ describe('MoviesSection tests', () => {
               trailerIsLoading={false}
               trailerError={null}
               genres={genres}
-              condition="Tranding"
+              condition="Trending"
               movies={movies}
               fetchTrailer={mockCallBack}
               fetchMovies={mockFetchMovies}

@@ -5,7 +5,7 @@ exports[`FilterTabs tests FilterTabs render FilterTabs renders correctly when ge
   className="container"
 >
   <a
-    href="/Trending"
+    href="/?filter=Trending"
     onClick={[Function]}
   >
     <button
@@ -18,7 +18,7 @@ exports[`FilterTabs tests FilterTabs render FilterTabs renders correctly when ge
     </button>
   </a>
   <a
-    href="/Top Rated"
+    href="/?filter=Top Rated"
     onClick={[Function]}
   >
     <button
@@ -31,7 +31,7 @@ exports[`FilterTabs tests FilterTabs render FilterTabs renders correctly when ge
     </button>
   </a>
   <a
-    href="/Coming soon"
+    href="/?filter=Coming soon"
     onClick={[Function]}
   >
     <button
@@ -65,7 +65,7 @@ exports[`FilterTabs tests FilterTabs render FilterTabs renders correctly when ge
   className="container"
 >
   <a
-    href="/Trending"
+    href="/?filter=Trending"
     onClick={[Function]}
   >
     <button
@@ -78,7 +78,7 @@ exports[`FilterTabs tests FilterTabs render FilterTabs renders correctly when ge
     </button>
   </a>
   <a
-    href="/Top Rated"
+    href="/?filter=Top Rated"
     onClick={[Function]}
   >
     <button
@@ -91,7 +91,7 @@ exports[`FilterTabs tests FilterTabs render FilterTabs renders correctly when ge
     </button>
   </a>
   <a
-    href="/Coming soon"
+    href="/?filter=Coming soon"
     onClick={[Function]}
   >
     <button
@@ -140,7 +140,7 @@ exports[`FilterTabs tests FilterTabs render FilterTabs renders correctly when tr
   className="container"
 >
   <a
-    href="/Trending"
+    href="/?filter=Trending"
     onClick={[Function]}
   >
     <button
@@ -153,7 +153,7 @@ exports[`FilterTabs tests FilterTabs render FilterTabs renders correctly when tr
     </button>
   </a>
   <a
-    href="/Top Rated"
+    href="/?filter=Top Rated"
     onClick={[Function]}
   >
     <button
@@ -166,7 +166,7 @@ exports[`FilterTabs tests FilterTabs render FilterTabs renders correctly when tr
     </button>
   </a>
   <a
-    href="/Coming soon"
+    href="/?filter=Coming soon"
     onClick={[Function]}
   >
     <button

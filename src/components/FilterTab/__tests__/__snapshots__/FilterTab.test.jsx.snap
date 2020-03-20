@@ -2,7 +2,7 @@
 
 exports[`FilterTab tests FilterTab render FilterTab renders correctly 1`] = `
 <Link
-  to="/Trending"
+  to="/?filter=Trending"
 >
   <button
     className="tab active"
@@ -17,7 +17,7 @@ exports[`FilterTab tests FilterTab render FilterTab renders correctly 1`] = `
 
 exports[`FilterTab tests FilterTab render FilterTab renders correctly when genres tab active 1`] = `
 <Link
-  to="/Trending"
+  to="/?filter=Trending"
 >
   <button
     className="tab"

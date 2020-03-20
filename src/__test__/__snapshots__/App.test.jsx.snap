@@ -1,37 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App renders correctly 1`] = `
-<BrowserRouter>
-  <div
-    className="app"
-  >
+<div
+  className="app"
+>
+  <BrowserRouter>
     <Switch>
       <Route
+        component={[Function]}
         path="/details/:id"
-      >
-        <MainPage />
-      </Route>
+      />
       <Route
-        path="/search/:query"
-      >
-        <MainPage />
-      </Route>
-      <Route
-        path="/genre/:genreId"
-      >
-        <MainPage />
-      </Route>
-      <Route
-        path="/:filter"
-      >
-        <MainPage />
-      </Route>
-      <Route
+        component={[Function]}
         path="/"
-      >
-        <MainPage />
-      </Route>
+      />
     </Switch>
-  </div>
-</BrowserRouter>
+  </BrowserRouter>
+</div>
 `;

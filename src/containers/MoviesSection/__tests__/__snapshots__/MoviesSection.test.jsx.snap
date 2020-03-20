@@ -19,7 +19,7 @@ exports[`MoviesSection tests MoviesSection render MoviesSection renders correctl
           "calls": Array [
             Array [
               "Trending",
-              undefined,
+              null,
             ],
           ],
           "results": Array [
@@ -39,7 +39,7 @@ exports[`MoviesSection tests MoviesSection render MoviesSection renders correctl
     className="container"
   >
     <a
-      href="/Trending"
+      href="/?filter=Trending"
       onClick={[Function]}
     >
       <button
@@ -52,7 +52,7 @@ exports[`MoviesSection tests MoviesSection render MoviesSection renders correctl
       </button>
     </a>
     <a
-      href="/Top Rated"
+      href="/?filter=Top Rated"
       onClick={[Function]}
     >
       <button
@@ -65,7 +65,7 @@ exports[`MoviesSection tests MoviesSection render MoviesSection renders correctl
       </button>
     </a>
     <a
-      href="/Coming soon"
+      href="/?filter=Coming soon"
       onClick={[Function]}
     >
       <button
@@ -171,7 +171,7 @@ exports[`MoviesSection tests MoviesSection render MoviesSection renders correctl
     className="container"
   >
     <a
-      href="/Trending"
+      href="/?filter=Trending"
       onClick={[Function]}
     >
       <button
@@ -184,7 +184,7 @@ exports[`MoviesSection tests MoviesSection render MoviesSection renders correctl
       </button>
     </a>
     <a
-      href="/Top Rated"
+      href="/?filter=Top Rated"
       onClick={[Function]}
     >
       <button
@@ -197,7 +197,7 @@ exports[`MoviesSection tests MoviesSection render MoviesSection renders correctl
       </button>
     </a>
     <a
-      href="/Coming soon"
+      href="/?filter=Coming soon"
       onClick={[Function]}
     >
       <button
@@ -255,7 +255,7 @@ exports[`MoviesSection tests MoviesSection render MoviesSection renders correctl
     className="container"
   >
     <a
-      href="/Trending"
+      href="/?filter=Trending"
       onClick={[Function]}
     >
       <button
@@ -268,7 +268,7 @@ exports[`MoviesSection tests MoviesSection render MoviesSection renders correctl
       </button>
     </a>
     <a
-      href="/Top Rated"
+      href="/?filter=Top Rated"
       onClick={[Function]}
     >
       <button
@@ -281,7 +281,7 @@ exports[`MoviesSection tests MoviesSection render MoviesSection renders correctl
       </button>
     </a>
     <a
-      href="/Coming soon"
+      href="/?filter=Coming soon"
       onClick={[Function]}
     >
       <button
