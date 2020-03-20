@@ -42,7 +42,7 @@ const FilterTabs = (props) => {
         defaultValue={genreId}
         onChange={(e) => {
           fetchByFilter(e.target.value);
-          history.push(`/genre/${e.target.value}`);
+          history.push(`/?genreId=${e.target.value}`);
         }}
       >
         <option value="Genre" disabled hidden>Genre</option>

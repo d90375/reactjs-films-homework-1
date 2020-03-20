@@ -10,8 +10,12 @@ import styles from './MoviesSection.scss';
 
 class MoviesSection extends Component {
   async componentDidMount() {
+    const { location: { search } } = this.props;
+    const params = new URLSearchParams(search);
+    const filter = params.get('filter');
+    const genreId = params.get('genreId');
+    const query = params.get('search');
     const { fetchMovies, setMoviesCondition } = this.props;
-    const { match: { params: { filter, genreId, query } } } = this.props;
 
     if (filter || genreId) {
       await setMoviesCondition(filter || genreId);
@@ -111,7 +115,9 @@ MoviesSection.propTypes = {
       query: PropTypes.string,
     }),
   }),
-
+  location: PropTypes.shape({
+    search: PropTypes.string,
+  }),
 };
 
 MoviesSection.defaultProps = {
@@ -124,6 +130,9 @@ MoviesSection.defaultProps = {
       genreId: undefined,
       query: undefined,
     }),
+  }),
+  location: PropTypes.shape({
+    search: null,
   }),
 };
 

@@ -9,7 +9,7 @@ const FilterTab = ({
 }) => {
   const className = condition === children ? `${styles.tab} ${styles.active}` : styles.tab;
   return (
-    <Link to={`/${filter}`}>
+    <Link to={`/?filter=${filter}`}>
       <button
         type="button"
         className={className}

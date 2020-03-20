@@ -25,7 +25,7 @@ class Header extends Component {
         await setMoviesCondition('Search');
         const { condition } = this.props;
         fetchMovies(condition, query);
-        history.push(`/search/${query}`);
+        history.push(`/?search=${query}`);
       } else {
         await setMoviesCondition('Trending');
         const { condition } = this.props;

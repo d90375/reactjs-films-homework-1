@@ -6,7 +6,7 @@ const routes = [
     path: '/details/:id',
     component: MovieDetailsPage,
   },
-  {
+  /*  {
     path: '/search/:query',
     component: MainPage,
   },
@@ -17,7 +17,7 @@ const routes = [
   {
     path: '/:filter',
     component: MainPage,
-  },
+  }, */
   {
     path: '/',
     component: MainPage,
