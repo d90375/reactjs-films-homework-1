@@ -4,34 +4,26 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
-import MainPage from './pages/MainPage';
-import MovieDetailsPage from './pages/MovieDetailsPage';
+// import MainPage from './pages/MainPage';
+// import MovieDetailsPage from './pages/MovieDetailsPage';
+import routes from './routes';
 
 import styles from './main.scss';
 
 const App = () => (
-  <Router>
-    <div className={styles.app}>
+  <div className={styles.app}>
+    <Router>
       <Switch>
-        <Route path="/details/:id">
-          <MovieDetailsPage />
-        </Route>
-        <Route path="/search/:query">
-          <MainPage />
-        </Route>
-        <Route path="/genre/:genreId">
-          <MainPage />
-        </Route>
-        <Route path="/:filter">
-          <MainPage />
-        </Route>
-        <Route path="/">
-          <MainPage />
-        </Route>
-
+        {routes.map((route) => (
+          <Route
+            key={route.path}
+            path={route.path}
+            component={route.component}
+          />
+        ))}
       </Switch>
-    </div>
-  </Router>
+    </Router>
+  </div>
 );
 
 export default App;
