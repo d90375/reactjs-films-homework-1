@@ -5,7 +5,6 @@ import MovieList from '../../components/MovieList';
 import Modal from '../../components/Modal';
 import Spinner from '../../components/Spinner';
 import FilterTabs from '../../components/FilterTabs';
-
 import styles from './MoviesSection.scss';
 
 class MoviesSection extends Component {
@@ -15,13 +14,14 @@ class MoviesSection extends Component {
     const filter = params.get('filter');
     const genreId = params.get('genreId');
     const query = params.get('search');
-    const { fetchMovies, setMoviesCondition } = this.props;
+    const { fetchMovies, setMoviesCondition, setSearchQuery } = this.props;
 
     if (filter || genreId) {
       await setMoviesCondition(filter || genreId);
     }
 
     if (query) {
+      setSearchQuery(query);
       await setMoviesCondition('Search');
     }
 
@@ -29,8 +29,27 @@ class MoviesSection extends Component {
     fetchMovies(condition, query);
   }
 
+  componentDidUpdate(prevProps) {
+    const { location } = this.props;
+    if (location !== prevProps.location) {
+      const { location: { search } } = this.props;
+      const params = new URLSearchParams(search);
+      const filter = params.get('filter');
+      const genreId = params.get('genreId');
+
+      if (filter) {
+        this.fetchByFilter(filter);
+      }
+
+      if (genreId) {
+        this.fetchByFilter(genreId);
+      }
+    }
+  }
+
   fetchByFilter = async (filter) => {
-    const { setMoviesCondition } = this.props;
+    const { setMoviesCondition, deleteSearchQuery } = this.props;
+    deleteSearchQuery();
     await setMoviesCondition(filter);
     const { condition, genres, fetchMovies } = this.props;
     fetchMovies(condition, genres);
@@ -108,13 +127,8 @@ MoviesSection.propTypes = {
   isModalOpened: PropTypes.bool.isRequired,
   setMoviesCondition: PropTypes.func.isRequired,
   removeDetailsInfo: PropTypes.func.isRequired,
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      filter: PropTypes.string,
-      genreId: PropTypes.string,
-      query: PropTypes.string,
-    }),
-  }),
+  setSearchQuery: PropTypes.func.isRequired,
+  deleteSearchQuery: PropTypes.func.isRequired,
   location: PropTypes.shape({
     search: PropTypes.string,
   }),
@@ -124,13 +138,6 @@ MoviesSection.defaultProps = {
   error: null,
   trailer: null,
   trailerError: null,
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      filter: undefined,
-      genreId: undefined,
-      query: undefined,
-    }),
-  }),
   location: PropTypes.shape({
     search: null,
   }),

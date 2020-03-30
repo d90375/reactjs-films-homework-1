@@ -4,8 +4,6 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
-// import MainPage from './pages/MainPage';
-// import MovieDetailsPage from './pages/MovieDetailsPage';
 import routes from './routes';
 
 import styles from './main.scss';

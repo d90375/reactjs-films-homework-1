@@ -7,7 +7,7 @@ import styles from './FilterTabs.scss';
 
 const FilterTabs = (props) => {
   const {
-    genres, fetchByFilter, condition, history,
+    genres, condition, history,
   } = props;
   const genreId = Number(condition) ? condition : 'Genre';
   const className = Number(condition) ? `${styles.select} ${styles.active}` : styles.select;
@@ -27,13 +27,13 @@ const FilterTabs = (props) => {
 
   return (
     <div className={styles.container}>
-      <FilterTab fetchByFilter={fetchByFilter} condition={condition} filter="Trending">
+      <FilterTab condition={condition} filter="Trending">
         Trending
       </FilterTab>
-      <FilterTab fetchByFilter={fetchByFilter} condition={condition} filter="Top Rated">
+      <FilterTab condition={condition} filter="Top Rated">
         Top Rated
       </FilterTab>
-      <FilterTab fetchByFilter={fetchByFilter} condition={condition} filter="Coming soon">
+      <FilterTab condition={condition} filter="Coming soon">
         Coming soon
       </FilterTab>
       <select
@@ -41,7 +41,6 @@ const FilterTabs = (props) => {
         name="Genre"
         defaultValue={genreId}
         onChange={(e) => {
-          fetchByFilter(e.target.value);
           history.push(`/?genreId=${e.target.value}`);
         }}
       >
@@ -54,7 +53,6 @@ const FilterTabs = (props) => {
 
 FilterTabs.propTypes = {
   genres: PropTypes.arrayOf(PropTypes.string).isRequired,
-  fetchByFilter: PropTypes.func.isRequired,
   condition: PropTypes.string.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func,

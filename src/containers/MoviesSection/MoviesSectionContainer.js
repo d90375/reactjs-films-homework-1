@@ -6,7 +6,9 @@ import {
   getTrailer, getTrailerIsLoading, getTrailerError, getModalOpened,
 } from '../../modules/trailer/trailerSelector';
 import { fetchTrailer, removeTrailerInfo } from '../../modules/trailer/trailerAction';
-import { fetchMovies, setMoviesCondition } from '../../modules/movies/moviesAction';
+import {
+  fetchMovies, setMoviesCondition, setSearchQuery, deleteSearchQuery,
+} from '../../modules/movies/moviesAction';
 import { removeDetailsInfo } from '../../modules/details/detailsAction';
 
 import MoviesSection from './MoviesSection';
@@ -30,6 +32,8 @@ const mapDispatchToProps = {
   removeTrailerInfo,
   setMoviesCondition,
   removeDetailsInfo,
+  setSearchQuery,
+  deleteSearchQuery,
 };
 
 export default connect(

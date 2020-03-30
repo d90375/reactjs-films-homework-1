@@ -19,7 +19,15 @@ class Header extends Component {
     }
 
     const query = event.target.value;
-    const { setMoviesCondition, fetchMovies, history } = this.props;
+    const {
+      setMoviesCondition,
+      fetchMovies,
+      setSearchQuery,
+      history,
+    } = this.props;
+
+    setSearchQuery(query);
+
     timer = setTimeout(async () => {
       if (query !== '') {
         await setMoviesCondition('Search');
@@ -37,10 +45,11 @@ class Header extends Component {
   }
 
   render() {
+    const { query } = this.props;
     return (
       <header className={styles.header}>
         <Logo />
-        <SearchPanel name="Search" getSearch={this.getSearch} />
+        <SearchPanel name="Search" getSearch={this.getSearch} query={query} />
       </header>
     );
   }
@@ -49,7 +58,9 @@ class Header extends Component {
 Header.propTypes = {
   setMoviesCondition: PropTypes.func.isRequired,
   fetchMovies: PropTypes.func.isRequired,
+  setSearchQuery: PropTypes.func.isRequired,
   condition: PropTypes.string.isRequired,
+  query: PropTypes.string.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,
