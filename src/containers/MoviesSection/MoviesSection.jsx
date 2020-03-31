@@ -59,7 +59,7 @@ class MoviesSection extends Component {
     const {
       error, isLoading, isModalOpened, trailer, removeTrailerInfo,
       trailerIsLoading, trailerError, genres, condition, movies,
-      fetchTrailer, removeDetailsInfo, setMoviesCondition,
+      fetchTrailer, removeDetailsInfo, setMoviesCondition, history,
     } = this.props;
 
     if (error) {
@@ -98,6 +98,7 @@ class MoviesSection extends Component {
           genres={genres}
           fetchByFilter={this.fetchByFilter}
           condition={condition}
+          historyPush={history.push}
         />
         <MovieList
           movies={movies}
@@ -132,6 +133,9 @@ MoviesSection.propTypes = {
   location: PropTypes.shape({
     search: PropTypes.string,
   }),
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
 };
 
 MoviesSection.defaultProps = {

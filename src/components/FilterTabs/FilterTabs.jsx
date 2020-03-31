@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
 import FilterTab from '../FilterTab';
 
 import styles from './FilterTabs.scss';
 
 const FilterTabs = (props) => {
   const {
-    genres, condition, history,
+    genres,
+    condition,
+    historyPush,
   } = props;
   const genreId = Number(condition) ? condition : 'Genre';
   const className = Number(condition) ? `${styles.select} ${styles.active}` : styles.select;
@@ -27,22 +28,20 @@ const FilterTabs = (props) => {
 
   return (
     <div className={styles.container}>
-      <FilterTab condition={condition} filter="Trending">
+      <FilterTab condition={condition} filter="Trending" historyPush={historyPush}>
         Trending
       </FilterTab>
-      <FilterTab condition={condition} filter="Top Rated">
+      <FilterTab condition={condition} filter="Top Rated" historyPush={historyPush}>
         Top Rated
       </FilterTab>
-      <FilterTab condition={condition} filter="Coming soon">
+      <FilterTab condition={condition} filter="Coming soon" historyPush={historyPush}>
         Coming soon
       </FilterTab>
       <select
         className={className}
         name="Genre"
         defaultValue={genreId}
-        onChange={(e) => {
-          history.push(`/?genreId=${e.target.value}`);
-        }}
+        onChange={(e) => historyPush(`/?genreId=${e.target.value}`)}
       >
         <option value="Genre" disabled hidden>Genre</option>
         {options}
@@ -54,9 +53,11 @@ const FilterTabs = (props) => {
 FilterTabs.propTypes = {
   genres: PropTypes.arrayOf(PropTypes.string).isRequired,
   condition: PropTypes.string.isRequired,
-  history: PropTypes.shape({
-    push: PropTypes.func,
-  }).isRequired,
+  historyPush: PropTypes.func,
 };
 
-export default withRouter(FilterTabs);
+FilterTabs.defaultProps = {
+  historyPush: undefined,
+};
+
+export default FilterTabs;
