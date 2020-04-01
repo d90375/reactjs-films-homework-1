@@ -30,9 +30,8 @@ class MoviesSection extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { location } = this.props;
-    if (location !== prevProps.location) {
-      const { location: { search } } = this.props;
+    const { location: { search } } = this.props;
+    if (search !== prevProps.location.search) {
       const params = new URLSearchParams(search);
       const filter = params.get('filter');
       const genreId = params.get('genreId');

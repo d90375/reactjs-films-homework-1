@@ -38,45 +38,30 @@ exports[`MoviesSection tests MoviesSection render MoviesSection renders correctl
   <div
     className="container"
   >
-    <a
-      href="/?filter=Trending"
+    <button
+      className="tab active"
+      data-filter="Trending"
       onClick={[Function]}
+      type="button"
     >
-      <button
-        className="tab active"
-        data-filter="Trending"
-        onClick={[Function]}
-        type="button"
-      >
-        Trending
-      </button>
-    </a>
-    <a
-      href="/?filter=Top Rated"
+      Trending
+    </button>
+    <button
+      className="tab"
+      data-filter="Top Rated"
       onClick={[Function]}
+      type="button"
     >
-      <button
-        className="tab"
-        data-filter="Top Rated"
-        onClick={[Function]}
-        type="button"
-      >
-        Top Rated
-      </button>
-    </a>
-    <a
-      href="/?filter=Coming soon"
+      Top Rated
+    </button>
+    <button
+      className="tab"
+      data-filter="Coming soon"
       onClick={[Function]}
+      type="button"
     >
-      <button
-        className="tab"
-        data-filter="Coming soon"
-        onClick={[Function]}
-        type="button"
-      >
-        Coming soon
-      </button>
-    </a>
+      Coming soon
+    </button>
     <select
       className="select"
       defaultValue="Genre"
@@ -170,45 +155,30 @@ exports[`MoviesSection tests MoviesSection render MoviesSection renders correctl
   <div
     className="container"
   >
-    <a
-      href="/?filter=Trending"
+    <button
+      className="tab active"
+      data-filter="Trending"
       onClick={[Function]}
+      type="button"
     >
-      <button
-        className="tab active"
-        data-filter="Trending"
-        onClick={[Function]}
-        type="button"
-      >
-        Trending
-      </button>
-    </a>
-    <a
-      href="/?filter=Top Rated"
+      Trending
+    </button>
+    <button
+      className="tab"
+      data-filter="Top Rated"
       onClick={[Function]}
+      type="button"
     >
-      <button
-        className="tab"
-        data-filter="Top Rated"
-        onClick={[Function]}
-        type="button"
-      >
-        Top Rated
-      </button>
-    </a>
-    <a
-      href="/?filter=Coming soon"
+      Top Rated
+    </button>
+    <button
+      className="tab"
+      data-filter="Coming soon"
       onClick={[Function]}
+      type="button"
     >
-      <button
-        className="tab"
-        data-filter="Coming soon"
-        onClick={[Function]}
-        type="button"
-      >
-        Coming soon
-      </button>
-    </a>
+      Coming soon
+    </button>
     <select
       className="select"
       defaultValue="Genre"
@@ -254,45 +224,30 @@ exports[`MoviesSection tests MoviesSection render MoviesSection renders correctl
   <div
     className="container"
   >
-    <a
-      href="/?filter=Trending"
+    <button
+      className="tab active"
+      data-filter="Trending"
       onClick={[Function]}
+      type="button"
     >
-      <button
-        className="tab active"
-        data-filter="Trending"
-        onClick={[Function]}
-        type="button"
-      >
-        Trending
-      </button>
-    </a>
-    <a
-      href="/?filter=Top Rated"
+      Trending
+    </button>
+    <button
+      className="tab"
+      data-filter="Top Rated"
       onClick={[Function]}
+      type="button"
     >
-      <button
-        className="tab"
-        data-filter="Top Rated"
-        onClick={[Function]}
-        type="button"
-      >
-        Top Rated
-      </button>
-    </a>
-    <a
-      href="/?filter=Coming soon"
+      Top Rated
+    </button>
+    <button
+      className="tab"
+      data-filter="Coming soon"
       onClick={[Function]}
+      type="button"
     >
-      <button
-        className="tab"
-        data-filter="Coming soon"
-        onClick={[Function]}
-        type="button"
-      >
-        Coming soon
-      </button>
-    </a>
+      Coming soon
+    </button>
     <select
       className="select"
       defaultValue="Genre"

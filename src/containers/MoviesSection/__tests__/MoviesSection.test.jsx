@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, MemoryRouter, Route } from 'react-router-dom';
 import { create } from 'react-test-renderer';
 import MoviesSection from '../MoviesSection';
@@ -120,6 +121,8 @@ describe('MoviesSection tests', () => {
       const mockCallBack = jest.fn();
       const mockFetchMovies = jest.fn();
       const mockSetMoviesCondition = jest.fn();
+      const mockSetSearchQuery = jest.fn();
+      const mockDeleteSearchQuery = jest.fn();
       const genres = ['crime', 'actions'];
       const movies = [{ id: 123, title: 'title' }, { id: 110, title: 'title' }];
       const tree = create(
@@ -138,6 +141,8 @@ describe('MoviesSection tests', () => {
             fetchTrailer={mockCallBack}
             fetchMovies={mockFetchMovies}
             setMoviesCondition={mockSetMoviesCondition}
+            setSearchQuery={mockSetSearchQuery}
+            deleteSearchQuery={mockDeleteSearchQuery}
           />
         </Router>,
       );
@@ -153,6 +158,8 @@ describe('MoviesSection tests', () => {
       const mockCallBack = jest.fn();
       const mockFetchMovies = jest.fn();
       const mockSetMoviesCondition = jest.fn();
+      const mockSetSearchQuery = jest.fn();
+      const mockDeleteSearchQuery = jest.fn();
       const genres = ['crime', 'actions'];
       const movies = [{ id: 123, title: 'title' }, { id: 110, title: 'title' }];
       create(
@@ -172,6 +179,8 @@ describe('MoviesSection tests', () => {
               fetchTrailer={mockCallBack}
               fetchMovies={mockFetchMovies}
               setMoviesCondition={mockSetMoviesCondition}
+              setSearchQuery={mockSetSearchQuery}
+              deleteSearchQuery={mockDeleteSearchQuery}
             />
           </Route>
         </MemoryRouter>,
@@ -185,6 +194,8 @@ describe('MoviesSection tests', () => {
       const mockCallBack = jest.fn();
       const mockFetchMovies = jest.fn();
       const mockSetMoviesCondition = jest.fn();
+      const mockSetSearchQuery = jest.fn();
+      const mockDeleteSearchQuery = jest.fn();
       const genres = ['crime', 'actions'];
       const movies = [{ id: 123, title: 'title' }, { id: 110, title: 'title' }];
       create(
@@ -204,6 +215,8 @@ describe('MoviesSection tests', () => {
               fetchTrailer={mockCallBack}
               fetchMovies={mockFetchMovies}
               setMoviesCondition={mockSetMoviesCondition}
+              setSearchQuery={mockSetSearchQuery}
+              deleteSearchQuery={mockDeleteSearchQuery}
             />
           </Route>
         </MemoryRouter>,
@@ -216,6 +229,8 @@ describe('MoviesSection tests', () => {
     it('setMoviesCondition functions called with "Search"', () => {
       const mockCallBack = jest.fn();
       const mockFetchMovies = jest.fn();
+      const mockSetSearchQuery = jest.fn();
+      const mockDeleteSearchQuery = jest.fn();
       const mockSetMoviesCondition = jest.fn();
       const genres = ['crime', 'actions'];
       const movies = [{ id: 123, title: 'title' }, { id: 110, title: 'title' }];
@@ -235,6 +250,8 @@ describe('MoviesSection tests', () => {
               movies={movies}
               fetchTrailer={mockCallBack}
               fetchMovies={mockFetchMovies}
+              setSearchQuery={mockSetSearchQuery}
+              deleteSearchQuery={mockDeleteSearchQuery}
               setMoviesCondition={mockSetMoviesCondition}
             />
           </Route>
@@ -245,4 +262,65 @@ describe('MoviesSection tests', () => {
       expect(mockSetMoviesCondition).toHaveBeenCalledWith('Search');
     });
   });
+
+  /* describe('ComponentDidUpdate', () => {
+    it('fetchByFilter functions called with filter', () => {
+      const mockCallBack = jest.fn();
+      const mockFetchMovies = jest.fn();
+      const mockSetMoviesCondition = jest.fn();
+      const mockSetSearchQuery = jest.fn();
+      const mockDeleteSearchQuery = jest.fn();
+      const genres = ['crime', 'actions'];
+      const movies = [{ id: 123, title: 'title' }, { id: 110, title: 'title' }];
+      const location = { path: ['/?filter=Coming%20soon', '/?filter=Trending'] };
+
+      const node = document.createElement('div');
+      const instance = ReactDOM.render(
+        <MemoryRouter initialEntries={location.path} initialIndex={1}>
+          <MoviesSection
+            error={null}
+            isLoading={false}
+            isModalOpened={false}
+            trailer={null}
+            removeTrailerInfo={mockCallBack}
+            trailerIsLoading={false}
+            trailerError={null}
+            genres={genres}
+            condition="Coming Soon"
+            movies={movies}
+            fetchTrailer={mockCallBack}
+            fetchMovies={mockFetchMovies}
+            setMoviesCondition={mockSetMoviesCondition}
+            setSearchQuery={mockSetSearchQuery}
+            deleteSearchQuery={mockDeleteSearchQuery}
+          />
+        </MemoryRouter>, node,
+      );
+
+      // spyOn(MoviesSection, 'fetchByFilter');
+
+      ReactDOM.render(
+        <MemoryRouter initialEntries={location.path} initialIndex={0}>
+          <MoviesSection
+            error={null}
+            isLoading={false}
+            isModalOpened={false}
+            trailer={null}
+            removeTrailerInfo={mockCallBack}
+            trailerIsLoading={false}
+            trailerError={null}
+            genres={genres}
+            condition="Trending"
+            movies={movies}
+            fetchTrailer={mockCallBack}
+            fetchMovies={mockFetchMovies}
+            setMoviesCondition={mockSetMoviesCondition}
+            setSearchQuery={mockSetSearchQuery}
+            deleteSearchQuery={mockDeleteSearchQuery}
+          />
+        </MemoryRouter>, node,
+      );
+      expect(instance.fetchByFilter).toHaveBeenCalled();
+    });
+  }); */
 });

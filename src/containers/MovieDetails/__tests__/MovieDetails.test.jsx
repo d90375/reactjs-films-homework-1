@@ -7,18 +7,16 @@ describe('MovieDetails tests', () => {
   describe('MovieDetails render', () => {
     it('MovieDetails renders correctly', () => {
       const mockCallBack = jest.fn();
-      const details = { id: 123 };
+      const details = { id: 123, background: 'backgroundUrl' };
 
       const tree = create(
-        <Router>
-          <MovieDetails
-            error={null}
-            isLoading={false}
-            details={details}
-            fetchTrailer={mockCallBack}
-            fetchDetails={mockCallBack}
-          />
-        </Router>,
+        <MovieDetails
+          error={null}
+          isLoading={false}
+          details={details}
+          fetchTrailer={mockCallBack}
+          fetchDetails={mockCallBack}
+        />,
       );
 
       expect(tree).toMatchSnapshot();

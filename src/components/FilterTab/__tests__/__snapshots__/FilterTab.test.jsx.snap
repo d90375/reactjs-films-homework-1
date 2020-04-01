@@ -1,31 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FilterTab tests FilterTab render FilterTab renders correctly 1`] = `
-<Link
-  to="/?filter=Trending"
+<button
+  className="tab active"
+  data-filter="Trending"
+  onClick={[Function]}
+  type="button"
 >
-  <button
-    className="tab active"
-    data-filter="Trending"
-    onClick={[Function]}
-    type="button"
-  >
-    Trending
-  </button>
-</Link>
+  Trending
+</button>
 `;
 
 exports[`FilterTab tests FilterTab render FilterTab renders correctly when genres tab active 1`] = `
-<Link
-  to="/?filter=Trending"
+<button
+  className="tab"
+  data-filter="Trending"
+  onClick={[Function]}
+  type="button"
 >
-  <button
-    className="tab"
-    data-filter="Trending"
-    onClick={[Function]}
-    type="button"
-  >
-    Trending
-  </button>
-</Link>
+  Trending
+</button>
 `;

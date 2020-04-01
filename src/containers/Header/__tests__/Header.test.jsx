@@ -12,6 +12,7 @@ describe('Header tests', () => {
       renderer.render(<Header
         setMoviesCondition={mockCallback}
         fetchMovies={mockCallback}
+        setSearchQuery={mockCallback}
         condition="Trending"
       />);
       const result = renderer.getRenderOutput();
@@ -25,12 +26,14 @@ describe('Header tests', () => {
 
       const mockSetMoviesCondition = jest.fn();
       const mockFetchMovies = jest.fn();
+      const mockSetSearchQuery = jest.fn();
 
       const tree = create(
         <Router>
           <Header
             setMoviesCondition={mockSetMoviesCondition}
             fetchMovies={mockFetchMovies}
+            setSearchQuery={mockSetSearchQuery}
             condition="Trending"
           />
         </Router>,
@@ -51,6 +54,7 @@ describe('Header tests', () => {
       jest.runAllTimers();
 
       expect(mockSetMoviesCondition.mock.calls.length).toEqual(1);
+      expect(mockSetSearchQuery.mock.calls.length).toEqual(1);
     });
 
     it('getSearch function called without query', () => {
@@ -58,12 +62,14 @@ describe('Header tests', () => {
 
       const mockSetMoviesCondition = jest.fn();
       const mockFetchMovies = jest.fn();
+      const mockSetSearchQuery = jest.fn();
 
       const tree = create(
         <Router>
           <Header
             setMoviesCondition={mockSetMoviesCondition}
             fetchMovies={mockFetchMovies}
+            setSearchQuery={mockSetSearchQuery}
             condition="Trending"
           />
         </Router>,
@@ -84,6 +90,7 @@ describe('Header tests', () => {
       jest.runAllTimers();
 
       expect(mockSetMoviesCondition.mock.calls.length).toEqual(1);
+      expect(mockSetSearchQuery.mock.calls.length).toEqual(1);
 
       e.target.value = 'sonic';
       searchPanel.props.getSearch(e);
@@ -91,6 +98,7 @@ describe('Header tests', () => {
       jest.runAllTimers();
 
       expect(mockSetMoviesCondition.mock.calls.length).toEqual(2);
+      expect(mockSetSearchQuery.mock.calls.length).toEqual(2);
     });
   });
 });

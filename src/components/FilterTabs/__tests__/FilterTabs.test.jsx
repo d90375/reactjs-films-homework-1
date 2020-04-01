@@ -9,9 +9,7 @@ describe('FilterTabs tests', () => {
       const mockCallBack = jest.fn();
       const genres = ['drama', 'crime', 'detective'];
       const tree = create(
-        <Router>
-          <FilterTabs genres={genres} fetchByFilter={mockCallBack} condition="123" />
-        </Router>,
+        <FilterTabs genres={genres} historyPush={mockCallBack} condition="123" />,
       );
       expect(tree).toMatchSnapshot();
     });
@@ -20,9 +18,7 @@ describe('FilterTabs tests', () => {
       const mockCallBack = jest.fn();
       const genres = ['drama', 'crime', 'detective'];
       const tree = create(
-        <Router>
-          <FilterTabs genres={genres} fetchByFilter={mockCallBack} condition="Trending" />
-        </Router>,
+        <FilterTabs genres={genres} historyPush={mockCallBack} condition="Trending" />,
       );
       expect(tree).toMatchSnapshot();
     });
@@ -31,9 +27,7 @@ describe('FilterTabs tests', () => {
       const mockCallBack = jest.fn();
       const genres = null;
       const tree = create(
-        <Router>
-          <FilterTabs genres={genres} fetchByFilter={mockCallBack} condition="Trending" />
-        </Router>,
+        <FilterTabs genres={genres} historyPush={mockCallBack} condition="Trending" />,
       );
       expect(tree).toMatchSnapshot();
     });
@@ -45,13 +39,11 @@ describe('FilterTabs tests', () => {
       const genres = ['drama', 'crime', 'detective'];
 
       const tree = create(
-        <Router>
-          <FilterTabs
-            genres={genres}
-            fetchByFilter={mockCallBack}
-            condition="123"
-          />
-        </Router>,
+        <FilterTabs
+          genres={genres}
+          historyPush={mockCallBack}
+          condition="123"
+        />,
       );
 
       const select = tree.root.findByProps({ name: 'Genre' });
@@ -64,7 +56,7 @@ describe('FilterTabs tests', () => {
       select.props.onChange(e);
 
       expect(mockCallBack.mock.calls.length).toEqual(1);
-      expect(mockCallBack).toHaveBeenCalledWith('crime');
+      expect(mockCallBack).toHaveBeenCalledWith('/?genreId=crime');
     });
   });
 });
