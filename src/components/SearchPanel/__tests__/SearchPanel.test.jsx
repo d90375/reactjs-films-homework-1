@@ -7,8 +7,9 @@ import SearchPanel from '../SearchPanel';
 describe('SearchPanel tests', () => {
   describe('SearchPanel render', () => {
     it('SearchPanel renders correctly', () => {
+      const mockCallBack = jest.fn();
       const renderer = new ShallowRenderer();
-      renderer.render(<SearchPanel />);
+      renderer.render(<SearchPanel query="" getSearch={mockCallBack} />);
       const result = renderer.getRenderOutput();
       expect(result).toMatchSnapshot();
     });
@@ -19,7 +20,7 @@ describe('SearchPanel tests', () => {
       const mockCallBack = jest.fn();
 
       const tree = create(
-        <SearchPanel getSearch={mockCallBack} />,
+        <SearchPanel query="" getSearch={mockCallBack} />,
       );
 
       const input = tree.root.findByProps({ type: 'search' });

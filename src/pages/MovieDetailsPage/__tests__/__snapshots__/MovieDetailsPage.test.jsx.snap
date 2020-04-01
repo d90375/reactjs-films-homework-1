@@ -3,7 +3,7 @@
 exports[`MovieDetailsPage. renders correctly 1`] = `
 <div>
   <Memo(Connect(withRouter(Header))) />
-  <Memo(Connect(MovieDetails)) />
+  <Memo(Connect(withRouter(MovieDetails))) />
   <Memo(Connect(withRouter(MoviesSection))) />
   <Footer />
 </div>

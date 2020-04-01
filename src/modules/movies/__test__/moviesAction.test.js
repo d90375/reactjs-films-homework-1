@@ -7,8 +7,12 @@ import {
   FETCH_MOVIES_ERROR,
   SET_MOVIES_CONDITION,
   FETCH_GENRES_SUCCESS,
+  SET_SEARCH_QUERY,
+  DELETE_SEARCH_QUERY,
   fetchMovies,
   setMoviesCondition,
+  setSearchQuery,
+  deleteSearchQuery,
 } from '../moviesAction';
 import {
   responseBody, actionPayload, responseBodyOneMovie, actionPayloadOneMovie,
@@ -238,5 +242,20 @@ describe('async actions', () => {
       payload: 'Trending',
     };
     expect(setMoviesCondition('Trending')).toEqual(expectedAction);
+  });
+
+  it('should create an action to set search query', () => {
+    const expectedAction = {
+      type: SET_SEARCH_QUERY,
+      payload: 'sonic',
+    };
+    expect(setSearchQuery('sonic')).toEqual(expectedAction);
+  });
+
+  it('should create an action to delete search query', () => {
+    const expectedAction = {
+      type: DELETE_SEARCH_QUERY,
+    };
+    expect(deleteSearchQuery()).toEqual(expectedAction);
   });
 });

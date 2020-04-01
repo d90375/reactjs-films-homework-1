@@ -14,6 +14,7 @@ describe('Header tests', () => {
         fetchMovies={mockCallback}
         setSearchQuery={mockCallback}
         condition="Trending"
+        query=""
       />);
       const result = renderer.getRenderOutput();
       expect(result).toMatchSnapshot();
@@ -35,6 +36,7 @@ describe('Header tests', () => {
             fetchMovies={mockFetchMovies}
             setSearchQuery={mockSetSearchQuery}
             condition="Trending"
+            query=""
           />
         </Router>,
       );
@@ -71,6 +73,7 @@ describe('Header tests', () => {
             fetchMovies={mockFetchMovies}
             setSearchQuery={mockSetSearchQuery}
             condition="Trending"
+            query=""
           />
         </Router>,
       );

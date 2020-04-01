@@ -7,16 +7,21 @@ describe('MovieDetails tests', () => {
   describe('MovieDetails render', () => {
     it('MovieDetails renders correctly', () => {
       const mockCallBack = jest.fn();
-      const details = { id: 123, background: 'backgroundUrl' };
+      const details = {
+        id: 123, background: 'backgroundUrl', rating: 6, overview: 'overview',
+      };
 
       const tree = create(
-        <MovieDetails
-          error={null}
-          isLoading={false}
-          details={details}
-          fetchTrailer={mockCallBack}
-          fetchDetails={mockCallBack}
-        />,
+        <Router>
+          <MovieDetails
+            error={null}
+            isLoading={false}
+            details={details}
+            fetchTrailer={mockCallBack}
+            fetchDetails={mockCallBack}
+            deleteSearchQuery={mockCallBack}
+          />
+        </Router>,
       );
 
       expect(tree).toMatchSnapshot();
@@ -33,6 +38,7 @@ describe('MovieDetails tests', () => {
             details={null}
             fetchTrailer={mockCallBack}
             fetchDetails={mockCallBack}
+            deleteSearchQuery={mockCallBack}
           />
         </Router>,
       );
@@ -53,6 +59,7 @@ describe('MovieDetails tests', () => {
             details={null}
             fetchTrailer={mockCallBack}
             fetchDetails={mockCallBack}
+            deleteSearchQuery={mockCallBack}
           />
         </Router>,
       );

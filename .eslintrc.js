@@ -21,6 +21,7 @@ module.exports = {
         sourceType: "module"
     },
     rules: {
-        "react/state-in-constructor": ["off"]
+        "react/state-in-constructor": ["off"],
+        "react/jsx-props-no-spreading": "off"
     }
 };

@@ -69,9 +69,9 @@ MovieDetails.propTypes = {
   }),
   isLoading: PropTypes.bool.isRequired,
   details: PropTypes.shape({
-    background: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
-    overview: PropTypes.string.isRequired,
+    background: PropTypes.string,
+    rating: PropTypes.number,
+    overview: PropTypes.string,
   }),
   location: PropTypes.shape({
     pathname: PropTypes.string,

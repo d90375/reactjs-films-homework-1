@@ -5,7 +5,7 @@ exports[`MovieDetails tests MovieDetails render MovieDetails renders correctly 1
   className="container"
   style={
     Object {
-      "backgroundImage": "url(undefined)",
+      "backgroundImage": "url(backgroundUrl)",
     }
   }
 >
@@ -35,17 +35,17 @@ exports[`MovieDetails tests MovieDetails render MovieDetails renders correctly 1
       <span
         className="star"
       >
-        ☆
+        ★
       </span>
       <span
         className="star"
       >
-        ☆
+        ★
       </span>
       <span
         className="star"
       >
-        ☆
+        ★
       </span>
       <span
         className="star"
@@ -59,7 +59,9 @@ exports[`MovieDetails tests MovieDetails render MovieDetails renders correctly 1
       </span>
       <span
         className="rating"
-      />
+      >
+        6
+      </span>
     </div>
   </div>
   <div

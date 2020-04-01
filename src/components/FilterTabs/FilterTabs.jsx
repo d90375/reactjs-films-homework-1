@@ -51,13 +51,14 @@ const FilterTabs = (props) => {
 };
 
 FilterTabs.propTypes = {
-  genres: PropTypes.arrayOf(PropTypes.string).isRequired,
+  genres: PropTypes.arrayOf(PropTypes.string),
   condition: PropTypes.string.isRequired,
   historyPush: PropTypes.func,
 };
 
 FilterTabs.defaultProps = {
   historyPush: undefined,
+  genres: null,
 };
 
 export default FilterTabs;
