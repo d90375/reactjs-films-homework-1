@@ -14,9 +14,12 @@ class MoviesSection extends Component {
     const filter = params.get('filter');
     const genreId = params.get('genreId');
     const query = params.get('search');
-    const { fetchMovies, setMoviesCondition, setSearchQuery } = this.props;
+    const {
+      fetchMovies, setMoviesCondition, setSearchQuery, deleteSearchQuery,
+    } = this.props;
 
     if (filter || genreId) {
+      deleteSearchQuery();
       await setMoviesCondition(filter || genreId);
     }
 

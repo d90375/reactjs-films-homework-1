@@ -11,8 +11,9 @@ import styles from './MovieDetails.scss';
 
 class MovieDetails extends Component {
   componentDidMount() {
-    const { location: { pathname }, fetchDetails } = this.props;
+    const { location: { pathname }, fetchDetails, deleteSearchQuery } = this.props;
     const id = pathname.replace(/\/details\//, '');
+    deleteSearchQuery();
     fetchDetails(id);
   }
 
@@ -75,6 +76,7 @@ MovieDetails.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string,
   }).isRequired,
+  deleteSearchQuery: PropTypes.func.isRequired,
 };
 
 MovieDetails.defaultProps = {
