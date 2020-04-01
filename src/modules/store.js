@@ -1,5 +1,5 @@
 import {
-  applyMiddleware, createStore, combineReducers, compose,
+  applyMiddleware, createStore, combineReducers,
 } from 'redux';
 import thunk from 'redux-thunk';
 import moviesReducer from './movies/moviesReducer';
@@ -12,6 +12,4 @@ const rootReducer = combineReducers({
   details: detailsReducer,
 });
 
-export default createStore(rootReducer, compose(applyMiddleware(thunk),
-/* eslint no-underscore-dangle: 0 */
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));
+export default createStore(rootReducer, applyMiddleware(thunk));
