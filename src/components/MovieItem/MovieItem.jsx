@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import WatchNowWindow from '../WatchNowWindow';
 import ViewInfoWindow from '../ViewInfoWindow';
 
@@ -20,7 +19,7 @@ class MovieItem extends Component {
 
   render() {
     const {
-      film, fetchTrailer, removeDetailsInfo, setMoviesCondition,
+      film, fetchTrailer, setMoviesCondition,
     } = this.props;
     const { isInfoOpen } = this.state;
 
@@ -32,11 +31,11 @@ class MovieItem extends Component {
       <div className={styles.container}>
         <div className={styles.preview}>
           <img className={styles.poster} src={poster} alt="poster" />
-          <Link
+          <a
+            className={styles.link}
+            href={`/details/${id}`}
             name="link"
-            to={`/details/${id}`}
             onClick={() => {
-              removeDetailsInfo();
               setMoviesCondition('Trending');
             }}
           >
@@ -47,7 +46,7 @@ class MovieItem extends Component {
               <p className={styles.rating}>{rating}</p>
               <p className={styles.genres}>{genres}</p>
             </div>
-          </Link>
+          </a>
         </div>
         <WatchNowWindow
           name="watch"
@@ -78,7 +77,6 @@ MovieItem.propTypes = {
     rating: PropTypes.number,
   }).isRequired,
   fetchTrailer: PropTypes.func.isRequired,
-  removeDetailsInfo: PropTypes.func.isRequired,
   setMoviesCondition: PropTypes.func.isRequired,
 };
 

@@ -150,3 +150,4 @@ MoviesSection.defaultProps = {
 };
 
 export default withRouter(MoviesSection);
+export { MoviesSection };

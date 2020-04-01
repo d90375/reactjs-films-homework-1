@@ -19,7 +19,6 @@ describe('MovieItem tests', () => {
       renderer.render(<MovieItem
         film={film}
         fetchTrailer={mockCallBack}
-        removeDetailsInfo={mockCallBack}
         setMoviesCondition={mockCallBack}
       />);
       const result = renderer.getRenderOutput();
@@ -34,7 +33,6 @@ describe('MovieItem tests', () => {
           <MovieItem
             film={film}
             fetchTrailer={mockCallBack}
-            removeDetailsInfo={mockCallBack}
             setMoviesCondition={mockCallBack}
           />
         </Router>,
@@ -55,7 +53,6 @@ describe('MovieItem tests', () => {
           <MovieItem
             film={film}
             fetchTrailer={mockCallBack}
-            removeDetailsInfo={mockCallBack}
             setMoviesCondition={mockCallBack}
             onClick={mockCallBack}
           />
@@ -65,7 +62,7 @@ describe('MovieItem tests', () => {
       const link = tree.root.findByProps({ name: 'link' });
       link.props.onClick();
 
-      expect(mockCallBack.mock.calls.length).toEqual(2);
+      expect(mockCallBack.mock.calls.length).toEqual(1);
       expect(mockCallBack).toHaveBeenCalledWith('Trending');
     });
   });

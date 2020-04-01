@@ -1,8 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, MemoryRouter, Route } from 'react-router-dom';
+import ShallowRenderer from 'react-test-renderer/shallow';
+import { unmountComponentAtNode, render } from 'react-dom';
 import { create } from 'react-test-renderer';
-import MoviesSection from '../MoviesSection';
+import { MoviesSection } from '../MoviesSection';
 
 describe('MoviesSection tests', () => {
   describe('MoviesSection render', () => {
@@ -20,63 +20,58 @@ describe('MoviesSection tests', () => {
       removeDetailsInfo: mockCallBack,
       setSearchQuery: mockCallBack,
       deleteSearchQuery: mockCallBack,
+      history: { push: mockCallBack },
     };
 
     it('MoviesSection renders correctly with closed modal window', () => {
       const genres = ['crime', 'actions'];
       const movies = [{ id: 123, title: 'title' }];
 
-      const tree = create(
-        <Router>
-          <MoviesSection
-            error={null}
-            isLoading={false}
-            isModalOpened={false}
-            genres={genres}
-            movies={movies}
-            {...mockProps}
-          />
-        </Router>,
-      );
-      expect(tree).toMatchSnapshot();
+      const renderer = new ShallowRenderer();
+      renderer.render(<MoviesSection
+        error={null}
+        isLoading={false}
+        isModalOpened={false}
+        genres={genres}
+        movies={movies}
+        {...mockProps}
+      />);
+      const result = renderer.getRenderOutput();
+      expect(result).toMatchSnapshot();
     });
 
     it('MoviesSection renders correctly when modal window open', () => {
       const genres = ['crime', 'actions'];
       const movies = [{ id: 123, title: 'title' }];
 
-      const tree = create(
-        <Router>
-          <MoviesSection
-            error={null}
-            isLoading={false}
-            isModalOpened
-            genres={genres}
-            movies={movies}
-            {...mockProps}
-          />
-        </Router>,
-      );
-      expect(tree).toMatchSnapshot();
+      const renderer = new ShallowRenderer();
+      renderer.render(<MoviesSection
+        error={null}
+        isLoading={false}
+        isModalOpened
+        genres={genres}
+        movies={movies}
+        {...mockProps}
+      />);
+      const result = renderer.getRenderOutput();
+      expect(result).toMatchSnapshot();
     });
 
     it('MoviesSection renders correctly when movies is loading', () => {
       const genres = [];
       const movies = [];
 
-      const tree = create(
-        <Router>
-          <MoviesSection
-            error={null}
-            isLoading
-            isModalOpened={false}
-            genres={genres}
-            movies={movies}
-            {...mockProps}
-          />
-        </Router>,
-      );
-      expect(tree).toMatchSnapshot();
+      const renderer = new ShallowRenderer();
+      renderer.render(<MoviesSection
+        error={null}
+        isLoading
+        isModalOpened={false}
+        genres={genres}
+        movies={movies}
+        {...mockProps}
+      />);
+      const result = renderer.getRenderOutput();
+      expect(result).toMatchSnapshot();
     });
 
     it('MoviesSection renders correctly with error message', () => {
@@ -84,19 +79,17 @@ describe('MoviesSection tests', () => {
       const movies = [];
       const error = { message: 'error' };
 
-      const tree = create(
-        <Router>
-          <MoviesSection
-            error={error}
-            isLoading={false}
-            isModalOpened={false}
-            genres={genres}
-            movies={movies}
-            {...mockProps}
-          />
-        </Router>,
-      );
-      expect(tree).toMatchSnapshot();
+      const renderer = new ShallowRenderer();
+      renderer.render(<MoviesSection
+        error={error}
+        isLoading={false}
+        isModalOpened={false}
+        genres={genres}
+        movies={movies}
+        {...mockProps}
+      />);
+      const result = renderer.getRenderOutput();
+      expect(result).toMatchSnapshot();
     });
   });
 
@@ -118,19 +111,18 @@ describe('MoviesSection tests', () => {
       setSearchQuery: mockCallBack,
       deleteSearchQuery: mockCallBack,
       removeDetailsInfo: mockCallBack,
+      history: { push: mockCallBack },
     };
 
     it('fetchMovies, fetchByFilter functions called', () => {
       const mockFetchMovies = jest.fn();
       const mockSetMoviesCondition = jest.fn();
       const tree = create(
-        <Router>
-          <MoviesSection
-            fetchMovies={mockFetchMovies}
-            setMoviesCondition={mockSetMoviesCondition}
-            {...mockProps}
-          />
-        </Router>,
+        <MoviesSection
+          fetchMovies={mockFetchMovies}
+          setMoviesCondition={mockSetMoviesCondition}
+          {...mockProps}
+        />,
       );
 
       const filterTabs = tree.root.findByProps({ name: 'Tabs' });
@@ -143,16 +135,14 @@ describe('MoviesSection tests', () => {
     it('setMoviesCondition functions called with filter', () => {
       const mockFetchMovies = jest.fn();
       const mockSetMoviesCondition = jest.fn();
+      const location = { search: '?filter=Trending' };
       create(
-        <MemoryRouter initialEntries={['/?filter=Trending']}>
-          <Route path="/">
-            <MoviesSection
-              fetchMovies={mockFetchMovies}
-              setMoviesCondition={mockSetMoviesCondition}
-              {...mockProps}
-            />
-          </Route>
-        </MemoryRouter>,
+        <MoviesSection
+          fetchMovies={mockFetchMovies}
+          setMoviesCondition={mockSetMoviesCondition}
+          location={location}
+          {...mockProps}
+        />,
       );
 
       expect(mockSetMoviesCondition.mock.calls.length).toEqual(1);
@@ -162,16 +152,14 @@ describe('MoviesSection tests', () => {
     it('setMoviesCondition functions called with genreId', () => {
       const mockFetchMovies = jest.fn();
       const mockSetMoviesCondition = jest.fn();
+      const location = { search: '?genreId=16' };
       create(
-        <MemoryRouter initialEntries={['/?genreId=16']}>
-          <Route path="/">
-            <MoviesSection
-              fetchMovies={mockFetchMovies}
-              setMoviesCondition={mockSetMoviesCondition}
-              {...mockProps}
-            />
-          </Route>
-        </MemoryRouter>,
+        <MoviesSection
+          fetchMovies={mockFetchMovies}
+          setMoviesCondition={mockSetMoviesCondition}
+          location={location}
+          {...mockProps}
+        />,
       );
 
       expect(mockSetMoviesCondition.mock.calls.length).toEqual(1);
@@ -181,16 +169,14 @@ describe('MoviesSection tests', () => {
     it('setMoviesCondition functions called with "Search"', () => {
       const mockFetchMovies = jest.fn();
       const mockSetMoviesCondition = jest.fn();
+      const location = { search: '?search=sonic' };
       create(
-        <MemoryRouter initialEntries={['/?search=sonic']}>
-          <Route path="/">
-            <MoviesSection
-              fetchMovies={mockFetchMovies}
-              setMoviesCondition={mockSetMoviesCondition}
-              {...mockProps}
-            />
-          </Route>
-        </MemoryRouter>,
+        <MoviesSection
+          fetchMovies={mockFetchMovies}
+          setMoviesCondition={mockSetMoviesCondition}
+          location={location}
+          {...mockProps}
+        />,
       );
 
       expect(mockSetMoviesCondition.mock.calls.length).toEqual(1);
@@ -198,64 +184,115 @@ describe('MoviesSection tests', () => {
     });
   });
 
-  /* describe('ComponentDidUpdate', () => {
-    it('fetchByFilter functions called with filter', () => {
-      const mockCallBack = jest.fn();
-      const mockFetchMovies = jest.fn();
-      const mockSetMoviesCondition = jest.fn();
-      const mockSetSearchQuery = jest.fn();
-      const mockDeleteSearchQuery = jest.fn();
-      const genres = ['crime', 'actions'];
-      const movies = [{ id: 123, title: 'title' }, { id: 110, title: 'title' }];
-      const location = { path: ['/?filter=Coming%20soon', '/?filter=Trending'] };
+  describe('ComponentDidUpdate', () => {
+    const mockCallBack = jest.fn();
 
-      const node = document.createElement('div');
-      const instance = ReactDOM.render(
-        <MemoryRouter initialEntries={location.path} initialIndex={1}>
-          <MoviesSection
-            error={null}
-            isLoading={false}
-            isModalOpened={false}
-            trailer={null}
-            removeTrailerInfo={mockCallBack}
-            trailerIsLoading={false}
-            trailerError={null}
-            genres={genres}
-            condition="Coming Soon"
-            movies={movies}
-            fetchTrailer={mockCallBack}
-            fetchMovies={mockFetchMovies}
-            setMoviesCondition={mockSetMoviesCondition}
-            setSearchQuery={mockSetSearchQuery}
-            deleteSearchQuery={mockDeleteSearchQuery}
-          />
-        </MemoryRouter>, node,
+    const mockProps = {
+      error: null,
+      isLoading: false,
+      isModalOpened: false,
+      trailer: null,
+      removeTrailerInfo: mockCallBack,
+      trailerIsLoading: false,
+      trailerError: null,
+      genres: ['crime', 'actions'],
+      condition: 'Trending',
+      movies: [{ id: 123, title: 'title' }, { id: 110, title: 'title' }],
+      fetchTrailer: mockCallBack,
+      setSearchQuery: mockCallBack,
+      deleteSearchQuery: mockCallBack,
+      removeDetailsInfo: mockCallBack,
+      history: { push: mockCallBack },
+      fetchMovies: { mockCallBack },
+      setMoviesCondition: { mockCallBack },
+    };
+
+    let node = null;
+
+    beforeEach(() => {
+      node = document.createElement('div');
+      document.body.appendChild(node);
+    });
+
+    afterEach(() => {
+      unmountComponentAtNode(node);
+      node.remove();
+      node = null;
+    });
+
+
+    it('fetchByFilter functions not called', () => {
+      const location = { search: '?search=sonic' };
+
+      const instance = render(
+        <MoviesSection
+          location={location}
+          {...mockProps}
+        />,
+        node,
       );
 
-      // spyOn(MoviesSection, 'fetchByFilter');
+      spyOn(instance, 'fetchByFilter');
 
-      ReactDOM.render(
-        <MemoryRouter initialEntries={location.path} initialIndex={0}>
-          <MoviesSection
-            error={null}
-            isLoading={false}
-            isModalOpened={false}
-            trailer={null}
-            removeTrailerInfo={mockCallBack}
-            trailerIsLoading={false}
-            trailerError={null}
-            genres={genres}
-            condition="Trending"
-            movies={movies}
-            fetchTrailer={mockCallBack}
-            fetchMovies={mockFetchMovies}
-            setMoviesCondition={mockSetMoviesCondition}
-            setSearchQuery={mockSetSearchQuery}
-            deleteSearchQuery={mockDeleteSearchQuery}
-          />
-        </MemoryRouter>, node,
+      render(
+        <MoviesSection
+          location={location}
+          {...mockProps}
+        />,
+        node,
       );
+
+      expect(instance.fetchByFilter).not.toHaveBeenCalled();
+    });
+
+    it('fetchByFilter functions called with genreId', () => {
+      const location1 = { search: '?search=sonic' };
+      const location2 = { search: '?genreId=16' };
+
+      const instance = render(
+        <MoviesSection
+          location={location1}
+          {...mockProps}
+        />,
+        node,
+      );
+
+      spyOn(instance, 'fetchByFilter');
+
+      render(
+        <MoviesSection
+          location={location2}
+          {...mockProps}
+        />,
+        node,
+      );
+
       expect(instance.fetchByFilter).toHaveBeenCalled();
     });
-  }); */
+
+    it('fetchByFilter functions called with filter', () => {
+      const location1 = { search: '?genreId=16' };
+      const location2 = { search: '?filter=Trending' };
+
+      const instance = render(
+        <MoviesSection
+          location={location1}
+          {...mockProps}
+        />,
+        node,
+      );
+
+      spyOn(instance, 'fetchByFilter');
+
+      render(
+        <MoviesSection
+          location={location2}
+          {...mockProps}
+        />,
+        node,
+      );
+
+      expect(instance.fetchByFilter).toHaveBeenCalled();
+    });
+  });
 });

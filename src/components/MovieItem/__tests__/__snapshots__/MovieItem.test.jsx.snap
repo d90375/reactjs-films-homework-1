@@ -12,10 +12,11 @@ exports[`MovieItem tests MovieItem render MovieItem renders correctly with movie
       className="poster"
       src="url"
     />
-    <Link
+    <a
+      className="link"
+      href="/details/undefined"
       name="link"
       onClick={[Function]}
-      to="/details/undefined"
     >
       <div
         className="info"
@@ -36,7 +37,7 @@ exports[`MovieItem tests MovieItem render MovieItem renders correctly with movie
           action, crime
         </p>
       </div>
-    </Link>
+    </a>
   </div>
   <WatchNowWindow
     fetchTrailer={[MockFunction]}
@@ -67,6 +68,7 @@ exports[`MovieItem tests MovieItem render MovieItem renders correctly with movie
       src="url"
     />
     <a
+      className="link"
       href="/details/undefined"
       name="link"
       onClick={[Function]}

@@ -27,6 +27,10 @@
   overflow: hidden;
 }
 
+.link {
+  cursor: pointer;
+}
+
 .info {
   position: absolute;
   bottom: 0;
@@ -38,7 +42,6 @@
 
   @media (min-width: 390px) and (max-width: 659px) {
     width: 100%;
-    //height: 40%;
   }
 
   .title {

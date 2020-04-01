@@ -85,3 +85,4 @@ MovieDetails.defaultProps = {
 };
 
 export default withRouter(MovieDetails);
+export { MovieDetails };
