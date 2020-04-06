@@ -5,7 +5,7 @@ import MovieItem from '../MovieItem';
 import styles from './MovieList.scss';
 
 const MovieList = ({
-  movies, fetchTrailer, removeDetailsInfo, setMoviesCondition,
+  movies, fetchTrailer, removeDetailsInfo, setMoviesCondition, onClick,
 }) => {
   const movieItems = movies.map((film) => (
     <MovieItem
@@ -14,6 +14,7 @@ const MovieList = ({
       fetchTrailer={fetchTrailer}
       removeDetailsInfo={removeDetailsInfo}
       setMoviesCondition={setMoviesCondition}
+      onClick={onClick}
     />
   ));
 
@@ -30,6 +31,7 @@ MovieList.propTypes = {
   fetchTrailer: PropTypes.func.isRequired,
   removeDetailsInfo: PropTypes.func.isRequired,
   setMoviesCondition: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default MovieList;

@@ -46,10 +46,14 @@
 
   .title {
     display: inline-block;
-    width: 170px;
+    width: 150px;
+    height: 22px;
     font-size: 16px;
     line-height: 22px;
     font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     text-transform: uppercase;
     color: #242b2d;
 
@@ -64,6 +68,7 @@
     font-size: 12px;
     line-height: 20px;
     font-weight: bold;
+    vertical-align:top;
     color: #47c3f0;
     text-align: center;
     border-radius: 6px;

@@ -8,7 +8,7 @@ describe('FilterTabs tests', () => {
       const mockCallBack = jest.fn();
       const genres = ['drama', 'crime', 'detective'];
       const tree = create(
-        <FilterTabs genres={genres} historyPush={mockCallBack} condition="123" />,
+        <FilterTabs genres={genres} onFilterChange={mockCallBack} condition="123" />,
       );
       expect(tree).toMatchSnapshot();
     });
@@ -17,7 +17,7 @@ describe('FilterTabs tests', () => {
       const mockCallBack = jest.fn();
       const genres = ['drama', 'crime', 'detective'];
       const tree = create(
-        <FilterTabs genres={genres} historyPush={mockCallBack} condition="Trending" />,
+        <FilterTabs genres={genres} onFilterChange={mockCallBack} condition="Trending" />,
       );
       expect(tree).toMatchSnapshot();
     });
@@ -26,7 +26,7 @@ describe('FilterTabs tests', () => {
       const mockCallBack = jest.fn();
       const genres = null;
       const tree = create(
-        <FilterTabs genres={genres} historyPush={mockCallBack} condition="Trending" />,
+        <FilterTabs genres={genres} onFilterChange={mockCallBack} condition="Trending" />,
       );
       expect(tree).toMatchSnapshot();
     });
@@ -40,7 +40,7 @@ describe('FilterTabs tests', () => {
       const tree = create(
         <FilterTabs
           genres={genres}
-          historyPush={mockCallBack}
+          onFilterChange={mockCallBack}
           condition="123"
         />,
       );

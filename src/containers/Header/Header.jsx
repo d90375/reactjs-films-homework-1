@@ -21,7 +21,6 @@ class Header extends Component {
     const query = event.target.value;
     const {
       setMoviesCondition,
-      fetchMovies,
       setSearchQuery,
       history,
     } = this.props;
@@ -31,14 +30,11 @@ class Header extends Component {
     timer = setTimeout(async () => {
       if (query !== '') {
         await setMoviesCondition('Search');
-        const { condition } = this.props;
-        fetchMovies(condition, query);
         history.push(`/?search=${query}`);
       } else {
         await setMoviesCondition('Trending');
         const { condition } = this.props;
-        fetchMovies(condition);
-        history.push(`/${condition}`);
+        history.push(`/?filter=${condition}`);
       }
     }, 400);
     this.setState({ timer });
@@ -57,7 +53,6 @@ class Header extends Component {
 
 Header.propTypes = {
   setMoviesCondition: PropTypes.func.isRequired,
-  fetchMovies: PropTypes.func.isRequired,
   setSearchQuery: PropTypes.func.isRequired,
   condition: PropTypes.string.isRequired,
   query: PropTypes.string.isRequired,

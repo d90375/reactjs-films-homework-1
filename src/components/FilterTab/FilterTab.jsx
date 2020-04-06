@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styles from './FilterTab.scss';
 
 const FilterTab = ({
-  children, condition, filter, historyPush,
+  children, condition, filter, onFilterChange,
 }) => {
   const className = condition === children ? `${styles.tab} ${styles.active}` : styles.tab;
   return (
@@ -13,7 +13,7 @@ const FilterTab = ({
       className={className}
       data-filter={filter}
       onClick={(e) => {
-        historyPush(`/?filter=${e.target.dataset.filter}`);
+        onFilterChange(`/?filter=${e.target.dataset.filter}`);
       }}
     >
       {children}
@@ -25,11 +25,11 @@ FilterTab.propTypes = {
   children: PropTypes.string.isRequired,
   condition: PropTypes.string.isRequired,
   filter: PropTypes.string.isRequired,
-  historyPush: PropTypes.func,
+  onFilterChange: PropTypes.func,
 };
 
 FilterTab.defaultProps = {
-  historyPush: undefined,
+  onFilterChange: undefined,
 };
 
 export default FilterTab;

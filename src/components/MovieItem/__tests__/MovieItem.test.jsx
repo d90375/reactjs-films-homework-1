@@ -60,9 +60,11 @@ describe('MovieItem tests', () => {
       );
 
       const link = tree.root.findByProps({ name: 'link' });
-      link.props.onClick();
 
-      expect(mockCallBack.mock.calls.length).toEqual(1);
+      const event = { preventDefault: jest.fn() };
+
+      link.props.onClick(event);
+
       expect(mockCallBack).toHaveBeenCalledWith('Trending');
     });
   });

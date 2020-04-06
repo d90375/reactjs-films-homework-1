@@ -33,11 +33,12 @@ class MoviesSection extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { location: { search } } = this.props;
+    const { location: { search }, condition, fetchMovies } = this.props;
     if (search !== prevProps.location.search) {
       const params = new URLSearchParams(search);
       const filter = params.get('filter');
       const genreId = params.get('genreId');
+      const query = params.get('search');
 
       if (filter) {
         this.fetchByFilter(filter);
@@ -46,15 +47,20 @@ class MoviesSection extends Component {
       if (genreId) {
         this.fetchByFilter(genreId);
       }
+
+      if (query) {
+        fetchMovies(condition, query);
+      }
     }
   }
 
   fetchByFilter = async (filter) => {
-    const { setMoviesCondition, deleteSearchQuery } = this.props;
+    const {
+      setMoviesCondition, deleteSearchQuery, genres, fetchMovies,
+    } = this.props;
     deleteSearchQuery();
+    fetchMovies(filter, genres);
     await setMoviesCondition(filter);
-    const { condition, genres, fetchMovies } = this.props;
-    fetchMovies(condition, genres);
   };
 
   render() {
@@ -76,8 +82,8 @@ class MoviesSection extends Component {
           <FilterTabs
             name="Tabs"
             genres={genres}
-            fetchByFilter={this.fetchByFilter}
             condition={condition}
+            onFilterChange={history.push}
           />
           <Spinner />
         </div>
@@ -98,15 +104,15 @@ class MoviesSection extends Component {
         <FilterTabs
           name="Tabs"
           genres={genres}
-          fetchByFilter={this.fetchByFilter}
           condition={condition}
-          historyPush={history.push}
+          onFilterChange={history.push}
         />
         <MovieList
           movies={movies}
           fetchTrailer={fetchTrailer}
           removeDetailsInfo={removeDetailsInfo}
           setMoviesCondition={setMoviesCondition}
+          onClick={history.push}
         />
       </section>
     );

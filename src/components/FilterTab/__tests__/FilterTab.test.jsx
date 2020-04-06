@@ -30,7 +30,7 @@ describe('FilterTab tests', () => {
         <FilterTab
           filter="Trending"
           condition="Trending"
-          historyPush={mockCallBack}
+          onFilterChange={mockCallBack}
         >
           Trending
         </FilterTab>

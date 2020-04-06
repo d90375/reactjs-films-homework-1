@@ -79,7 +79,7 @@ exports[`MovieItem tests MovieItem render MovieItem renders correctly with movie
         <h3
           className="title"
         >
-          title!!!!!!!!...
+          title!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         </h3>
         <p
           className="rating"

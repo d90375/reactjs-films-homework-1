@@ -126,9 +126,8 @@ describe('MoviesSection tests', () => {
       );
 
       const filterTabs = tree.root.findByProps({ name: 'Tabs' });
-      filterTabs.props.fetchByFilter('Trending');
+      filterTabs.props.onFilterChange('Trending');
 
-      expect(mockSetMoviesCondition.mock.calls.length).toEqual(1);
       expect(mockFetchMovies.mock.calls.length).toEqual(1);
     });
 
@@ -271,28 +270,55 @@ describe('MoviesSection tests', () => {
     });
 
     it('fetchByFilter functions called with filter', () => {
+      const mockFunc = jest.fn();
       const location1 = { search: '?genreId=16' };
       const location2 = { search: '?filter=Trending' };
 
-      const instance = render(
+      render(
         <MoviesSection
           location={location1}
           {...mockProps}
+          fetchMovies={mockFunc}
         />,
         node,
       );
-
-      spyOn(instance, 'fetchByFilter');
 
       render(
         <MoviesSection
           location={location2}
           {...mockProps}
+          fetchMovies={mockFunc}
         />,
         node,
       );
 
-      expect(instance.fetchByFilter).toHaveBeenCalled();
+      expect(mockFunc.mock.calls.length).toEqual(1);
+    });
+
+    it('fetchByFilter functions called with search query', () => {
+      const mockFunc = jest.fn();
+      const location1 = { search: '?genreId=16' };
+      const location2 = { search: '?search=sonic' };
+
+      render(
+        <MoviesSection
+          location={location1}
+          {...mockProps}
+          fetchMovies={mockFunc}
+        />,
+        node,
+      );
+
+      render(
+        <MoviesSection
+          location={location2}
+          {...mockProps}
+          fetchMovies={mockFunc}
+        />,
+        node,
+      );
+
+      expect(mockFunc.mock.calls.length).toEqual(1);
     });
   });
 });
