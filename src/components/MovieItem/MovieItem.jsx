@@ -31,10 +31,10 @@ class MovieItem extends Component {
       <div className={styles.container}>
         <div className={styles.preview}>
           <img className={styles.poster} src={poster} alt="poster" />
-          <a
+          <button
             className={styles.link}
             name="link"
-            href={`/details/${id}`}
+            type="button"
             onClick={(e) => {
               e.preventDefault();
               setMoviesCondition('Trending');
@@ -48,7 +48,7 @@ class MovieItem extends Component {
               <p className={styles.rating}>{rating}</p>
               <p className={styles.genres}>{genres}</p>
             </div>
-          </a>
+          </button>
         </div>
         <WatchNowWindow
           name="watch"
