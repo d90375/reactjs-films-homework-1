@@ -5,8 +5,6 @@ import {
   FETCH_MOVIES_ERROR,
   SET_MOVIES_CONDITION,
   FETCH_GENRES_SUCCESS,
-  SET_SEARCH_QUERY,
-  DELETE_SEARCH_QUERY,
 } from '../moviesAction';
 
 describe('movies reducer', () => {
@@ -85,31 +83,6 @@ describe('movies reducer', () => {
     ).toEqual(
       {
         genres: ['action', 'crime'],
-      },
-    );
-  });
-
-  it('should handle SET_SEARCH_QUERY', () => {
-    expect(
-      reducer([], {
-        type: SET_SEARCH_QUERY,
-        payload: 'sonic',
-      }),
-    ).toEqual(
-      {
-        query: 'sonic',
-      },
-    );
-  });
-
-  it('should handle DELETE_SEARCH_QUERY', () => {
-    expect(
-      reducer([], {
-        type: DELETE_SEARCH_QUERY,
-      }),
-    ).toEqual(
-      {
-        query: '',
       },
     );
   });

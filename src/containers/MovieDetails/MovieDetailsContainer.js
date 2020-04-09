@@ -2,7 +2,6 @@ import { connect } from 'react-redux';
 import { getDetails, getDetailsIsLoading, getDetailsError } from '../../modules/details/detailsSelector';
 import { fetchDetails } from '../../modules/details/detailsAction';
 import { fetchTrailer } from '../../modules/trailer/trailerAction';
-import { deleteSearchQuery } from '../../modules/movies/moviesAction';
 
 import MovieDetails from './MovieDetails';
 
@@ -15,7 +14,6 @@ export const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
   fetchDetails,
   fetchTrailer,
-  deleteSearchQuery,
 };
 
 

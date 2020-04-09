@@ -15,16 +15,14 @@ class MoviesSection extends Component {
     const genreId = params.get('genreId');
     const query = params.get('search');
     const {
-      fetchMovies, setMoviesCondition, setSearchQuery, deleteSearchQuery,
+      fetchMovies, setMoviesCondition,
     } = this.props;
 
     if (filter || genreId) {
-      deleteSearchQuery();
       await setMoviesCondition(filter || genreId);
     }
 
     if (query) {
-      setSearchQuery(query);
       await setMoviesCondition('Search');
     }
 
@@ -33,7 +31,9 @@ class MoviesSection extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { location: { search }, condition, fetchMovies } = this.props;
+    const {
+      location: { search }, condition, fetchMoviesDebounced,
+    } = this.props;
     if (search !== prevProps.location.search) {
       const params = new URLSearchParams(search);
       const filter = params.get('filter');
@@ -49,16 +49,15 @@ class MoviesSection extends Component {
       }
 
       if (query) {
-        fetchMovies(condition, query);
+        fetchMoviesDebounced(condition, query);
       }
     }
   }
 
   fetchByFilter = async (filter) => {
     const {
-      setMoviesCondition, deleteSearchQuery, genres, fetchMovies,
+      setMoviesCondition, genres, fetchMovies,
     } = this.props;
-    deleteSearchQuery();
     fetchMovies(filter, genres);
     await setMoviesCondition(filter);
   };
@@ -128,6 +127,7 @@ MoviesSection.propTypes = {
   genres: PropTypes.arrayOf(PropTypes.string).isRequired,
   condition: PropTypes.string.isRequired,
   fetchMovies: PropTypes.func.isRequired,
+  fetchMoviesDebounced: PropTypes.func.isRequired,
   removeTrailerInfo: PropTypes.func.isRequired,
   trailer: PropTypes.shape({}),
   trailerError: PropTypes.shape({}),
@@ -136,8 +136,6 @@ MoviesSection.propTypes = {
   isModalOpened: PropTypes.bool.isRequired,
   setMoviesCondition: PropTypes.func.isRequired,
   removeDetailsInfo: PropTypes.func.isRequired,
-  setSearchQuery: PropTypes.func.isRequired,
-  deleteSearchQuery: PropTypes.func.isRequired,
   location: PropTypes.shape({
     search: PropTypes.string,
   }),

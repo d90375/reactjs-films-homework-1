@@ -4,8 +4,6 @@ import {
   FETCH_MOVIES_ERROR,
   SET_MOVIES_CONDITION,
   FETCH_GENRES_SUCCESS,
-  SET_SEARCH_QUERY,
-  DELETE_SEARCH_QUERY,
 } from './moviesAction';
 
 const initialState = {
@@ -49,18 +47,6 @@ const moviesReducer = (state = initialState, action) => {
       return {
         ...state,
         genres: action.payload,
-      };
-
-    case SET_SEARCH_QUERY:
-      return {
-        ...state,
-        query: action.payload,
-      };
-
-    case DELETE_SEARCH_QUERY:
-      return {
-        ...state,
-        query: '',
       };
 
     default:

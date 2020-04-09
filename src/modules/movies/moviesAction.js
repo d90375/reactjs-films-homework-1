@@ -1,3 +1,4 @@
+import debounceAction from 'debounce-action';
 import MovieDbApi from '../movieDbApi';
 
 const movieDbApi = new MovieDbApi();
@@ -7,8 +8,6 @@ export const FETCH_MOVIES_SUCCESS = 'FETCH_MOVIES_SUCCESS';
 export const FETCH_MOVIES_ERROR = 'FETCH_MOVIES_ERROR';
 export const SET_MOVIES_CONDITION = 'SET_MOVIES_CONDITION';
 export const FETCH_GENRES_SUCCESS = 'FETCH_GENRES_SUCCESS';
-export const SET_SEARCH_QUERY = 'SET_SEARCH_QUERY';
-export const DELETE_SEARCH_QUERY = 'DELETE_SEARCH_QUERY';
 
 export const fetchMoviesIsLoading = () => ({
   type: FETCH_MOVIES_IS_LOADING,
@@ -32,15 +31,6 @@ export const setMoviesCondition = (condition) => ({
 export const fetchGenresSuccess = (content) => ({
   type: FETCH_GENRES_SUCCESS,
   payload: content,
-});
-
-export const setSearchQuery = (query) => ({
-  type: SET_SEARCH_QUERY,
-  payload: query,
-});
-
-export const deleteSearchQuery = () => ({
-  type: DELETE_SEARCH_QUERY,
 });
 
 export function fetchMovies(condition, query) {
@@ -87,3 +77,5 @@ export function fetchMovies(condition, query) {
         }));
   };
 }
+
+export const fetchMoviesDebounced = debounceAction(fetchMovies, 500);

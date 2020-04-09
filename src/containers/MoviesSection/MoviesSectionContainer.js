@@ -7,7 +7,7 @@ import {
 } from '../../modules/trailer/trailerSelector';
 import { fetchTrailer, removeTrailerInfo } from '../../modules/trailer/trailerAction';
 import {
-  fetchMovies, setMoviesCondition, setSearchQuery, deleteSearchQuery,
+  fetchMovies, fetchMoviesDebounced, setMoviesCondition,
 } from '../../modules/movies/moviesAction';
 import { removeDetailsInfo } from '../../modules/details/detailsAction';
 
@@ -28,12 +28,11 @@ export const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   fetchMovies,
+  fetchMoviesDebounced,
   fetchTrailer,
   removeTrailerInfo,
   setMoviesCondition,
   removeDetailsInfo,
-  setSearchQuery,
-  deleteSearchQuery,
 };
 
 export default connect(

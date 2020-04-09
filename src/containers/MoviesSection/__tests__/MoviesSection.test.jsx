@@ -16,10 +16,9 @@ describe('MoviesSection tests', () => {
       condition: 'Trending',
       fetchTrailer: mockCallBack,
       fetchMovies: mockCallBack,
+      fetchMoviesDebounced: mockCallBack,
       setMoviesCondition: mockCallBack,
       removeDetailsInfo: mockCallBack,
-      setSearchQuery: mockCallBack,
-      deleteSearchQuery: mockCallBack,
       history: { push: mockCallBack },
     };
 
@@ -108,8 +107,6 @@ describe('MoviesSection tests', () => {
       condition: 'Trending',
       movies: [{ id: 123, title: 'title' }, { id: 110, title: 'title' }],
       fetchTrailer: mockCallBack,
-      setSearchQuery: mockCallBack,
-      deleteSearchQuery: mockCallBack,
       removeDetailsInfo: mockCallBack,
       history: { push: mockCallBack },
     };
@@ -198,8 +195,6 @@ describe('MoviesSection tests', () => {
       condition: 'Trending',
       movies: [{ id: 123, title: 'title' }, { id: 110, title: 'title' }],
       fetchTrailer: mockCallBack,
-      setSearchQuery: mockCallBack,
-      deleteSearchQuery: mockCallBack,
       removeDetailsInfo: mockCallBack,
       history: { push: mockCallBack },
       fetchMovies: { mockCallBack },
@@ -304,7 +299,7 @@ describe('MoviesSection tests', () => {
         <MoviesSection
           location={location1}
           {...mockProps}
-          fetchMovies={mockFunc}
+          fetchMoviesDebounced={mockFunc}
         />,
         node,
       );
@@ -313,7 +308,7 @@ describe('MoviesSection tests', () => {
         <MoviesSection
           location={location2}
           {...mockProps}
-          fetchMovies={mockFunc}
+          fetchMoviesDebounced={mockFunc}
         />,
         node,
       );

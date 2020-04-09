@@ -19,7 +19,6 @@ describe('MovieDetails tests', () => {
           details={details}
           fetchTrailer={mockCallBack}
           fetchDetails={mockCallBack}
-          deleteSearchQuery={mockCallBack}
           location={location}
 
         />,
@@ -39,7 +38,6 @@ describe('MovieDetails tests', () => {
           details={null}
           fetchTrailer={mockCallBack}
           fetchDetails={mockCallBack}
-          deleteSearchQuery={mockCallBack}
           location={location}
         />,
       );
@@ -60,7 +58,6 @@ describe('MovieDetails tests', () => {
           details={null}
           fetchTrailer={mockCallBack}
           fetchDetails={mockCallBack}
-          deleteSearchQuery={mockCallBack}
           location={location}
         />,
       );
@@ -80,7 +77,6 @@ describe('MovieDetails tests', () => {
       isLoading: false,
       fetchTrailer: mockCallBack,
       fetchDetails: mockCallBack,
-      deleteSearchQuery: mockCallBack,
     };
 
     let node = null;
@@ -116,7 +112,7 @@ describe('MovieDetails tests', () => {
         node,
       );
 
-      expect(mockCallBack.mock.calls.length).toEqual(2);
+      expect(mockCallBack.mock.calls.length).toEqual(1);
     });
 
     it('fetchByFilter functions called', () => {
@@ -139,7 +135,7 @@ describe('MovieDetails tests', () => {
         node,
       );
 
-      expect(mockCallBack.mock.calls.length).toEqual(3);
+      expect(mockCallBack.mock.calls.length).toEqual(2);
     });
   });
 });
