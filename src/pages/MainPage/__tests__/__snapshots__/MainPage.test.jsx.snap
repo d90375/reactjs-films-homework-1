@@ -2,8 +2,8 @@
 
 exports[`MainPage renders correctly 1`] = `
 <div>
-  <Memo(Connect(Header)) />
-  <Memo(Connect(MoviesSection)) />
+  <Memo(Connect(withRouter(Header))) />
+  <Memo(Connect(withRouter(MoviesSection))) />
   <Footer />
 </div>
 `;

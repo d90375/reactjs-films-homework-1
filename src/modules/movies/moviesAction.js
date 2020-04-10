@@ -1,3 +1,4 @@
+import debounceAction from 'debounce-action';
 import MovieDbApi from '../movieDbApi';
 
 const movieDbApi = new MovieDbApi();
@@ -76,3 +77,5 @@ export function fetchMovies(condition, query) {
         }));
   };
 }
+
+export const fetchMoviesDebounced = debounceAction(fetchMovies, 500);

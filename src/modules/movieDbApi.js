@@ -70,6 +70,11 @@ export default class MovieDbApi {
       return results[0];
     }
 
+    getDetails = async (id) => {
+      const res = await this.getResource(`movie/${id}?api_key=${this.apiKey}&${this.lang}`);
+      return this.transformDetailsData(res);
+    }
+
     transformMovieData = (movie, genres) => ({
       id: movie.id,
       poster: movie.poster_path ? `https://image.tmdb.org/t/p/w342${movie.poster_path}` : imageNotFound,
@@ -79,5 +84,14 @@ export default class MovieDbApi {
       overview: movie.overview,
       genres: movie.genre_ids.reduce((acc, id) => `${acc}${genres[id]}, `, '').slice(0, -2),
       viewInfo: false,
+    });
+
+    transformDetailsData = (details) => ({
+      background: details.backdrop_path ? `https://image.tmdb.org/t/p/w1280${details.backdrop_path}` : imageNotFound,
+      title: details.title,
+      rating: details.vote_average,
+      overview: details.overview,
+      genres: details.genres.reduce((acc, genre) => `${acc}${genre.name}, `, '').slice(0, -2),
+      duration: `${Math.round(details.runtime / 60)}h ${details.runtime % 60}m`,
     });
 }

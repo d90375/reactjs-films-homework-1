@@ -9,10 +9,19 @@
   box-sizing: border-box;
   display: block;
   overflow: hidden;
+
+  @media (min-width: 390px) and (max-width: 659px) {
+    width: 100%;
+    height: 128%;
+  }
 }
 
 .poster {
   width: 250px;
+
+  @media (min-width: 390px) and (max-width: 659px) {
+    width: 100%;
+  }
 }
 
 .wrapper {
@@ -22,6 +31,10 @@
   padding: 10px 20px;
   background-color: rgba($color: #000, $alpha: 0.7);
   border-radius: 6px;
+
+  @media (min-width: 390px) and (max-width: 659px) {
+    height: 128%;
+  }
 }
 
 .close {
@@ -52,6 +65,10 @@
     font-weight: bold;
     text-transform: uppercase;
     color: white;
+
+    @media (min-width: 390px) and (max-width: 659px) {
+      width: calc(100% - 40px);
+    }
   }
 
   .rating {

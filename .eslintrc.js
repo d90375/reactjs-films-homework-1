@@ -13,14 +13,17 @@ module.exports = {
         expect: "readonly",
         describe: "readonly",
         it: "readonly",
+        beforeEach: "readonly",
         afterEach: "readonly",
-
+        spyOn: "readonly",
     },
     parserOptions: {
         ecmaVersion: 2018,
         sourceType: "module"
     },
     rules: {
-        "react/state-in-constructor": ["off"]
+        "react/state-in-constructor": ["off"],
+        "react/jsx-props-no-spreading": "off",
+        "import/no-named-as-default": "off",
     }
 };

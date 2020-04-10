@@ -5,7 +5,7 @@ import styles from './MovieRating.scss';
 
 const MovieRating = ({ rating }) => {
   const stars = Array.from(Array(5), (star, index) => {
-    if (Math.round(rating - (index + 1)) >= 0) {
+    if (Math.round(rating / 2 - (index + 1)) >= 0) {
       return <span className={styles.star} key={index}>&#9733;</span>;
     }
 

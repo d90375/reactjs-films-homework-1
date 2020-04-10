@@ -7,6 +7,12 @@
   filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.04));
   background-color: #b3b3b3;
   overflow: hidden;
+
+  @media (min-width: 390px) and (max-width: 659px) {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
 }
 
 .preview {
@@ -21,23 +27,41 @@
   overflow: hidden;
 }
 
+.link {
+  cursor: pointer;
+}
+
 .info {
   position: absolute;
+  left: 0;
   bottom: 0;
   box-sizing: border-box;
   width: 250px;
   height: 100px;
   padding: 0 20px;
+  text-align: left;
   background-color: white;
+
+  @media (min-width: 390px) and (max-width: 659px) {
+    width: 100%;
+  }
 
   .title {
     display: inline-block;
     width: 170px;
+    height: 22px;
     font-size: 16px;
     line-height: 22px;
     font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     text-transform: uppercase;
     color: #242b2d;
+
+    @media (min-width: 390px) and (max-width: 659px) {
+      width: calc(100% - 40px);
+    }
   }
 
   .rating {
@@ -46,6 +70,7 @@
     font-size: 12px;
     line-height: 20px;
     font-weight: bold;
+    vertical-align:top;
     color: #47c3f0;
     text-align: center;
     border-radius: 6px;

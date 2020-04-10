@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import ShallowRenderer from 'react-test-renderer/shallow';
 import { create } from 'react-test-renderer';
 import Header from '../Header';
@@ -12,6 +13,7 @@ describe('Header tests', () => {
         setMoviesCondition={mockCallback}
         fetchMovies={mockCallback}
         condition="Trending"
+        query=""
       />);
       const result = renderer.getRenderOutput();
       expect(result).toMatchSnapshot();
@@ -26,11 +28,14 @@ describe('Header tests', () => {
       const mockFetchMovies = jest.fn();
 
       const tree = create(
-        <Header
-          setMoviesCondition={mockSetMoviesCondition}
-          fetchMovies={mockFetchMovies}
-          condition="Trending"
-        />,
+        <Router>
+          <Header
+            setMoviesCondition={mockSetMoviesCondition}
+            fetchMovies={mockFetchMovies}
+            condition="Trending"
+            query=""
+          />
+        </Router>,
       );
 
       const searchPanel = tree.root.findByProps({ name: 'Search' });
@@ -43,10 +48,6 @@ describe('Header tests', () => {
 
       searchPanel.props.getSearch(e);
 
-      expect(mockSetMoviesCondition.mock.calls.length).toEqual(0);
-
-      jest.runAllTimers();
-
       expect(mockSetMoviesCondition.mock.calls.length).toEqual(1);
     });
 
@@ -57,11 +58,14 @@ describe('Header tests', () => {
       const mockFetchMovies = jest.fn();
 
       const tree = create(
-        <Header
-          setMoviesCondition={mockSetMoviesCondition}
-          fetchMovies={mockFetchMovies}
-          condition="Trending"
-        />,
+        <Router>
+          <Header
+            setMoviesCondition={mockSetMoviesCondition}
+            fetchMovies={mockFetchMovies}
+            condition="Trending"
+            query=""
+          />
+        </Router>,
       );
 
       const searchPanel = tree.root.findByProps({ name: 'Search' });
@@ -74,16 +78,10 @@ describe('Header tests', () => {
 
       searchPanel.props.getSearch(e);
 
-      expect(mockSetMoviesCondition.mock.calls.length).toEqual(0);
-
-      jest.runAllTimers();
-
       expect(mockSetMoviesCondition.mock.calls.length).toEqual(1);
 
       e.target.value = 'sonic';
       searchPanel.props.getSearch(e);
-
-      jest.runAllTimers();
 
       expect(mockSetMoviesCondition.mock.calls.length).toEqual(2);
     });

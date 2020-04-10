@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieDetails tests MovieDetails render MovieDetails renders correctly 1`] = `
+<section
+  className="container"
+  style={
+    Object {
+      "backgroundImage": "url(backgroundUrl)",
+    }
+  }
+>
+  <div
+    className="info"
+  >
+    <div
+      className="container"
+    >
+      <h2
+        className="title"
+      />
+      <div
+        className="about"
+      >
+        <p
+          className="genres"
+        />
+        <span
+          className="duration"
+        />
+      </div>
+    </div>
+    <div
+      className="container"
+    >
+      <span
+        className="star"
+      >
+        ★
+      </span>
+      <span
+        className="star"
+      >
+        ★
+      </span>
+      <span
+        className="star"
+      >
+        ★
+      </span>
+      <span
+        className="star"
+      >
+        ☆
+      </span>
+      <span
+        className="star"
+      >
+        ☆
+      </span>
+      <span
+        className="rating"
+      >
+        6
+      </span>
+    </div>
+  </div>
+  <div
+    className="container"
+  >
+    <div
+      className="buttonsContainer"
+    >
+      <button
+        className="button primary"
+        onClick={[Function]}
+        type="button"
+      >
+        Watch Now
+      </button>
+      <button
+        className="button secondary"
+        onClick={[Function]}
+        type="button"
+      >
+        View Info
+      </button>
+    </div>
+  </div>
+</section>
+`;
+
+exports[`MovieDetails tests MovieDetails render MovieDetails renders correctly when details is loading 1`] = `
+<section
+  className="container"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="ldsSpinner"
+    >
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+    </div>
+  </div>
+</section>
+`;
+
+exports[`MovieDetails tests MovieDetails render MovieDetails renders correctly with error message 1`] = `
+<section
+  className="container"
+>
+  Error! error
+</section>
+`;

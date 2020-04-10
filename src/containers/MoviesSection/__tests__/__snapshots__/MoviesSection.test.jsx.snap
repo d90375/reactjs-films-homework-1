@@ -11,8 +11,7 @@ exports[`MoviesSection tests MoviesSection render MoviesSection renders correctl
     trailerIsLoading={false}
   />
   <FilterTabs
-    condition="Tranding"
-    fetchByFilter={[Function]}
+    condition="Trending"
     genres={
       Array [
         "crime",
@@ -20,6 +19,7 @@ exports[`MoviesSection tests MoviesSection render MoviesSection renders correctl
       ]
     }
     name="Tabs"
+    onFilterChange={[MockFunction]}
   />
   <MovieList
     fetchTrailer={[MockFunction]}
@@ -27,12 +27,13 @@ exports[`MoviesSection tests MoviesSection render MoviesSection renders correctl
       Array [
         Object {
           "id": 123,
-        },
-        Object {
-          "id": 110,
+          "title": "title",
         },
       ]
     }
+    onClick={[MockFunction]}
+    removeDetailsInfo={[MockFunction]}
+    setMoviesCondition={[MockFunction]}
   />
 </section>
 `;
@@ -42,10 +43,10 @@ exports[`MoviesSection tests MoviesSection render MoviesSection renders correctl
   className="container"
 >
   <FilterTabs
-    condition="Tranding"
-    fetchByFilter={[Function]}
+    condition="Trending"
     genres={Array []}
     name="Tabs"
+    onFilterChange={[MockFunction]}
   />
   <Spinner />
 </div>
@@ -56,8 +57,7 @@ exports[`MoviesSection tests MoviesSection render MoviesSection renders correctl
   className="container"
 >
   <FilterTabs
-    condition="Tranding"
-    fetchByFilter={[Function]}
+    condition="Trending"
     genres={
       Array [
         "crime",
@@ -65,6 +65,7 @@ exports[`MoviesSection tests MoviesSection render MoviesSection renders correctl
       ]
     }
     name="Tabs"
+    onFilterChange={[MockFunction]}
   />
   <MovieList
     fetchTrailer={[MockFunction]}
@@ -72,12 +73,13 @@ exports[`MoviesSection tests MoviesSection render MoviesSection renders correctl
       Array [
         Object {
           "id": 123,
-        },
-        Object {
-          "id": 110,
+          "title": "title",
         },
       ]
     }
+    onClick={[MockFunction]}
+    removeDetailsInfo={[MockFunction]}
+    setMoviesCondition={[MockFunction]}
   />
 </section>
 `;

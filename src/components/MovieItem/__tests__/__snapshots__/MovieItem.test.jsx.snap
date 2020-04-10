@@ -12,25 +12,32 @@ exports[`MovieItem tests MovieItem render MovieItem renders correctly with movie
       className="poster"
       src="url"
     />
-    <div
-      className="info"
+    <button
+      className="link"
+      name="link"
+      onClick={[Function]}
+      type="button"
     >
-      <h3
-        className="title"
+      <div
+        className="info"
       >
-        title
-      </h3>
-      <p
-        className="rating"
-      >
-        8
-      </p>
-      <p
-        className="genres"
-      >
-        action, crime
-      </p>
-    </div>
+        <h3
+          className="title"
+        >
+          title
+        </h3>
+        <p
+          className="rating"
+        >
+          8
+        </p>
+        <p
+          className="genres"
+        >
+          action, crime
+        </p>
+      </div>
+    </button>
   </div>
   <WatchNowWindow
     fetchTrailer={[MockFunction]}
@@ -60,25 +67,32 @@ exports[`MovieItem tests MovieItem render MovieItem renders correctly with movie
       className="poster"
       src="url"
     />
-    <div
-      className="info"
+    <button
+      className="link"
+      name="link"
+      onClick={[Function]}
+      type="button"
     >
-      <h3
-        className="title"
+      <div
+        className="info"
       >
-        title!!!!!!!!...
-      </h3>
-      <p
-        className="rating"
-      >
-        8
-      </p>
-      <p
-        className="genres"
-      >
-        action, crime
-      </p>
-    </div>
+        <h3
+          className="title"
+        >
+          title!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        </h3>
+        <p
+          className="rating"
+        >
+          8
+        </p>
+        <p
+          className="genres"
+        >
+          action, crime
+        </p>
+      </div>
+    </button>
   </div>
   <div
     className="container"

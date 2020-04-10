@@ -8,7 +8,12 @@ describe('MovieList tests', () => {
       const movies = [{ id: 1 }, { id: 2 }];
       const mockCallBack = jest.fn();
       const renderer = new ShallowRenderer();
-      renderer.render(<MovieList fetchTrailer={mockCallBack} movies={movies} />);
+      renderer.render(<MovieList
+        fetchTrailer={mockCallBack}
+        movies={movies}
+        removeDetailsInfo={mockCallBack}
+        setMoviesCondition={mockCallBack}
+      />);
       const result = renderer.getRenderOutput();
       expect(result).toMatchSnapshot();
     });
@@ -17,7 +22,12 @@ describe('MovieList tests', () => {
       const movies = [];
       const mockCallBack = jest.fn();
       const renderer = new ShallowRenderer();
-      renderer.render(<MovieList fetchTrailer={mockCallBack} movies={movies} />);
+      renderer.render(<MovieList
+        fetchTrailer={mockCallBack}
+        movies={movies}
+        removeDetailsInfo={mockCallBack}
+        setMoviesCondition={mockCallBack}
+      />);
       const result = renderer.getRenderOutput();
       expect(result).toMatchSnapshot();
     });

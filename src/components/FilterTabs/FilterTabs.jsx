@@ -5,10 +5,12 @@ import FilterTab from '../FilterTab';
 import styles from './FilterTabs.scss';
 
 const FilterTabs = (props) => {
-  const { genres, fetchByFilter, condition } = props;
-
-  const defaultValue = Number(condition) ? condition : 'Genre';
-
+  const {
+    genres,
+    condition,
+    onFilterChange,
+  } = props;
+  const genreId = Number(condition) ? condition : 'Genre';
   const className = Number(condition) ? `${styles.select} ${styles.active}` : styles.select;
 
   let options;
@@ -26,20 +28,20 @@ const FilterTabs = (props) => {
 
   return (
     <div className={styles.container}>
-      <FilterTab fetchByFilter={fetchByFilter} condition={condition} filter="Trending">
+      <FilterTab condition={condition} filter="Trending" onFilterChange={onFilterChange}>
         Trending
       </FilterTab>
-      <FilterTab fetchByFilter={fetchByFilter} condition={condition} filter="Top Rated">
+      <FilterTab condition={condition} filter="Top Rated" onFilterChange={onFilterChange}>
         Top Rated
       </FilterTab>
-      <FilterTab fetchByFilter={fetchByFilter} condition={condition} filter="Coming soon">
+      <FilterTab condition={condition} filter="Coming soon" onFilterChange={onFilterChange}>
         Coming soon
       </FilterTab>
       <select
         className={className}
         name="Genre"
-        defaultValue={defaultValue}
-        onChange={(e) => fetchByFilter(e.target.value)}
+        defaultValue={genreId}
+        onChange={(e) => onFilterChange(`/?genreId=${e.target.value}`)}
       >
         <option value="Genre" disabled hidden>Genre</option>
         {options}
@@ -49,9 +51,14 @@ const FilterTabs = (props) => {
 };
 
 FilterTabs.propTypes = {
-  genres: PropTypes.arrayOf(PropTypes.string).isRequired,
-  fetchByFilter: PropTypes.func.isRequired,
+  genres: PropTypes.arrayOf(PropTypes.string),
   condition: PropTypes.string.isRequired,
+  onFilterChange: PropTypes.func,
+};
+
+FilterTabs.defaultProps = {
+  onFilterChange: undefined,
+  genres: null,
 };
 
 export default FilterTabs;

@@ -18,24 +18,37 @@ class MovieItem extends Component {
 
 
   render() {
-    const { film, fetchTrailer } = this.props;
+    const {
+      film, fetchTrailer, setMoviesCondition, onClick,
+    } = this.props;
     const { isInfoOpen } = this.state;
 
     const {
-      poster, title, genres, rating,
+      id, poster, title, genres, rating,
     } = film;
 
     return (
       <div className={styles.container}>
         <div className={styles.preview}>
           <img className={styles.poster} src={poster} alt="poster" />
-          <div className={styles.info}>
-            <h3 className={styles.title}>
-              {title.length < 15 ? title : `${title.substring(0, 13)}...`}
-            </h3>
-            <p className={styles.rating}>{rating}</p>
-            <p className={styles.genres}>{genres}</p>
-          </div>
+          <button
+            className={styles.link}
+            name="link"
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              setMoviesCondition('Trending');
+              onClick(`/details/${id}`);
+            }}
+          >
+            <div className={styles.info}>
+              <h3 className={styles.title}>
+                {title}
+              </h3>
+              <p className={styles.rating}>{rating}</p>
+              <p className={styles.genres}>{genres}</p>
+            </div>
+          </button>
         </div>
         <WatchNowWindow
           name="watch"
@@ -59,12 +72,15 @@ class MovieItem extends Component {
 
 MovieItem.propTypes = {
   film: PropTypes.shape({
+    id: PropTypes.number,
     poster: PropTypes.string,
     title: PropTypes.string,
     genres: PropTypes.string,
     rating: PropTypes.number,
   }).isRequired,
   fetchTrailer: PropTypes.func.isRequired,
+  setMoviesCondition: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default MovieItem;

@@ -1,11 +1,26 @@
 import React from 'react';
-import MainPage from './pages/MainPage';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
+import routes from './routes';
 
 import styles from './main.scss';
 
 const App = () => (
   <div className={styles.app}>
-    <MainPage />
+    <Router>
+      <Switch>
+        {routes.map((route) => (
+          <Route
+            key={route.path}
+            path={route.path}
+            component={route.component}
+          />
+        ))}
+      </Switch>
+    </Router>
   </div>
 );
 

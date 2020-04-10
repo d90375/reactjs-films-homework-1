@@ -4,6 +4,17 @@ exports[`App renders correctly 1`] = `
 <div
   className="app"
 >
-  <MainPage />
+  <BrowserRouter>
+    <Switch>
+      <Route
+        component={[Function]}
+        path="/details/:id"
+      />
+      <Route
+        component={[Function]}
+        path="/"
+      />
+    </Switch>
+  </BrowserRouter>
 </div>
 `;

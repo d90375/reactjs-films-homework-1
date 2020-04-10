@@ -27,7 +27,14 @@ describe('FilterTab tests', () => {
       const mockCallBack = jest.fn();
 
       const tree = create(
-        <FilterTab fetchByFilter={mockCallBack} filter="Trending" condition="Trending" onClick={mockCallBack}>Trending</FilterTab>,
+        <FilterTab
+          filter="Trending"
+          condition="Trending"
+          onFilterChange={mockCallBack}
+        >
+          Trending
+        </FilterTab>
+        ,
       );
 
       const button = tree.root.findByProps({ type: 'button' });
@@ -42,7 +49,7 @@ describe('FilterTab tests', () => {
       button.props.onClick(e);
 
       expect(mockCallBack.mock.calls.length).toEqual(1);
-      expect(mockCallBack).toHaveBeenCalledWith('Trending');
+      expect(mockCallBack).toHaveBeenCalledWith('/?filter=Trending');
     });
   });
 });

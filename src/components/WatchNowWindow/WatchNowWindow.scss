@@ -18,6 +18,11 @@
   &:hover {
     display: flex;
   }
+
+  @media (min-width: 390px) and (max-width: 659px) {
+    width: 100%;
+    height: calc(100% - 100px);
+  }
 }
 
 .watch {
